@@ -161,6 +161,17 @@
     <Content Include="fonts\sourcesanspro-regular-webfont.ttf" />
     <Content Include="fonts\sourcesanspro-regular-webfont.woff" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="img\banner-image.jpg" />
+    <Content Include="img\body-bg.jpg" />
+    <Content Include="img\caption-bg.jpg" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\img1.png" />
+    <Content Include="img\img2.png" />
+    <Content Include="img\img3.png" />
+    <Content Include="img\img4.png" />
+    <Content Include="img\img5.png" />
+    <Content Include="img\img6.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -196,7 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="img\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
