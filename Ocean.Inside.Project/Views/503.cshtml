@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en" class="wide wow-animation smoothscroll">
 <head>
-    <title>Ocean Inside</title>
+    <title>Vacation Travel</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/css.css?family=Lato:400,400i,700,700i,900,900i">
-    @Styles.Render("~/bundles/css")
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="page text-center">
@@ -18,12 +18,12 @@
                     <div class="rd-navbar-inner">
                         <div class="rd-navbar-panel">
                             <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
-                            <div class="rd-navbar-brand veil reveal-md-block"><a href="index.html" class="brand-name"><img height="55" src="img/logo-light-299x60.png" alt=""></a></div>
-                            <div class="rd-navbar-brand veil-md reveal-tablet-md-inline-block"><a href="index.html" class="brand-name"><img height="45" src="img/logo-dark-299x60.png" alt=""></a></div>
+                            <div class="rd-navbar-brand veil reveal-md-block"><a href="index.html" class="brand-name"><img height="55" src="images/logo-light-299x60.png" alt=""></a></div>
+                            <div class="rd-navbar-brand veil-md reveal-tablet-md-inline-block"><a href="index.html" class="brand-name"><img height="45" src="images/logo-dark-299x60.png" alt=""></a></div>
                         </div>
                         <div class="rd-navbar-nav-wrap">
                             <ul class="rd-navbar-nav">
-                                <li class="active"><a href="index.html">Home</a> </li>
+                                <li>@ActionLink<a href="index.html">Home</a> </li>
                                 <li>
                                     <a href="tours-grid.html">Tours</a>
                                     <ul class="rd-navbar-dropdown">
@@ -42,7 +42,7 @@
                                         <li><a href="testimonials.html">Testimonials</a></li>
                                     </ul>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="#">Pages</a>
                                     <div class="rd-navbar-megamenu">
                                         <div class="row">
@@ -117,64 +117,47 @@
                     </div>
                 </nav>
             </div>
-            <div data-height="" data-min-height="400px" data-simulate-touch="false" data-slide-effect="fade" class="swiper-container swiper-slider">
-                <div class="swiper-wrapper">
-                    <div data-slide-bg="img/1920x900.jpg" class="swiper-slide"></div>
-                    <div data-slide-bg="img/1920x900.jpg" class="swiper-slide"></div>
-                    <div data-slide-bg="img/1920x900.jpg" class="swiper-slide"></div>
-                </div>
-                <div class="swiper-caption-absolute">
-                    <div class="shell">
-                        <div class="range range-xs-center">
-                            <div class="cell-lg-10">
-                                <div>
-                                    <h1 class="text-white">Best Tours and Travel</h1>
-                                </div>
-                                <div class="offset-top-8">
-                                    <p class="h6 text-white">Best Tours & Travel specializes in making your trip an absolute success.</p>
-                                </div>
-                                <div class="offset-top-30 offset-md-top-60 inset-left-20 inset-right-20 inset-sm-left-0 inset-sm-right-0">
-                                    <form class="rd-mailform form-inline-search">
-                                        <div class="form-group form-group-xs form-inline-item">
-                                            <label for="index-destination" class="form-label">Your Destination</label>
-                                            <input id="index-destination" type="text" name="destination" class="form-control">
+        </header>
+        <main class="page-content">
+            <section>
+                <div data-on="false" data-md-on="true" class="rd-parallax">
+                    <div data-speed="0.25" data-type="media" data-url="images/1920x900.jpg" class="rd-parallax-layer"></div>
+                    <div data-speed="0" data-type="html" data-md-fade="false" class="rd-parallax-layer">
+                        <div class="shell section-80 section-md-145">
+                            <div class="range range-xs-center">
+                                <div class="cell-xs-9 cell-sm-7 cell-md-5 cell-lg-4">
+                                    <div class="box box-lg bg-white">
+                                        <svg x="0px" y="0px" width="64px" height="80px" viewbox="0 0 32 40">
+                                            <polygon fill="#42A5F5" points="0,4 0,40 28,40 28,12 20,4 "></polygon>
+                                            <polygon fill="#90CAF9" points="4,0 4,36 32.001,36 32.001,7.999 24.001,0 "></polygon>
+                                            <polygon fill="#E1F5FE" points="30.5,9 23,9 23,1.5 "></polygon>
+                                            <g>
+                                                <path fill="#1976D2" d="M19.3,27.8c0-0.2-0.1-1.5-1.5-1.5c-1.5,0-1.5,1.3-1.5,1.5c0,0.4,0.2,1.4,1.5,1.4S19.3,28.2,19.3,27.8z"></path>
+                                                <path fill="#1976D2" d="M18.1,12.8c-4.5,0-4.8,3.5-4.8,4.2H16c0-0.4,0.1-2,2.1-2c1.8,0,2,1.4,2,2.1c0,2.8-3.6,2.5-3.6,7.2v0.1H19                    c0-3.3,3.8-3.8,3.8-7.3C22.8,16.4,22.7,12.8,18.1,12.8z"></path>
+                                            </g>
+                                        </svg>
+                                        <div class="offset-top-20">
+                                            <h5 class="text-ubold">Temporary Unavailable</h5>
                                         </div>
-                                        <div class="form-group form-group-xs form-inline-item form-inline-item-xs">
-                                            <label for="index-arrival" class="form-label">Arrival</label>
-                                            <input id="index-arrival" type="text" name="destination" class="form-control">
+                                        <div class="offset-top-15">
+                                            <p class="text-small">Sorry, we're offline right now to make our site even better. Please, come back later and check what we've been up to.</p>
                                         </div>
-                                        <div class="form-group form-group-xs form-inline-item form-inline-item-xs">
-                                            <label for="index-departure" class="form-label">Departure</label>
-                                            <input id="index-departure" type="text" name="departure" class="form-control">
-                                        </div>
-                                        <div class="form-group form-group-xs form-inline-item">
-                                            <label for="index-budget" class="form-label">Your Budget ($)</label>
-                                            <input id="index-budget" type="text" name="budget" class="form-control">
-                                        </div>
-                                        <div class="form-inline-item offset-top-15 offset-sm-top-0">
-                                            <button type="submit" class="btn btn-primary">Search</button>
-                                        </div>
-                                    </form>
+                                        <div class="offset-top-30"><a href="index.html" class="btn btn-icon btn-icon-left btn-primary"><span class="icon icon-xxs mdi mdi-chevron-left"></span><span>Back to homepage</span></a></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"><span class="icon icon-xxs icon-circle icon-filled-white mdi mdi-chevron-left text-gray"></span></div>
-                <div class="swiper-button-next"><span class="icon icon-xxs icon-circle icon-filled-white mdi mdi-chevron-right text-gray"></span></div>
-            </div>
-        </header>
-
-        @RenderBody()
-        
+            </section>
+        </main>
         <footer class="page-footer section-top-80 section-bottom-34 section-lg-bottom-15 text-sm-left">
             <div class="shell">
                 <div class="range range-xs-center">
                     <div class="cell-sm-8 cell-md-12">
                         <div class="range range-xs-center">
                             <div class="cell-sm-6 cell-md-3 cell-lg-4 cell-md-push-1">
-                                <a href="index.html"><img height="60" src="img/logo-dark-299x60.png" alt=""></a>
+                                <a href="index.html"><img height="60" src="images/logo-dark-299x60.png" alt=""></a>
                                 <div class="offset-top-20 inset-lg-right-80">
                                     <p class="text-small">For over 30 years we have been creating inspirational tailor-made holidays and are proud of our reputation</p>
                                 </div>
@@ -214,6 +197,10 @@
                                                                     </div>
                                                                     <div class="offset-top-35">
                                                                         <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" class="rd-mailform rd-mailform-subscribe">
+                                                                            <div class="form-group form-group-xs">
+                                                                                <label for="contact-email" class="form-label">Enter Your email here...</label>
+                                                                                <input id="contact-email" type="email" name="email" data-constraints="@Email @Required" class="form-control">
+                                                                            </div>
                                                                             <button type="submit" class="btn btn-block btn-primary">SUBSCRIBE</button>
                                                                         </form>
                                                                     </div>
@@ -242,23 +229,23 @@
                                         <div class="range range-xs-center">
                                             <div class="cell-sm-6">
                                                 <div>
-                                                    <p class="reveal-block text-small"><a href="#" class="text-gray"><span class="unit unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="img/icon-01-16x21.png" width="16" height="21" alt="" class="img-responsive center-block offset-top-4"></span><span class="unit-body"><span>1730 M Str., Suite 501, NW. Washington DC. 20036 U.S.A</span></span></span></a></p>
+                                                    <p class="reveal-block text-small"><a href="#" class="text-gray"><span class="unit unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="images/icon-01-16x21.png" width="16" height="21" alt="" class="img-responsive center-block offset-top-4"></span><span class="unit-body"><span>1730 M Str., Suite 501, NW. Washington DC. 20036 U.S.A</span></span></span></a></p>
                                                 </div>
                                                 <div class="offset-top-20">
-                                                    <p class="reveal-inline-block text-small"><a href="callto:#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="img/icon-02-19x19.png" width="19" height="19" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>19008721</span></span></span></a></p>
+                                                    <p class="reveal-inline-block text-small"><a href="callto:#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="images/icon-02-19x19.png" width="19" height="19" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>19008721</span></span></span></a></p>
                                                 </div>
                                             </div>
                                             <div class="cell-sm-6 offset-top-15 offset-sm-top-0">
                                                 <div>
-                                                    <p class="reveal-inline-block text-small"><a href="callto:#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="img/icon-03-12x20.png" width="12" height="20" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>19008197</span></span></span></a></p>
+                                                    <p class="reveal-inline-block text-small"><a href="callto:#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="images/icon-03-12x20.png" width="12" height="20" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>19008197</span></span></span></a></p>
                                                 </div>
                                                 <div class="offset-top-15">
                                                     <div>
-                                                        <p class="reveal-inline-block text-small"><a href="/cdn-cgi/l/email-protection#1635" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="img/icon-04-20x13.png" width="20" height="13" alt="" class="img-responsive center-block"></span><span class="unit-body"><span><span class="__cf_email__" data-cfemail="a5cccbc3cae5c1c0c8cac9cccbce8bcad7c2">philip@gmail.com</span></span></span></span></a></p>
+                                                        <p class="reveal-inline-block text-small"><a href="/cdn-cgi/l/email-protection#1635" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="images/icon-04-20x13.png" width="20" height="13" alt="" class="img-responsive center-block"></span><span class="unit-body"><span><span class="__cf_email__" data-cfemail="a5cccbc3cae5c1c0c8cac9cccbce8bcad7c2">philip@gmail.com</span></span></span></span></a></p>
                                                     </div>
                                                 </div>
                                                 <div class="offset-top-20">
-                                                    <p class="reveal-inline-block text-small"><a href="#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="img/icon-05-19x19.png" width="19" height="19" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>TravelTourism.org</span></span></span></a></p>
+                                                    <p class="reveal-inline-block text-small"><a href="#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="images/icon-05-19x19.png" width="19" height="19" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>TravelTourism.org</span></span></span></a></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -291,10 +278,43 @@
                 </div>
             </div>
         </footer>
-
     </div>
-
-    @Scripts.Render("~/bundles/js")
-    @RenderSection("scripts", required: false)
+    <div id="form-output-global" class="snackbars"></div>
+    <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <button title="Close (Esc)" class="pswp__button pswp__button--close"></button>
+                    <button title="Share" class="pswp__button pswp__button--share"></button>
+                    <button title="Toggle fullscreen" class="pswp__button pswp__button--fs"></button>
+                    <button title="Zoom in/out" class="pswp__button pswp__button--zoom"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button title="Previous (arrow left)" class="pswp__button pswp__button--arrow--left"></button>
+                <button title="Next (arrow right)" class="pswp__button pswp__button--arrow--right"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__cent"></div>
+                </div>
+                <div class="pswp__counter"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
