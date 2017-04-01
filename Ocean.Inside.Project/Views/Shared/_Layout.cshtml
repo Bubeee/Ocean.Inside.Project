@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="css/css.css?family=Lato:400,400i,700,700i,900,900i">
+    <link rel="stylesheet" type="text/css" href="/css/css.css?family=Lato:400,400i,700,700i,900,900i">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -18,26 +18,26 @@
                     <div class="rd-navbar-inner">
                         <div class="rd-navbar-panel">
                             <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
-                            <div class="rd-navbar-brand veil reveal-md-block"><a href="index.html" class="brand-name"><img height="55" src="images/logo.jpg" alt=""></a></div>
-                            <div class="rd-navbar-brand veil-md reveal-tablet-md-inline-block"><a href="index.html" class="brand-name"><img height="45" src="images/logo.jpg" alt=""></a></div>
+                            <div class="rd-navbar-brand veil reveal-md-block"><a href="index.html" class="brand-name"><img height="55" src="/images/Layout/logo.jpg" alt=""></a></div>
+                            <div class="rd-navbar-brand veil-md reveal-tablet-md-inline-block"><a href="index.html" class="brand-name"><img height="45" src="/images/Layout/logo.jpg" alt=""></a></div>
                         </div>
                         <div class="rd-navbar-nav-wrap">
                             <ul class="rd-navbar-nav">
                                 <li class="active">@Html.ActionLink("Главная", "Index", "Home")</li>
                                 <li>
-                                    @Html.ActionLink("Туры", "Index", "Home")
+                                    @Html.ActionLink("Туры", "AllTours", "Tours")
                                 </li>
                                 <li>
-                                    @Html.ActionLink("Групповые туры", "Index", "Home")
+                                    @Html.ActionLink("Групповые туры", "GroupTours", "Tours")
                                 </li>
                                 <li>
-                                    @Html.ActionLink("Галерея", "Index", "Home")
+                                    @Html.ActionLink("Галерея", "Index", "Gallery")
                                 </li>
                                 <li>
                                     @Html.ActionLink("Блог", "Index", "Home")
                                 </li>
                                 <li>
-                                    @Html.ActionLink("О нас", "Index", "Home")
+                                    @Html.ActionLink("О нас", "About", "Home")
                                 </li>
                             </ul>
                         </div>
@@ -46,9 +46,9 @@
             </div>
             <div data-height="" data-min-height="400px" data-simulate-touch="false" data-slide-effect="fade" class="swiper-container swiper-slider">
                 <div class="swiper-wrapper">
-                    <div data-slide-bg="images/1920x900.jpg" class="swiper-slide"></div>
-                    <div data-slide-bg="images/1920x900_1.jpg" class="swiper-slide"></div>
-                    <div data-slide-bg="images/1920x900_2.jpg" class="swiper-slide"></div>
+                    <div data-slide-bg="/images/Layout/1920x900.jpg" class="swiper-slide"></div>
+                    <div data-slide-bg="/images/Layout/1920x900_1.jpg" class="swiper-slide"></div>
+                    <div data-slide-bg="/images/Layout/1920x900_2.jpg" class="swiper-slide"></div>
                 </div>
                 <div class="swiper-caption-absolute">
                     <div class="shell">
@@ -80,7 +80,7 @@
                     <div class="cell-sm-8 cell-md-12">
                         <div class="range range-xs-center">
                             <div class="cell-sm-6 cell-md-3 cell-lg-4 cell-md-push-1">
-                                <a href="../Home/index.html"><img height="60" src="/images/logo.jpg" alt=""></a>
+                                <a href="../Home/index.html"><img height="60" src="/images/Layout/logo.jpg" alt=""></a>
                                 <div class="offset-top-20 inset-lg-right-80">
                                     <p class="text-small">For over 30 years we have been creating inspirational tailor-made holidays and are proud of our reputation</p>
                                 </div>
@@ -105,23 +105,23 @@
                                         <div class="range range-xs-center">
                                             <div class="cell-sm-6">
                                                 <div>
-                                                    <p class="reveal-block text-small"><a href="#" class="text-gray"><span class="unit unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../Home/images/icon-01-16x21.png" width="16" height="21" alt="" class="img-responsive center-block offset-top-4"></span><span class="unit-body"><span>1730 M Str., Suite 501, NW. Washington DC. 20036 U.S.A</span></span></span></a></p>
+                                                    <p class="reveal-block text-small"><a href="#" class="text-gray"><span class="unit unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../images/icon-01-16x21.png" width="16" height="21" alt="" class="img-responsive center-block offset-top-4"></span><span class="unit-body"><span>1730 M Str., Suite 501, NW. Washington DC. 20036 U.S.A</span></span></span></a></p>
                                                 </div>
                                                 <div class="offset-top-20">
-                                                    <p class="reveal-inline-block text-small"><a href="callto:#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../Home/images/icon-02-19x19.png" width="19" height="19" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>19008721</span></span></span></a></p>
+                                                    <p class="reveal-inline-block text-small"><a href="callto:#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../images/icon-02-19x19.png" width="19" height="19" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>19008721</span></span></span></a></p>
                                                 </div>
                                             </div>
                                             <div class="cell-sm-6 offset-top-15 offset-sm-top-0">
                                                 <div>
-                                                    <p class="reveal-inline-block text-small"><a href="callto:#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../Home/images/icon-03-12x20.png" width="12" height="20" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>19008197</span></span></span></a></p>
+                                                    <p class="reveal-inline-block text-small"><a href="callto:#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../images/icon-03-12x20.png" width="12" height="20" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>19008197</span></span></span></a></p>
                                                 </div>
                                                 <div class="offset-top-15">
                                                     <div>
-                                                        <p class="reveal-inline-block text-small"><a href="/cdn-cgi/l/email-protection#1635" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../Home/images/icon-04-20x13.png" width="20" height="13" alt="" class="img-responsive center-block"></span><span class="unit-body"><span><span class="__cf_email__" data-cfemail="a5cccbc3cae5c1c0c8cac9cccbce8bcad7c2">philip@gmail.com</span></span></span></span></a></p>
+                                                        <p class="reveal-inline-block text-small"><a href="/cdn-cgi/l/email-protection#1635" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../images/icon-04-20x13.png" width="20" height="13" alt="" class="img-responsive center-block"></span><span class="unit-body"><span><span class="__cf_email__" data-cfemail="a5cccbc3cae5c1c0c8cac9cccbce8bcad7c2">philip@gmail.com</span></span></span></span></a></p>
                                                     </div>
                                                 </div>
                                                 <div class="offset-top-20">
-                                                    <p class="reveal-inline-block text-small"><a href="#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../Home/images/icon-05-19x19.png" width="19" height="19" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>TravelTourism.org</span></span></span></a></p>
+                                                    <p class="reveal-inline-block text-small"><a href="#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../images/icon-05-19x19.png" width="19" height="19" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>TravelTourism.org</span></span></span></a></p>
                                                 </div>
                                             </div>
                                         </div>
