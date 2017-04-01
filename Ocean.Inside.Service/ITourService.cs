@@ -5,10 +5,10 @@ namespace Ocean.Inside.BLL
 {
     public interface ITourService
     {
-        IEnumerable<Tour> GetGadgets();
-        IEnumerable<Tour> GetCategoryGadgets(string categoryName, string gadgetName = null);
-        Tour GetGadget(int id);
-        void CreateGadget(Tour gadget);
-        void SaveGadget();
+        IEnumerable<Tour> GetTours();
+        IEnumerable<TourProgram> GetTourPrograms(string tourId);
+        Tour GetTour(int id);
+        void CreateTour(Tour tour);
+        void SaveTour();
     }
 }

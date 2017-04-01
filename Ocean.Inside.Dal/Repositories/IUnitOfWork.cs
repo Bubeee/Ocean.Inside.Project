@@ -1,4 +1,4 @@
-﻿namespace Ocean.Inside.Dal.Repositories
+﻿namespace Ocean.Inside.DAL.Repositories
 {
     public interface IUnitOfWork
     {

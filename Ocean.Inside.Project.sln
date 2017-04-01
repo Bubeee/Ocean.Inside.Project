@@ -11,7 +11,7 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Ocean.Inside.Database", "Oc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocean.Inside.Domain", "Ocean.Inside.Domain\Ocean.Inside.Domain.csproj", "{3DA9E597-566B-4F8A-BFF3-1F585C89B839}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocean.Inside.Dal", "Ocean.Inside.Dal\Ocean.Inside.Dal.csproj", "{90930C2E-678A-4ECC-92B6-D9655F14D260}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocean.Inside.DAL", "Ocean.Inside.Dal\Ocean.Inside.DAL.csproj", "{90930C2E-678A-4ECC-92B6-D9655F14D260}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocean.Inside.BLL", "Ocean.Inside.Service\Ocean.Inside.BLL.csproj", "{3FD04866-D0E2-456D-91FE-172332499E2E}"
 EndProject

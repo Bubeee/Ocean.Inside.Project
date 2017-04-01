@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Ocean.Inside.Dal.Repositories
+namespace Ocean.Inside.DAL.Repositories
 {
     public interface IRepository<T> where T : class
     {

@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using Ocean.Inside.Domain.Entities;
 
-namespace Ocean.Inside.Dal
+namespace Ocean.Inside.DAL
 {
     public class OceanDbContext : DbContext
     {

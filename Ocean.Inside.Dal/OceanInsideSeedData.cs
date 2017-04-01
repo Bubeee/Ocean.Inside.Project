@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using Ocean.Inside.Domain.Entities;
 
-namespace Ocean.Inside.Dal
+namespace Ocean.Inside.DAL
 {
-    public class StoreSeedData : DropCreateDatabaseIfModelChanges<OceanDbContext>
+    public class OceanInsideSeedData : DropCreateDatabaseIfModelChanges<OceanDbContext>
     {
         protected override void Seed(OceanDbContext context)
         {

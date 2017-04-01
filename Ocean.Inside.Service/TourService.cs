@@ -1,33 +1,46 @@
 ﻿using System.Collections.Generic;
+using Ocean.Inside.DAL.Repositories;
+using Ocean.Inside.DAL.Repositories.RepositoryInterfaces;
 using Ocean.Inside.Domain.Entities;
 
 namespace Ocean.Inside.BLL
 {
     public class TourService : ITourService
     {
-        public IEnumerable<Tour> GetGadgets()
+        private readonly ITourRepository _tourRepository;
+        private readonly ITourProgramRepository _tourProgramRepository;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public TourService(IUnitOfWork unitOfWork, ITourRepository tourRepository, ITourProgramRepository tourProgramRepository)
+        {
+            _unitOfWork = unitOfWork;
+            _tourRepository = tourRepository;
+            _tourProgramRepository = tourProgramRepository;
+        }
+
+        public IEnumerable<Tour> GetTours()
+        {
+            return _tourRepository.GetAll();
+        }
+
+        public IEnumerable<TourProgram> GetTourPrograms(string tourId)
         {
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<Tour> GetCategoryGadgets(string categoryName, string gadgetName = null)
+        public Tour GetTour(int id)
         {
-            throw new System.NotImplementedException();
+            return _tourRepository.GetById(id);
         }
 
-        public Tour GetGadget(int id)
+        public void CreateTour(Tour tour)
         {
-            throw new System.NotImplementedException();
+            _tourRepository.Add(tour);
         }
 
-        public void CreateGadget(Tour gadget)
+        public void SaveTour()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void SaveGadget()
-        {
-            throw new System.NotImplementedException();
+            _unitOfWork.Commit();
         }
     }
 }

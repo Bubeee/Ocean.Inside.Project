@@ -1,7 +1,7 @@
-﻿using Ocean.Inside.Dal.Infrastructure;
+﻿using Ocean.Inside.DAL.Infrastructure;
 using Ocean.Inside.Domain.Entities;
 
-namespace Ocean.Inside.Dal.Repositories
+namespace Ocean.Inside.DAL.Repositories
 {
     public class TourRepository : RepositoryBase<Tour>
     {

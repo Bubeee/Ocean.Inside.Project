@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using Ocean.Inside.Dal.Infrastructure;
+using Ocean.Inside.DAL.Infrastructure;
 
-namespace Ocean.Inside.Dal.Repositories
+namespace Ocean.Inside.DAL.Repositories
 {
     public abstract class RepositoryBase<T> where T : class
     {

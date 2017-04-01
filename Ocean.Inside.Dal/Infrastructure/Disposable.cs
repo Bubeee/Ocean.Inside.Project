@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ocean.Inside.Dal.Infrastructure
+namespace Ocean.Inside.DAL.Infrastructure
 {
     public class Disposable : IDisposable
     {

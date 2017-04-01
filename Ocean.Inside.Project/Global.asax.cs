@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Ocean.Inside.DAL;
 
 namespace Ocean.Inside.Project
 {
@@ -12,10 +10,14 @@ namespace Ocean.Inside.Project
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new OceanInsideSeedData());
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Bootstrapper.Run();
         }
     }
 }

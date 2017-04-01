@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ocean.Inside.Dal.Infrastructure
+namespace Ocean.Inside.DAL.Infrastructure
 {
     public interface IDbFactory : IDisposable
     {

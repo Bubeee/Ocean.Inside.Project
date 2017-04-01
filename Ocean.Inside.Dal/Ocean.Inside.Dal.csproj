@@ -7,8 +7,8 @@
     <ProjectGuid>{90930C2E-678A-4ECC-92B6-D9655F14D260}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ocean.Inside.Dal</RootNamespace>
-    <AssemblyName>Ocean.Inside.Dal</AssemblyName>
+    <RootNamespace>Ocean.Inside.DAL</RootNamespace>
+    <AssemblyName>Ocean.Inside.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -61,10 +61,12 @@
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\ITourProgramRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\ITourRepository.cs" />
     <Compile Include="Repositories\TourProgramRepository.cs" />
     <Compile Include="Repositories\TourRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
-    <Compile Include="StoreSeedData.cs" />
+    <Compile Include="OceanInsideSeedData.cs" />
     <Compile Include="TourProgramConfiguration.cs" />
     <Compile Include="TourConfiguration.cs" />
   </ItemGroup>
