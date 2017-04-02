@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ocean.Inside.DAL.Infrastructure
+﻿namespace Ocean.Inside.DAL.Infrastructure
 {
     public class DbFactory : Disposable, IDbFactory
     {

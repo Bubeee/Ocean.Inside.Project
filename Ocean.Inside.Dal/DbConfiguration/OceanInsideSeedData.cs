@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using Ocean.Inside.Domain.Entities;
 
-namespace Ocean.Inside.DAL
+namespace Ocean.Inside.DAL.DbConfiguration
 {
     public class OceanInsideSeedData : DropCreateDatabaseIfModelChanges<OceanDbContext>
     {

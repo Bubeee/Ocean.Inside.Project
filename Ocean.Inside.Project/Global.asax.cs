@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Ocean.Inside.DAL;
+using Ocean.Inside.DAL.DbConfiguration;
 
 namespace Ocean.Inside.Project
 {

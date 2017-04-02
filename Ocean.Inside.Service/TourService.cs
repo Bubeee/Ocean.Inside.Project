@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Ocean.Inside.DAL.Repositories;
+using Ocean.Inside.DAL.Infrastructure;
 using Ocean.Inside.DAL.Repositories.RepositoryInterfaces;
 using Ocean.Inside.Domain.Entities;
 

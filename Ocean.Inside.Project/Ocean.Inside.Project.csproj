@@ -325,6 +325,10 @@
       <Project>{90930C2E-678A-4ECC-92B6-D9655F14D260}</Project>
       <Name>Ocean.Inside.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ocean.Inside.Domain\Ocean.Inside.Domain.csproj">
+      <Project>{3DA9E597-566B-4F8A-BFF3-1F585C89B839}</Project>
+      <Name>Ocean.Inside.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ocean.Inside.Service\Ocean.Inside.BLL.csproj">
       <Project>{3FD04866-D0E2-456D-91FE-172332499E2E}</Project>
       <Name>Ocean.Inside.BLL</Name>

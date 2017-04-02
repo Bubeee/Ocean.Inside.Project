@@ -2,7 +2,7 @@
 using System.Data.Entity.ModelConfiguration;
 using Ocean.Inside.Domain.Entities;
 
-namespace Ocean.Inside.DAL
+namespace Ocean.Inside.DAL.DbConfiguration
 {
     public class TourConfiguration : EntityTypeConfiguration<Tour>
     {

@@ -1,11 +1,12 @@
 ﻿using System.Data.Entity;
+using Ocean.Inside.DAL.DbConfiguration;
 using Ocean.Inside.Domain.Entities;
 
 namespace Ocean.Inside.DAL
 {
     public class OceanDbContext : DbContext
     {
-        public OceanDbContext() : base("OceanDbContext") { }
+        public OceanDbContext() : base("Ocean.db") { }
 
         public DbSet<Tour> Tours { get; set; }
         public DbSet<TourProgram> TourPrograms { get; set; }

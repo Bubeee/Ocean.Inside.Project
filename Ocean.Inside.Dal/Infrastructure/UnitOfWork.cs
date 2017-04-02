@@ -1,6 +1,6 @@
-﻿using Ocean.Inside.DAL.Infrastructure;
+﻿using Ocean.Inside.DAL.Repositories;
 
-namespace Ocean.Inside.DAL.Repositories
+namespace Ocean.Inside.DAL.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
