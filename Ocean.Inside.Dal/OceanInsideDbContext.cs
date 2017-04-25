@@ -9,6 +9,7 @@ namespace Ocean.Inside.DAL
         public OceanInsideDbContext() : base("db_OceanInside") { }
 
         public DbSet<Tour> Tours { get; set; }
+        public DbSet<Image> Images { get; set; }
         public DbSet<TourProgram> TourPrograms { get; set; }
 
         public virtual void Commit()
@@ -20,6 +21,7 @@ namespace Ocean.Inside.DAL
         {
             modelBuilder.Configurations.Add(new TourConfiguration());
             modelBuilder.Configurations.Add(new TourProgramConfiguration());
+            modelBuilder.Configurations.Add(new ImagesConfiguration());
         }
     }
 }

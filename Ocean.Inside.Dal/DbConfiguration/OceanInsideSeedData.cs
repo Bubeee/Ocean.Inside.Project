@@ -11,6 +11,7 @@ namespace Ocean.Inside.DAL.DbConfiguration
         {
             GetTours().ForEach(t => context.Tours.Add(t));
             //GetPrograms().ForEach(tp => context.TourPrograms.Add(tp));
+            //GetPhotos().ForEach(image => context.Images.Add(image));
 
             context.Commit();
         }
@@ -29,6 +30,151 @@ namespace Ocean.Inside.DAL.DbConfiguration
                     ImageUrl = "/images/Home/Turkish_main.jpg",
                     Location = "Анталия, Сиде",
                     DepartFrom = "Киев",
+                    StartDate = DateTime.Now.AddDays(15),
+                    Hotel = "HANE SUN 5*",
+                    Images = new List<Image>
+                    {
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                    }
+                },
+                new Tour
+                {
+                    Title = "Египет",
+                    DurationDays = 7,
+                    DurationNights = 8,
+                    Price = 220,
+                    CurrencySymbol = Currencies.USD,
+                    ImageUrl = "/images/Home/box-offer-02-370x310.jpg",
+                    Location = "Хургада",
+                    DepartFrom = "Киев",
+                    StartDate = DateTime.Now.AddDays(15),
+                    Hotel = "HANE SUN 5*",
+                    Images = new List<Image>
+                    {
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                    }
+                },
+                new Tour
+                {
+                    Title = "Болгария",
+                    DurationDays = 7,
+                    DurationNights = 8,
+                    Price = 280,
+                    CurrencySymbol = Currencies.EUR,
+                    ImageUrl = "/images/Home/Turkish_main.jpg",
+                    Location = "Солнечный берег",
+                    DepartFrom = "Минск",
+                    StartDate = DateTime.Now.AddDays(15),
+                    Hotel = "HANE SUN 5*",
+                    Images = new List<Image>
+                    {
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                        new Image
+                        {
+                            Path = "/images/Home/Turkish_main.jpg",
+                        },
+                    }
+                },
+                new Tour
+                {
+                    Title = "Египет",
+                    DurationDays = 7,
+                    DurationNights = 8,
+                    Price = 220,
+                    CurrencySymbol = Currencies.USD,
+                    ImageUrl = "/images/Home/box-offer-02-370x310.jpg",
+                    Location = "Хургада",
+                    DepartFrom = "Киев",
+                    StartDate = DateTime.Now.AddDays(15),
+                    Hotel = "HANE SUN 5*"
+                },
+                new Tour
+                {
+                    Title = "Болгария",
+                    DurationDays = 7,
+                    DurationNights = 8,
+                    Price = 280,
+                    CurrencySymbol = Currencies.EUR,
+                    ImageUrl = "/images/Home/Turkish_main.jpg",
+                    Location = "Солнечный берег",
+                    DepartFrom = "Минск",
                     StartDate = DateTime.Now.AddDays(15),
                     Hotel = "HANE SUN 5*"
                 },
@@ -60,6 +206,111 @@ namespace Ocean.Inside.DAL.DbConfiguration
                 },
             };
         }
+
+        //private List<Image> GetPhotos()
+        //{
+        //    return new List<Image>
+        //    {
+        //        new Image
+        //        {
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 1
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 1
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 1
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 1
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 1
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 1
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 1
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 2
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 2
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 2
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 2
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 2
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 2
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 3
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 3
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 3
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 3
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 3
+        //        },
+        //        new Image
+        //        {
+        //            Path = "/images/Home/Turkish_main.jpg",
+        //            TourId = 3
+        //        },
+        //    };
+        ////}
 
         //private List<TourProgram> GetPrograms()
         //{

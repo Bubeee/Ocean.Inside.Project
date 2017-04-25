@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbConfiguration\ImagesConfiguration.cs" />
     <Compile Include="Infrastructure\DbFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IDbFactory.cs" />
@@ -62,8 +63,10 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\ITourProgramRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\IImageRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\ITourRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\TourProgramRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\ImageRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\TourRepository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="DbConfiguration\OceanInsideSeedData.cs" />

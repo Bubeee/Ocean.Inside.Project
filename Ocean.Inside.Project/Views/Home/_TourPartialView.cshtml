@@ -4,14 +4,14 @@
 <div class="cell-sm-5 cell-md-4 offset-top-30 offset-sm-top-0">
     <div data-wow-delay=".2s" class="box-offer wow bounceIn">
         <div class="box-offer-img-wrap">
-            <a href="tours-single.html">
-                <img src="@Model.ImageUrl" width="370" height="310" alt="" class="img-responsive center-block">
+            <a href="@Url.Action("Tour", "Tours", new { Model.Id })">
+            <img src="@Model.ImageUrl" width="370" height="310" alt="" class="img-responsive center-block">
             </a>
         </div>
         <div class="box-offer-caption text-left">
             <div class="pull-left">
                 <div class="box-offer-title text-ubold">
-                    @Html.ActionLink(Model.Title, "Tour", "Tours", new { Id = Model.Id }, new {@class="text-gray-base"})
+                    @Html.ActionLink(Model.Title, "Tour", "Tours", new { Model.Id }, new { @class = "text-gray-base" })
                 </div>
             </div>
             <div class="pull-right">

@@ -4,10 +4,10 @@ namespace Ocean.Inside.Project.Controllers
 {
     public class AuthController : Controller
     {
-        // GET: Admin
-        public ActionResult Index()
+        public ActionResult Login()
         {
-            return View();
+            ViewBag.IsLogin = true;
+            return View("Login", null);
         }
     }
 }

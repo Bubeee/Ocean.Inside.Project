@@ -26,5 +26,6 @@ namespace Ocean.Inside.Project.ViewModels
         public string ImageUrl { get; set; }
 
         public IList<Image> Images { get; set; }
+        public string Description { get; set; }
     }
 }

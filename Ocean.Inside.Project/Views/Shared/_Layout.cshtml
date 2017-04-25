@@ -44,32 +44,10 @@
                     </div>
                 </nav>
             </div>
-            <div data-height="" data-min-height="400px" data-simulate-touch="false" data-slide-effect="fade" class="swiper-container swiper-slider">
-                <div class="swiper-wrapper">
-                    <div data-slide-bg="/images/Layout/1920x900.jpg" class="swiper-slide"></div>
-                    <div data-slide-bg="/images/Layout/1920x900_1.jpg" class="swiper-slide"></div>
-                    <div data-slide-bg="/images/Layout/1920x900_2.jpg" class="swiper-slide"></div>
-                </div>
-                <div class="swiper-caption-absolute">
-                    <div class="shell">
-                        <div class="range range-xs-center">
-                            <div class="cell-lg-10">
-                                <div>
-                                    <h1 class="text-white">Компания путешествий <br /> "Океан внутри"</h1>
-                                </div>
-                                <div class="offset-top-8">
-                                    <p class="h6 text-white">Ты откроешь свой океан в наших путешествиях!</p>
-                                </div>
-                                <div class="offset-top-30 offset-md-top-60 inset-left-20 inset-right-20 inset-sm-left-0 inset-sm-right-0">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"><span class="icon icon-xxs icon-circle icon-filled-white mdi mdi-chevron-left text-gray"></span></div>
-                <div class="swiper-button-next"><span class="icon icon-xxs icon-circle icon-filled-white mdi mdi-chevron-right text-gray"></span></div>
-            </div>
+            @if (Request.Url == null || Request.Url.ToString().Contains("Auth") == false)
+            {
+                @Html.Partial("_HeaderSliderPartial")
+            }
         </header>
 
         @RenderBody()
@@ -80,19 +58,19 @@
                     <div class="cell-sm-8 cell-md-12">
                         <div class="range range-xs-center">
                             <div class="cell-sm-6 cell-md-3 cell-lg-4 cell-md-push-1">
-                                <a href="../Home/index.html"><img height="60" src="/images/Layout/logo.jpg" alt=""></a>
+                                <a href="@Url.Action("Index", "Home")"><img height="60" src="/images/Layout/logo.jpg" alt=""></a>
                                 <div class="offset-top-20 inset-lg-right-80">
                                     <p class="text-small">Только о двух вещах мы будем сожалеть на смертном одре - что мало любили и мало путешестовали. &#13;&#10; (с) Марк Твен</p>
                                 </div>
                             </div>
                             <div class="cell-sm-6 cell-md-3 cell-lg-2 cell-md-push-4">
-                                <p class="text-big text-gray-base">Follow Us</p>
+                                <p class="text-big text-gray-base">Подписывайся</p>
                                 <div class="offset-top-20">
                                     <ul class="list-inline">
-                                        <li class="text-center"><a href="#" class="icon icon-square icon-filled-gallery fa fa-facebook-f text-gray"></a></li>
-                                        <li class="text-center"><a href="#" class="icon icon-square icon-filled-gallery fa fa-twitter text-gray"></a></li>
-                                        <li class="text-center"><a href="#" class="icon icon-square icon-filled-gallery fa fa-youtube text-gray"></a></li>
-                                        <li class="text-center"><a href="#" class="icon icon-square icon-filled-gallery fa fa-linkedin text-gray"></a></li>
+                                        <li class="text-center"><a href="https://www.facebook.com/okeanvnutry/" class="icon icon-square icon-filled-gallery fa fa-facebook-f text-gray"></a></li>
+                                        <li class="text-center"><a href="https://www.instagram.com/okeanvnutry/" class="icon icon-square icon-filled-gallery fa fa-instagram text-gray"></a></li>
+                                        @*<li class="text-center"><a href="#" class="icon icon-square icon-filled-gallery fa fa-youtube text-gray"></a></li>*@
+                                        <li class="text-center"><a href="https://vk.com/okeanvnutry" class="icon icon-square icon-filled-gallery fa fa-vk text-gray"></a></li>
                                     </ul>
                                 </div>
                                 <div class="offset-top-20 offset-md-top-40">

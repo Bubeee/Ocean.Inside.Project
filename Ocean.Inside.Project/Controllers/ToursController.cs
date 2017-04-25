@@ -21,40 +21,37 @@ namespace Ocean.Inside.Project.Controllers
             _tourService = tourService;
         }
 
+        [HttpGet]
         public ActionResult Tour(int id)
         {
             var model = Mapper.Map<Tour, TourViewModel>(_tourService.GetTour(id));
 
+
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult AllTours()
         {
-            var model = new HomeViewModel()
-            {
-                TourViewModels = new List<TourViewModel>()
-            };
+            var model = new List<TourViewModel>();
 
             foreach (var tour in _tourService.GetTours())
             {
-                model.TourViewModels.Add(Mapper.Map<Tour, TourViewModel>(tour));
+                model.Add(Mapper.Map<Tour, TourViewModel>(tour));
             }
 
             return View(model);
         }
-
-        public ActionResult GroupTours()
-        {
-            throw new System.NotImplementedException();
-        }
-
+        
         [HttpGet]
+        [Authorize]
         public void AddTour()
         {
 
         }
 
         [HttpPost]
+        [Authorize]
         public void AddTour(TourViewModel model)
         {
 
