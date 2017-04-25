@@ -14,6 +14,7 @@ namespace Ocean.Inside.Project
         public static void Run()
         {
             SetAutofacContainer();
+            AutoMapperConfiguration.Configure();
         }
 
         private static void SetAutofacContainer()

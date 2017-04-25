@@ -2,10 +2,10 @@
 {
     public class DbFactory : Disposable, IDbFactory
     {
-        private OceanDbContext _dbContext;
-        public OceanDbContext Init()
+        private OceanInsideDbContext _dbContext;
+        public OceanInsideDbContext Init()
         {
-            return _dbContext ?? (_dbContext = new OceanDbContext());
+            return _dbContext ?? (_dbContext = new OceanInsideDbContext());
         }
 
         protected override void DisposeCore()

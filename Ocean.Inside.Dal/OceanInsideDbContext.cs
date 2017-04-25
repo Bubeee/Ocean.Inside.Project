@@ -4,9 +4,9 @@ using Ocean.Inside.Domain.Entities;
 
 namespace Ocean.Inside.DAL
 {
-    public class OceanDbContext : DbContext
+    public class OceanInsideDbContext : DbContext
     {
-        public OceanDbContext() : base("Ocean.db") { }
+        public OceanInsideDbContext() : base("db_OceanInside") { }
 
         public DbSet<Tour> Tours { get; set; }
         public DbSet<TourProgram> TourPrograms { get; set; }

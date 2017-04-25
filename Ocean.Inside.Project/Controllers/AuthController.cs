@@ -2,9 +2,9 @@
 
 namespace Ocean.Inside.Project.Controllers
 {
-    public class GalleryController : Controller
+    public class AuthController : Controller
     {
-        // GET: Gallery
+        // GET: Admin
         public ActionResult Index()
         {
             return View();

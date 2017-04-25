@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Currencies.cs" />
+    <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\Tour.cs" />
     <Compile Include="Entities\TourProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

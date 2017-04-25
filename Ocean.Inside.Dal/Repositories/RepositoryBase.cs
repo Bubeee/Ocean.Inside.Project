@@ -9,7 +9,7 @@ namespace Ocean.Inside.DAL.Repositories
 {
     public abstract class RepositoryBase<T> where T : class
     {
-        private OceanDbContext _dataContext;
+        private OceanInsideDbContext _dataContext;
         private readonly IDbSet<T> _dbSet;
 
         protected IDbFactory DbFactory
@@ -18,7 +18,7 @@ namespace Ocean.Inside.DAL.Repositories
             private set;
         }
 
-        protected OceanDbContext DbContext => _dataContext ?? (_dataContext = DbFactory.Init());
+        protected OceanInsideDbContext DbContext => _dataContext ?? (_dataContext = DbFactory.Init());
         
         protected RepositoryBase(IDbFactory dbFactory)
         {
