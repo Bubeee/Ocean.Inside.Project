@@ -28,7 +28,7 @@ namespace Ocean.Inside.Project.Controllers
                 model.TourViewModels.Add(Mapper.Map<Tour, TourViewModel>(tour));
             }
 
-            return View(model);;
+            return View(model);
         }
 
         public ActionResult About()

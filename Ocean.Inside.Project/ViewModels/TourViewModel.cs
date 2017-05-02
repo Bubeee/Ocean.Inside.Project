@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
+using FluentValidation.Attributes;
 using Ocean.Inside.Domain.Entities;
+using Ocean.Inside.Project.Validators;
 
 namespace Ocean.Inside.Project.ViewModels
 {
+    [Validator(typeof(TourValidator))]
     public class TourViewModel
     {
         public int Id { get; set; }
@@ -16,7 +20,7 @@ namespace Ocean.Inside.Project.ViewModels
 
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
-        public Currencies CurrencySymbol { get; set; }
+        public Currencies CurrencyCode { get; set; }
         public int DurationDays { get; set; }
         public int DurationNights { get; set; }
 
@@ -27,5 +31,7 @@ namespace Ocean.Inside.Project.ViewModels
 
         public IList<Image> Images { get; set; }
         public string Description { get; set; }
+
+        public HttpPostedFileBase ImageRaw { get; set; }
     }
 }

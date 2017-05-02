@@ -240,3 +240,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Ocean.Inside.Project/images/Tours
+/Ocean.Inside.Project/Properties/PublishProfiles/ocean-inside - Web Deploy.pubxml

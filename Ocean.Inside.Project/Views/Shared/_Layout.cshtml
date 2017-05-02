@@ -18,8 +18,8 @@
                     <div class="rd-navbar-inner">
                         <div class="rd-navbar-panel">
                             <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
-                            <div class="rd-navbar-brand veil reveal-md-block"><a href="index.html" class="brand-name"><img height="55" src="/images/Layout/logo.jpg" alt=""></a></div>
-                            <div class="rd-navbar-brand veil-md reveal-tablet-md-inline-block"><a href="index.html" class="brand-name"><img height="45" src="/images/Layout/logo.jpg" alt=""></a></div>
+                            <div class="rd-navbar-brand veil reveal-md-block"><a href="@Url.Action("Index", "Home")" class="brand-name"><img height="55" src="/images/Layout/logo.jpg" alt=""></a></div>
+                            <div class="rd-navbar-brand veil-md reveal-tablet-md-inline-block"><a href="@Url.Action("Index", "Home")" class="brand-name"><img height="45" src="/images/Layout/logo.jpg" alt=""></a></div>
                         </div>
                         <div class="rd-navbar-nav-wrap">
                             <ul class="rd-navbar-nav">
@@ -28,7 +28,7 @@
                                     @Html.ActionLink("Туры", "AllTours", "Tours")
                                 </li>
                                 <li>
-                                    @Html.ActionLink("Групповые туры", "GroupTours", "Tours")
+                                    @Html.ActionLink("Групповые туры", "AllTours", "GroupTours")
                                 </li>
                                 <li>
                                     @Html.ActionLink("Галерея", "Index", "Gallery")
@@ -57,15 +57,15 @@
                 <div class="range range-xs-center">
                     <div class="cell-sm-8 cell-md-12">
                         <div class="range range-xs-center">
-                            <div class="cell-sm-6 cell-md-3 cell-lg-4 cell-md-push-1">
-                                <a href="@Url.Action("Index", "Home")"><img height="60" src="/images/Layout/logo.jpg" alt=""></a>
+                            <div class="cell-sm-6 cell-md-3 cell-lg-4 cell-md-push-1 text-center">
+                                <a class="offset-top-20 inset-lg-right-80" href="@Url.Action("Index", "Home")"><img height="60" src="/images/Layout/logo.jpg" alt=""></a>
                                 <div class="offset-top-20 inset-lg-right-80">
                                     <p class="text-small">Только о двух вещах мы будем сожалеть на смертном одре - что мало любили и мало путешестовали. &#13;&#10; (с) Марк Твен</p>
                                 </div>
                             </div>
                             <div class="cell-sm-6 cell-md-3 cell-lg-2 cell-md-push-4">
-                                <p class="text-big text-gray-base">Подписывайся</p>
-                                <div class="offset-top-20">
+                                <p class="text-big text-gray-base text-center">Подписывайся</p>
+                                <div class="offset-top-20 text-center">
                                     <ul class="list-inline">
                                         <li class="text-center"><a href="https://www.facebook.com/okeanvnutry/" class="icon icon-square icon-filled-gallery fa fa-facebook-f text-gray"></a></li>
                                         <li class="text-center"><a href="https://www.instagram.com/okeanvnutry/" class="icon icon-square icon-filled-gallery fa fa-instagram text-gray"></a></li>
@@ -97,9 +97,6 @@
                                                     <div>
                                                         <p class="reveal-inline-block text-small"><a href="/cdn-cgi/l/email-protection#1635" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../images/icon-04-20x13.png" width="20" height="13" alt="" class="img-responsive center-block"></span><span class="unit-body"><span><span class="__cf_email__" data-cfemail="a5cccbc3cae5c1c0c8cac9cccbce8bcad7c2">okeanvnutry@gmail.com</span></span></span></span></a></p>
                                                     </div>
-                                                </div>
-                                                <div class="offset-top-20">
-                                                    <p class="reveal-inline-block text-small"><a href="#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../images/icon-05-19x19.png" width="19" height="19" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>TravelTourism.org</span></span></span></a></p>
                                                 </div>
                                             </div>
                                         </div>
