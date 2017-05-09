@@ -50,24 +50,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbConfiguration\ImagesConfiguration.cs" />
+    <Compile Include="DbConfiguration\GroupTourConfiguration.cs" />
     <Compile Include="Infrastructure\DbFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IDbFactory.cs" />
-    <Compile Include="Migrations\201705011416125_InitialCreate.cs" />
-    <Compile Include="Migrations\201705011416125_InitialCreate.Designer.cs">
-      <DependentUpon>201705011416125_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OceanInsideDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
-    <Compile Include="Repositories\RepositoryInterfaces\ITourProgramRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\IImageRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\IGroupTourRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\ITourRepository.cs" />
-    <Compile Include="Repositories\RepositoryInterfaces\TourProgramRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\ImageRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\GroupTourRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\TourRepository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="DbConfiguration\OceanInsideSeedData.cs" />
@@ -75,7 +71,9 @@
     <Compile Include="DbConfiguration\TourConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -83,11 +81,6 @@
       <Project>{3DA9E597-566B-4F8A-BFF3-1F585C89B839}</Project>
       <Name>Ocean.Inside.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705011416125_InitialCreate.resx">
-      <DependentUpon>201705011416125_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

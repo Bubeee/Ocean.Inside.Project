@@ -11,8 +11,9 @@ namespace Ocean.Inside.DAL
 
         public DbSet<Tour> Tours { get; set; }
         public DbSet<Image> Images { get; set; }
-        public DbSet<TourProgram> TourPrograms { get; set; }
+        public DbSet<GroupTourProgram> GroupTourProgram { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<GroupTour> GroupTours { get; set; }
 
         public virtual void Commit()
         {

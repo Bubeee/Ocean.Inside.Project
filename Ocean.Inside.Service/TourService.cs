@@ -9,19 +9,16 @@ namespace Ocean.Inside.BLL
     public class TourService : ITourService
     {
         private readonly ITourRepository _tourRepository;
-        private readonly ITourProgramRepository _tourProgramRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IImageRepository _imageRepository;
 
         public TourService(
-            IUnitOfWork unitOfWork, 
-            ITourRepository tourRepository, 
-            ITourProgramRepository tourProgramRepository, 
+            IUnitOfWork unitOfWork,
+            ITourRepository tourRepository,
             IImageRepository imageRepository)
         {
             _unitOfWork = unitOfWork;
             _tourRepository = tourRepository;
-            _tourProgramRepository = tourProgramRepository;
             _imageRepository = imageRepository;
         }
 
@@ -34,11 +31,6 @@ namespace Ocean.Inside.BLL
             }
 
             return tours;
-        }
-
-        public IEnumerable<TourProgram> GetTourPrograms(string tourId)
-        {
-            throw new System.NotImplementedException();
         }
 
         public Tour GetTour(int id)

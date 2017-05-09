@@ -46,9 +46,11 @@
   <ItemGroup>
     <Compile Include="Auth\ApplicationUser.cs" />
     <Compile Include="Entities\Currencies.cs" />
+    <Compile Include="Entities\GroupTour.cs" />
+    <Compile Include="Entities\GroupTourImage.cs" />
     <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\Tour.cs" />
-    <Compile Include="Entities\TourProgram.cs" />
+    <Compile Include="Entities\GroupTourProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

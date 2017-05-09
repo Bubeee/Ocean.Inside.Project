@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GroupTourService.cs" />
+    <Compile Include="IGroupTourService.cs" />
     <Compile Include="TourService.cs" />
     <Compile Include="ITourService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
