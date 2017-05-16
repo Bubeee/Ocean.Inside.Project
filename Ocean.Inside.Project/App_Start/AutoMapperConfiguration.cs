@@ -11,6 +11,9 @@ namespace Ocean.Inside.Project
             {
                 config.AddProfile<TourMappingProfile>();
                 config.AddProfile<GroupTourMappingProfile>();
+                config.AddProfile<ImageMappingProfile>();
+                config.AddProfile<CheckInMappingProfile>();
+                config.AddProfile<WasteMappingProfile>();
             });
         }
     }

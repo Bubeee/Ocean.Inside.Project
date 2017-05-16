@@ -1,20 +1,21 @@
 ﻿using System;
 using FluentValidation;
-using Ocean.Inside.Project.ViewModels;
+using Ocean.Inside.Project.Models;
 
 namespace Ocean.Inside.Project.Validators
 {
+    using System.Linq;
+
     public class TourValidator : AbstractValidator<TourViewModel>
     {
         public TourValidator()
         {
-            RuleFor(model => model.Title).NotEmpty();
-            RuleFor(model => model.Hotel).NotEmpty();
-            RuleFor(model => model.Location).NotEmpty();
-            RuleFor(model => model.ImageRaw).NotNull();
-            RuleFor(model => model.Price).GreaterThan(0);
-            RuleFor(model => model.StartDate).NotEmpty().GreaterThan(DateTime.Now);
-            RuleFor(model => model.DurationDays).GreaterThan(0);
+            this.RuleFor(model => model.Title).NotEmpty();
+            this.RuleFor(model => model.Hotel).NotEmpty();
+            this.RuleFor(model => model.Place).NotEmpty();
+            this.RuleFor(model => model.Price).GreaterThan(0);
+            this.RuleFor(model => model.StartDate).NotEmpty().GreaterThan(DateTime.Now);
+            this.RuleFor(model => model.Duration).GreaterThan(0);
         }
     }
 }

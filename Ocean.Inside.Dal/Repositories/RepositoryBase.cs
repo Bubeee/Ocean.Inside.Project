@@ -39,7 +39,8 @@ namespace Ocean.Inside.DAL.Repositories
 
         public virtual void Delete(T entity)
         {
-            _dbSet.Remove(entity);
+            _dbSet.Attach(entity);
+            DbContext.Entry(entity).State = EntityState.Deleted;
         }
 
         public virtual void Delete(Expression<Func<T, bool>> where)

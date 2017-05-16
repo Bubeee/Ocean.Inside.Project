@@ -1,0 +1,53 @@
+﻿@using Ocean.Inside.Project.Utils
+@model Ocean.Inside.Project.Models.GroupTourViewModel
+
+<div class="cell-xs-10 cell-sm-6 cell-lg-12 offset-lg-top-15">
+    <div class="box-offer box-offer-sm box-offer-left">
+        <div class="box-offer-img-wrap"><a href="@Url.Action("GroupTour", "Tour", new { id = Model.Id })"><img src="@Model.CoverImage.Path" width="270" height="280" alt="" class="img-responsive center-block"></a></div>
+        <div class="box-offer-caption text-left">
+            <div class="box-offer-caption-inner-wrap">
+                <div class="box-offer-caption-inner-left">
+                    <div>
+                        <p class="text-extra-small text-silver-chalice">
+                            @if (Model.CheckIns.Any())
+                            {
+                                @($"{Model.CheckIns?.FirstOrDefault()?.Date:dd.MM} - {Model.CheckIns?.First().Date.AddDays(Model.Duration):dd.MM} / {Model.Duration} дней")
+                            }
+                    </p>
+                </div>
+                    <div class="offset-top-4">
+                        <div class="box-offer-title text-ubold"><a href="@Url.Action("GroupTour", "Tour", new { id = Model.Id })" class="text-gray-base">@Model.Title</a></div>
+                        <div class="offset-top-8">
+
+                            @*<ul class="list-inline list-inline-3">
+                                    <li><a href="#" class="icon fa fa-star text-primary"></a></li>
+                                    <li><a href="#" class="icon fa fa-star text-primary"></a></li>
+                                    <li><a href="#" class="icon fa fa-star text-primary"></a></li>
+                                    <li><a href="#" class="icon fa fa-star text-primary"></a></li>
+                                </ul>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="box-offer-caption-inner-right text-right">
+                    <div>
+                        <p class="text-extra-small text-spacing-500 text-silver-chalice">Цена</p>
+                    </div>
+                    <div class="offset-top-4">
+
+                        <ul class="list-inline inset-right-5">
+                            <li class="box-offer-price text-gray-base text-ubold text-primary text-middle">@($"{Model.CurrencyCode.CurrencyCodeToSymbol()}{Model.Price}")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="offset-top-12 box-offer-caption-inner-wrap box-offer-caption-inner-wrap-bottom">
+                <div class="box-offer-caption-inner-left box-offer-description">
+                    <p class="text-small text-silver-chalice">@Model.Description.Substring(0, Model.Description.Length > 150 ? 150 : Model.Description.Length)...</p>
+                </div>
+                <div class="box-offer-caption-inner-right text-lg-right offset-top-20 offset-lg-top-0"><a href="@Url.Action("GroupTour", "Tour", new { Model.Id })" class="btn btn-width-110 btn-primary">Подробнее</a></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

@@ -7,6 +7,8 @@ using FluentValidation.Mvc;
 
 namespace Ocean.Inside.Project
 {
+    using DAL.DataGeneration;
+
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()

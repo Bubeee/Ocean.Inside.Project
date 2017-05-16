@@ -6,51 +6,100 @@ using Ocean.Inside.Domain.Entities;
 
 namespace Ocean.Inside.BLL
 {
+    using System;
+    using System.Linq.Expressions;
+
     public class TourService : ITourService
     {
-        private readonly ITourRepository _tourRepository;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IImageRepository _imageRepository;
+        private readonly ITourRepository tourRepository;
+        private readonly ICheckInRepository checkInRepository;
+        private readonly IUnitOfWork unitOfWork;
 
         public TourService(
             IUnitOfWork unitOfWork,
-            ITourRepository tourRepository,
-            IImageRepository imageRepository)
+            ITourRepository tourRepository, ICheckInRepository checkInRepository)
         {
-            _unitOfWork = unitOfWork;
-            _tourRepository = tourRepository;
-            _imageRepository = imageRepository;
+            this.unitOfWork = unitOfWork;
+            this.tourRepository = tourRepository;
+            this.checkInRepository = checkInRepository;
         }
 
         public IEnumerable<Tour> GetTours()
         {
-            var tours = _tourRepository.GetAll().ToList();
-            foreach (var tour in tours)
-            {
-                tour.Images = GetTourImages(tour.Id).ToList();
-            }
+            var tours = this.tourRepository.GetAll().ToList();
+
+            return tours;
+        }
+
+        public IEnumerable<Tour> GetManyTours(Expression<Func<Tour, bool>> @where)
+        {
+            var tours = this.tourRepository.GetMany(where).ToList();
 
             return tours;
         }
 
         public Tour GetTour(int id)
         {
-            return _tourRepository.GetById(id);
+            return this.tourRepository.GetById(id);
         }
 
         public void CreateTour(Tour tour)
         {
-            _tourRepository.Add(tour);
+            this.tourRepository.Add(tour);
         }
 
         public void SaveTour()
         {
-            _unitOfWork.Commit();
+            this.unitOfWork.Commit();
         }
 
-        private IEnumerable<Image> GetTourImages(int tourId)
+        public void RemoveTour(Tour tour)
         {
-            return _imageRepository.GetMany(image => image.TourId == tourId);
+            this.tourRepository.Delete(tour);
+            this.SaveTour();
+        }
+
+        public void EditTour(Tour tour)
+        {
+            this.tourRepository.Update(tour);
+            this.SaveTour();
+        }
+
+        public void AddCheckIn(CheckIn checkIn)
+        {
+            checkInRepository.Add(checkIn);
+            this.unitOfWork.Commit();
+        }
+
+        public void RemoveCheckIn(CheckIn checkIn)
+        {
+            checkInRepository.Delete(checkIn);
+            this.unitOfWork.Commit();
+        }
+
+        public void AddWaste(Waste waste)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveWaste(Waste waste)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddStep(TourStep tourStep)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EditStep(TourStep tourStep)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveStep(TourStep tourStep)
+        {
+            throw new NotImplementedException();
         }
     }
 }

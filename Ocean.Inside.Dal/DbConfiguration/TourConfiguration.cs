@@ -11,7 +11,6 @@ namespace Ocean.Inside.DAL.DbConfiguration
             ToTable("Tour");
             Property(tour => tour.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(tour => tour.Title).IsRequired();
-            //Property(tour => tour.ShortDescription).IsRequired().HasMaxLength(200);
             Property(tour => tour.Price).IsRequired().HasPrecision(10,2);
         }
     }

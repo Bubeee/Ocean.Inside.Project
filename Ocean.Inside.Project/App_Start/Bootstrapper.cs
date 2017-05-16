@@ -4,7 +4,6 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using Ocean.Inside.BLL;
 using Ocean.Inside.DAL.Infrastructure;
-using Ocean.Inside.DAL.Repositories;
 using Ocean.Inside.DAL.Repositories.RepositoryInterfaces;
 
 namespace Ocean.Inside.Project

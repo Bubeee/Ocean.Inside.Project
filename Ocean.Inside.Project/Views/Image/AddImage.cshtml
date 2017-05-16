@@ -1,0 +1,21 @@
+﻿@model Ocean.Inside.Project.Models.ImageViewModel
+
+<main class="page-content">
+    <section class="section section-45">
+        <h2>Добавить фото</h2>
+        <div class="box bg-white" style="min-width: 45%">
+            <form method="post" action="@Url.Action("AddImage")" class="rd-mailform" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group form-group-xs">
+                    <input name="ImageRaw" id="ImageRaw" type="file" class="btn btn-gray" value="Выбрать фото" style="width: 100%" />
+                    <input type="hidden" name="TourId" id="TourId" value="@Model.TourId" />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Добавить" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </section>
+</main>

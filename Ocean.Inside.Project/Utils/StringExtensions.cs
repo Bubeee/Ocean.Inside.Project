@@ -6,7 +6,7 @@ namespace Ocean.Inside.Project.Utils
 {
     public static class StringExtensions
     {
-        public static string CurrencyCodeToSymbol(this Currencies currencyCode)
+        public static string CurrencyCodeToSymbol(this CurrencyCode currencyCode)
         {
             var symbol = CultureInfo
                 .GetCultures(CultureTypes.AllCultures)

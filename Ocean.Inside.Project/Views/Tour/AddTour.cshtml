@@ -1,0 +1,54 @@
+﻿@model Ocean.Inside.Project.Models.TourViewModel
+
+<h2 class="offset-top-25">Добавить тур</h2>
+
+<div class="box bg-white offset-top-25" style="min-width: 45%">
+    <form method="post" action="@Url.Action("AddTour", "Tour")">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group form-group-xs">
+            <label for="Title" class="form-label">Заголовок</label>
+            <input name="Title" id="Title" class="form-control" type="text" />
+        </div>
+
+        <div class="form-group form-group-xs">
+            <label for="Hotel" class="form-label">Отель</label>
+            <input name="Hotel" id="Hotel" class="form-control" type="text" />
+        </div>
+
+        <div class="form-group form-group-xs">
+            <label for="FlyFrom" class="form-label">Вылет из</label>
+            <input name="FlyFrom" id="FlyFrom" class="form-control" type="text" />
+        </div>
+
+        <div class="form-group form-group-xs">
+            <label for="Place" class="form-label">Город пребывания</label>
+            <input name="Place" id="Place" class="form-control" type="text" />
+        </div>
+
+        <div class="form-group form-group-xs">
+            <label for="StartDate" class="form-label">Дата</label>
+            <input name="StartDate" id="StartDate" class="form-control dtp-buttons" type="date" />
+        </div>
+
+        <div class="form-group form-group-xs">
+            <label for="Duration" class="form-label">Количество дней</label>
+            <input name="Duration" id="Duration" class="form-control" type="text" />
+        </div>
+        <div class="form-group form-group-xs">
+            <label for="DurationNights" class="form-label">Количество ночей</label>
+            <input name="DurationNights" id="DurationNights" class="form-control" type="text" />
+        </div>
+        <div class="form-group form-group-xs">
+            <label for="Price" class="form-label">Цена</label>
+            <input name="Price" id="Price" class="form-control" type="text" />
+        </div>
+        <div class="form-group form-group-xs">
+            @Html.EnumDropDownListFor(model => model.CurrencyCode, null, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Добавить" class="btn btn-success" />
+        </div>
+    </form>
+</div>

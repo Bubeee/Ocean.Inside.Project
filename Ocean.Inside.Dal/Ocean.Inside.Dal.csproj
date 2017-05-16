@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbConfiguration\ImagesConfiguration.cs" />
-    <Compile Include="DbConfiguration\GroupTourConfiguration.cs" />
+    <Compile Include="DbConfiguration\TourStepConfiguration.cs" />
     <Compile Include="Infrastructure\DbFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IDbFactory.cs" />
@@ -59,16 +59,19 @@
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\ICheckInRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\IStepRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\IWasteRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\IImageRepository.cs" />
-    <Compile Include="Repositories\RepositoryInterfaces\IGroupTourRepository.cs" />
-    <Compile Include="Repositories\RepositoryInterfaces\ITourRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\StepRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\CheckInRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\ImageRepository.cs" />
-    <Compile Include="Repositories\RepositoryInterfaces\GroupTourRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\ITourRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\TourRepository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="DbConfiguration\OceanInsideSeedData.cs" />
-    <Compile Include="DbConfiguration\TourProgramConfiguration.cs" />
+    <Compile Include="DataGeneration\OceanInsideSeedData.cs" />
     <Compile Include="DbConfiguration\TourConfiguration.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\WasteRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

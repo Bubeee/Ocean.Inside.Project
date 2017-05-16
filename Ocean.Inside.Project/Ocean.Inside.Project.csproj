@@ -181,22 +181,34 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
-    <Compile Include="Controllers\GroupToursController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ToursController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Filters\InternationalizationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapping\WasteMappingProfile.cs" />
+    <Compile Include="Mapping\CheckInMappingProfile.cs" />
+    <Compile Include="Mapping\ImageMappingProfile.cs" />
     <Compile Include="Mapping\TourMappingProfile.cs" />
     <Compile Include="Mapping\GroupTourMappingProfile.cs" />
+    <Compile Include="Models\CheckInViewModel.cs" />
+    <Compile Include="Models\ImageViewModel.cs" />
+    <Compile Include="Models\WasteViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\IImageProcessor.cs" />
+    <Compile Include="Utils\ImageProcessor.cs" />
     <Compile Include="Utils\StringExtensions.cs" />
+    <Compile Include="Utils\Utilities.cs" />
+    <Compile Include="Validators\GroupTourValidator.cs" />
+    <Compile Include="Validators\WasteValidator.cs" />
+    <Compile Include="Validators\CheckInValidator.cs" />
     <Compile Include="Validators\TourValidator.cs" />
-    <Compile Include="ViewModels\GroupTourProgramViewModel.cs" />
-    <Compile Include="ViewModels\HomeViewModel.cs" />
-    <Compile Include="ViewModels\GroupTourViewModel.cs" />
-    <Compile Include="ViewModels\TourViewModel.cs" />
+    <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\GroupTourViewModel.cs" />
+    <Compile Include="Models\TourStepViewModel.cs" />
+    <Compile Include="Models\TourViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -289,17 +301,17 @@
     <Content Include="images\Home\box-offer-04-370x310.jpg" />
     <Content Include="images\Home\box-offer-05-370x310.jpg" />
     <Content Include="images\Home\box-offer-06-370x310.jpg" />
-    <Content Include="images\icon-01-16x21.png" />
-    <Content Include="images\icon-02-19x19.png" />
-    <Content Include="images\icon-03-12x20.png" />
-    <Content Include="images\icon-04-20x13.png" />
-    <Content Include="images\icon-05-19x19.png" />
-    <Content Include="images\icon-06-14x21.png" />
-    <Content Include="images\icon-07-21x18.png" />
-    <Content Include="images\icon-08-17x19.png" />
-    <Content Include="images\icon-09-20x20.png" />
-    <Content Include="images\icon-10-25x24.png" />
-    <Content Include="images\icon-11-20x18.png" />
+    <Content Include="images\Layout\icon-01-16x21.png" />
+    <Content Include="images\Layout\icon-02-19x19.png" />
+    <Content Include="images\Layout\icon-03-12x20.png" />
+    <Content Include="images\Layout\icon-04-20x13.png" />
+    <Content Include="images\Layout\icon-05-19x19.png" />
+    <Content Include="images\Home\icon-06-14x21.png" />
+    <Content Include="images\Home\icon-07-21x18.png" />
+    <Content Include="images\Home\icon-08-17x19.png" />
+    <Content Include="images\Home\icon-09-20x20.png" />
+    <Content Include="images\Home\icon-10-25x24.png" />
+    <Content Include="images\Home\icon-11-20x18.png" />
     <Content Include="images\icon-18-18x15.png" />
     <Content Include="images\icon-22-18x22.png" />
     <Content Include="images\icon-22-9x11.png" />
@@ -342,17 +354,23 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\GroupTours\AllTours.cshtml" />
+    <Content Include="Views\Image\AddImage.cshtml" />
     <None Include="Views\Shared\404.cshtml" />
     <None Include="Views\Shared\503.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\_TourPartialView.cshtml" />
+    <Content Include="Views\Home\_HotelTourItem.cshtml" />
     <Content Include="Views\Shared\_HeaderSliderPartial.cshtml" />
-    <Content Include="Views\Tours\AddTour.cshtml" />
-    <None Include="Views\Tours\AllTours.cshtml" />
-    <None Include="Views\Tours\Tour.cshtml" />
+    <Content Include="Views\Tour\AddTour.cshtml" />
+    <Content Include="Views\Tour\GroupTours.cshtml" />
+    <Content Include="Views\Tour\GroupTour.cshtml" />
+    <Content Include="Views\Tour\EditTour.cshtml" />
+    <Content Include="Views\Tour\AddStep.cshtml" />
+    <Content Include="Views\Tour\AddCheckIn.cshtml" />
+    <Content Include="Views\Tour\AddGroupTour.cshtml" />
+    <None Include="Views\Tour\HotelTours.cshtml" />
+    <None Include="Views\Tour\HotelTour.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -366,14 +384,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Tours\_TourBlockPartial.cshtml" />
+    <Content Include="Views\Tour\_TourItem.cshtml" />
+    <Content Include="Views\Tour\_GroupTourItem.cshtml" />
+    <Content Include="Views\Tour\_GroupTourStepItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\Gallery\" />
     <Folder Include="images\Tours\" />
     <Folder Include="images\Visas\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Blog\" />
     <Folder Include="Views\Gallery\" />
   </ItemGroup>

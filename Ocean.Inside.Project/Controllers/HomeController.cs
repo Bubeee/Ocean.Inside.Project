@@ -3,27 +3,27 @@ using System.Web.Mvc;
 using AutoMapper;
 using Ocean.Inside.BLL;
 using Ocean.Inside.Domain.Entities;
-using Ocean.Inside.Project.ViewModels;
+using Ocean.Inside.Project.Models;
 
 namespace Ocean.Inside.Project.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ITourService _tourService;
+        private readonly ITourService tourService;
 
         public HomeController(ITourService tourService)
         {
-            _tourService = tourService;
+            this.tourService = tourService;
         }
 
         public ActionResult Index()
         {
-            var model = new HomeViewModel()
+            var model = new HomeViewModel
             {
                 TourViewModels = new List<TourViewModel>()
             };
 
-            foreach (var tour in _tourService.GetTours())
+            foreach (var tour in this.tourService.GetTours())
             {
                 model.TourViewModels.Add(Mapper.Map<Tour, TourViewModel>(tour));
             }

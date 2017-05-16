@@ -1,4 +1,4 @@
-﻿@model Ocean.Inside.Project.ViewModels.HomeViewModel
+﻿@model Ocean.Inside.Project.Models.HomeViewModel
 
 <main class="page-content">
     <section class="section-80 section-md-top-70 bg-wild-wand">
@@ -14,11 +14,11 @@
 
                 @foreach (var tour in Model.TourViewModels)
                 {
-                    @Html.Partial("_TourPartialView", tour)
+                    @Html.Partial("_HotelTourItem", tour)
                 }
 
             </div>
-            <div class="offset-top-50"><a href="@Url.Action("AllTours", "Tours")" class="btn btn-primary">Все туры</a></div>
+            <div class="offset-top-50"><a href="@Url.Action("HotelTours", "Tour")" class="btn btn-primary">Все туры</a></div>
         </div>
     </section>
     <section data-wow-delay=".2s" class="wow fadeIn section-parallax">

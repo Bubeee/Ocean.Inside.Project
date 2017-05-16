@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Ocean.Inside.Project.Utils
+<!DOCTYPE html>
 <html lang="en" class="wide smoothscroll">
 <head>
     <title>Океан внутри</title>
@@ -23,20 +24,22 @@
                         </div>
                         <div class="rd-navbar-nav-wrap">
                             <ul class="rd-navbar-nav">
-                                <li class="active">@Html.ActionLink("Главная", "Index", "Home")</li>
-                                <li>
-                                    @Html.ActionLink("Туры", "AllTours", "Tours")
+                                <li class='@Html.IsActive("Home", "Index")'>
+                                    @Html.ActionLink("Главная", "Index", "Home")
                                 </li>
-                                <li>
-                                    @Html.ActionLink("Групповые туры", "AllTours", "GroupTours")
+                                <li class='@Html.IsActive("Tour", "HotelTours")'>
+                                    @Html.ActionLink("Туры", "HotelTours", "Tour")
                                 </li>
-                                <li>
+                                <li class='@Html.IsActive("Tour", "GroupTours")'>
+                                    @Html.ActionLink("Групповые туры", "GroupTours", "Tour")
+                                </li>
+                                <li class='@Html.IsActive("Gallery", "Index")'>
                                     @Html.ActionLink("Галерея", "Index", "Gallery")
                                 </li>
-                                <li>
+                                <li class='@Html.IsActive("Home", "Index")'>
                                     @Html.ActionLink("Блог", "Index", "Home")
                                 </li>
-                                <li>
+                                <li class='@Html.IsActive("Home", "About")'>
                                     @Html.ActionLink("О нас", "About", "Home")
                                 </li>
                             </ul>
@@ -67,10 +70,9 @@
                                 <p class="text-big text-gray-base text-center">Подписывайся</p>
                                 <div class="offset-top-20 text-center">
                                     <ul class="list-inline">
-                                        <li class="text-center"><a href="https://www.facebook.com/okeanvnutry/" class="icon icon-square icon-filled-gallery fa fa-facebook-f text-gray"></a></li>
-                                        <li class="text-center"><a href="https://www.instagram.com/okeanvnutry/" class="icon icon-square icon-filled-gallery fa fa-instagram text-gray"></a></li>
-                                        @*<li class="text-center"><a href="#" class="icon icon-square icon-filled-gallery fa fa-youtube text-gray"></a></li>*@
-                                        <li class="text-center"><a href="https://vk.com/okeanvnutry" class="icon icon-square icon-filled-gallery fa fa-vk text-gray"></a></li>
+                                        <li class="text-center"><a target="blank" href="https://www.facebook.com/okeanvnutry/" class="icon icon-square icon-filled-gallery fa fa-facebook-f text-gray"></a></li>
+                                        <li class="text-center"><a target="blank" href="https://www.instagram.com/okeanvnutry/" class="icon icon-square icon-filled-gallery fa fa-instagram text-gray"></a></li>
+                                        <li class="text-center"><a target="blank" href="https://vk.com/okeanvnutry" class="icon icon-square icon-filled-gallery fa fa-vk text-gray"></a></li>
                                     </ul>
                                 </div>
                                 <div class="offset-top-20 offset-md-top-40">
@@ -83,19 +85,51 @@
                                         <div class="range range-xs-center">
                                             <div class="cell-sm-6">
                                                 <div>
-                                                    <p class="reveal-block text-small"><a href="#" class="text-gray"><span class="unit unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../images/icon-01-16x21.png" width="16" height="21" alt="" class="img-responsive center-block offset-top-4"></span><span class="unit-body"><span>РБ, г. Минск, ул. Короля 18, офис 5</span></span></span></a></p>
+                                                    <p class="reveal-block text-small">
+                                                        <a href="#" class="text-gray">
+                                                            <span class="unit unit-horizontal unit-spacing-xs">
+                                                                <span class="unit-left">
+                                                                    <img src="/images/Layout/icon-01-16x21.png" width="16" height="21" alt="" class="img-responsive center-block offset-top-4">
+                                                                </span><span class="unit-body">
+                                                                    <span>РБ, г. Минск, ул. Короля 18, офис 5</span>
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </p>
                                                 </div>
                                                 <div class="offset-top-20">
-                                                    <p class="reveal-inline-block text-small"><a href="callto:#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../images/icon-02-19x19.png" width="19" height="19" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>+375445726665</span></span></span></a></p>
+                                                    <p class="reveal-inline-block text-small">
+                                                        <a href="callto:#" class="text-gray">
+                                                            <span class="unit unit-middle unit-horizontal unit-spacing-xs">
+                                                                <span class="unit-left">
+                                                                    <img src="/images/Layout/icon-02-19x19.png" width="19" height="19" alt="" class="img-responsive center-block">
+                                                                </span><span class="unit-body"><span>+375445726665</span></span>
+                                                            </span>
+                                                        </a>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="cell-sm-6 offset-top-15 offset-sm-top-0">
                                                 <div>
-                                                    <p class="reveal-inline-block text-small"><a href="callto:#" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../images/icon-03-12x20.png" width="12" height="20" alt="" class="img-responsive center-block"></span><span class="unit-body"><span>+375292595034</span></span></span></a></p>
+                                                    <p class="reveal-inline-block text-small">
+                                                        <a href="callto:#" class="text-gray">
+                                                            <span class="unit unit-middle unit-horizontal unit-spacing-xs">
+                                                                <span class="unit-left">
+                                                                    <img src="/images/Layout/icon-03-12x20.png" width="12" height="20" alt="" class="img-responsive center-block">
+                                                                </span><span class="unit-body"><span>+375292595034</span></span>
+                                                            </span>
+                                                        </a>
+                                                    </p>
                                                 </div>
                                                 <div class="offset-top-15">
                                                     <div>
-                                                        <p class="reveal-inline-block text-small"><a href="/cdn-cgi/l/email-protection#1635" class="text-gray"><span class="unit unit-middle unit-horizontal unit-spacing-xs"><span class="unit-left"><img src="../images/icon-04-20x13.png" width="20" height="13" alt="" class="img-responsive center-block"></span><span class="unit-body"><span><span class="__cf_email__" data-cfemail="a5cccbc3cae5c1c0c8cac9cccbce8bcad7c2">okeanvnutry@gmail.com</span></span></span></span></a></p>
+                                                        <p class="reveal-inline-block text-small">
+                                                            <a class="text-gray">
+                                                                <span class="unit unit-middle unit-horizontal unit-spacing-xs">
+                                                                    <span class="unit-left"><img src="/images/Layout/icon-04-20x13.png" width="20" height="13" alt="" class="img-responsive center-block"></span><span class="unit-body"><span><span class="__cf_email__" data-cfemail="a5cccbc3cae5c1c0c8cac9cccbce8bcad7c2">okeanvnutry@gmail.com</span></span></span>
+                                                                </span>
+                                                            </a>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
