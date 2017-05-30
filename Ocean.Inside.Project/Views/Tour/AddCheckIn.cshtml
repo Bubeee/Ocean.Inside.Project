@@ -7,7 +7,7 @@
             <form method="post" action="@Url.Action("AddCheckIn")" class="text-center">
                 <div class="form-group form-group-xs">
                     <label for="Date" class="form-label">Дата</label>
-                    <input name="Date" id="Date" class="form-control dtp-buttons" type="date" />
+                    <input name="Date" id="Date" class="form-control" type="date" value="@Model.Date.ToString("yyyy-MM-dd")" />
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Добавить" class="btn btn-success" />

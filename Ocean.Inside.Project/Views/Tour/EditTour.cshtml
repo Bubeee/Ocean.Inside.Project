@@ -28,7 +28,7 @@
 
         <div class="form-group form-group-xs">
             <label for="StartDate" class="form-label">Дата</label>
-            <input name="StartDate" id="StartDate" class="form-control dtp-picker dtp-buttons" type="date" value="@Model.CheckIns.FirstOrDefault()?.Date" />
+            <input name="StartDate" id="StartDate" class="form-control" type="date" value="@Model.CheckIns.FirstOrDefault().Date.ToString("yyyy-MM-dd")" />
         </div>
 
         <div class="form-group form-group-xs">

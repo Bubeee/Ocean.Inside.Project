@@ -1,5 +1,10 @@
 ﻿namespace Ocean.Inside.Project.Models
 {
+    using FluentValidation.Attributes;
+
+    using Ocean.Inside.Project.Validators;
+
+    [Validator(typeof(WasteValidator))]
     public class WasteViewModel
     {
         public int Id { get; set; }

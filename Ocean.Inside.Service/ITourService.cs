@@ -24,6 +24,7 @@ namespace Ocean.Inside.BLL
         void RemoveWaste(Waste waste);
 
         void AddStep(TourStep tourStep);
+        TourStep GetStep(int id);
         void EditStep(TourStep tourStep);
         void RemoveStep(TourStep tourStep);
     }

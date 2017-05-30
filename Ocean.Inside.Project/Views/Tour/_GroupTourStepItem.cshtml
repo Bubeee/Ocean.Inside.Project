@@ -30,8 +30,11 @@
         </div>
         <div class="unit-body offset-top-8">
             <p class="text-small text-ubold text-uppercase text-gray-base">@Model.Title</p>
-            <a class="glyphicon glyphicon-edit" href="@Url.Action("EditStep", "Tour", new { id = Model.Id })" alt="Редактировать шаги" title="Редактировать"></a>
-            <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveStep", "Tour", new { id = Model.Id })" alt="Удалить шаг" title="Удалить"></a>
+            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <a class="glyphicon glyphicon-edit" href="@Url.Action("EditStep", "Tour", new { id = Model.Id })" alt="Редактировать шаги" title="Редактировать"></a>
+                <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveStep", "Tour", Model)" alt="Удалить шаг" title="Удалить"></a>
+            }
         </div>
     </div>
     <div class="offset-top-12 inset-left-10 inset-right-10">

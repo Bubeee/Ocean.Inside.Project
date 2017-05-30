@@ -12,15 +12,21 @@
                                 <p class="text-extra-small text-silver-chalice text-italic text-uppercase text-spacing-200">ДАТЫ ЗАЕЗДОВ</p>
                             </div>
                             <ul class="offset-top-0">
-                                @foreach (var checkIn in Model.CheckIns)
+                                @foreach (var checkIn in Model.CheckIns.OrderBy(checkIn => checkIn.Date))
                                 {
                                     <li class="text-big text-ubold text-gray-base text-uppercase">
                                         @($"{checkIn.Date:M} - {checkIn.Date.AddDays(Model.Duration):M}")
-                                        <a class="glyphicon glyphicon-minus" href="@Url.Action("RemoveCheckIn", "Tour", checkIn)" alt="Удалить дату" title="Удалить"></a>
+                                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                        {
+                                            <a class="glyphicon glyphicon-minus" href="@Url.Action("RemoveCheckIn", "Tour", checkIn)" alt="Удалить дату" title="Удалить"></a>
+                                        }
                                     </li>
                                 }
                             </ul>
-                            <a class="glyphicon glyphicon-plus" href="@Url.Action("AddCheckIn", "Tour", new { tourId = Model.Id })" alt="Добавить дату" title="Добавить"></a>
+                            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <a class="glyphicon glyphicon-plus" href="@Url.Action("AddCheckIn", "Tour", new { tourId = Model.Id })" alt="Добавить дату" title="Добавить"></a>
+                            }
                         </div>
                         <div class="cell-xs-6 cell-sm-5 cell-md-3 offset-top-40 offset-xs-top-0">
                             <div>
@@ -48,9 +54,15 @@
         <div class="shell">
             <div>
                 <h3>
-                    <a class="glyphicon glyphicon-edit" href="@Url.Action("EditGroupTour", "Tour", new { Model.Id })" alt="Редактировать тур" title="Редактировать"></a>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="glyphicon glyphicon-edit" href="@Url.Action("EditGroupTour", "Tour", new { Model.Id })" alt="Редактировать тур" title="Редактировать"></a>
+                    }
                     <span>Описание тура</span>
-                    <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveGroupTour", "Tour", new { Model.Id })" alt="Удалить тур" title="Удалить"></a>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveGroupTour", "Tour", Model)" alt="Удалить тур" title="Удалить"></a>
+                    }
                 </h3>
             </div>
             <div class="offset-top-30">
@@ -71,7 +83,11 @@
     <section class="section-0 section-md-bottom-215">
         <div class="shell">
             <div class="text-center">
-                <a class="glyphicon glyphicon-plus" href="@Url.Action("AddWaste", "Tour")" alt="Добавить трату" title="Добавить"></a>
+
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <a class="glyphicon glyphicon-plus" href="@Url.Action("AddWaste", "Tour", new { tourId = Model.Id })" alt="Добавить трату" title="Добавить трату"></a>
+                }
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="offset-top-30">
@@ -84,8 +100,11 @@
                         {
                             <li>
                                 @waste.Description
-                                <a class="glyphicon glyphicon-edit" href="@Url.Action("EditWaste", "Tour", new { id = waste.Id })" alt="Редактировать траты" title="Редактировать"></a>
-                                <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveWaste", "Tour", new { id = waste.Id })" alt="Удалить траты" title="Удалить"></a>
+
+                                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveWaste", "Tour", waste)" alt="Удалить траты" title="Удалить"></a>
+                                }
                             </li>
                         }
                     </ol>
@@ -103,8 +122,10 @@
                         {
                             <li>
                                 @waste.Description
-                                <a class="glyphicon glyphicon-edit" href="@Url.Action("EditWaste", "Tour", new { id = waste.Id })" alt="Редактировать траты" title="Редактировать"></a>
-                                <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveWaste", "Tour", new { id = waste.Id })" alt="Удалить траты" title="Удалить"></a>
+                                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveWaste", "Tour", waste)" alt="Удалить траты" title="Удалить"></a>
+                                }
                             </li>
                         }
                     </ol>
@@ -118,7 +139,10 @@
             <div>
                 <h3>
                     Программа тура
-                    <a class="glyphicon glyphicon-plus" href="@Url.Action("AddStep", "Tour")" alt="Добавить шаг" title="Добавить"></a>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="glyphicon glyphicon-plus" href="@Url.Action("AddStep", "Tour", new { tourId = Model.Id })" alt="Добавить шаг" title="Добавить"></a>
+                    }
                 </h3>
             </div>
             <div class="offset-top-15">
@@ -137,14 +161,22 @@
     </section>
 
     <section>
-        <a class="glyphicon glyphicon-plus" href="@Url.Action("AddImage", "Image", new { tourId = Model.Id })" alt="Добавить фото" title="Добавить фото"></a>
+
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <a class="glyphicon glyphicon-plus" href="@Url.Action("AddImage", "Image", new { tourId = Model.Id })" alt="Добавить фото" title="Добавить фото"></a>
+        }
         <div data-photo-swipe-gallery="gallery" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="5" data-stage-padding="20" data-loop="true" data-margin="6" data-mouse-drag="true" data-dots="true" data-nav="true" class="owl-carousel owl-carusel-inset-bottom owl-nav-type-3 owl-dots-primary">
             @foreach (var image in Model.GalleryImages)
             {
                 <div class="owl-item">
                     <a data-photo-swipe-item="" data-size="1170x780" href="@Url.Content(image.Path)" class="thumbnail-rayen">
                         <span class="figure">
-                            <img src="@Url.Content(image.Path)" alt="" class="img-responsive  center-block">
+                            <img src="@Url.Content(image.Path)" alt="" class="img-responsive center-block">
+                            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <a class="glyphicon glyphicon-minus" href="@Url.Action("RemoveGroupTourImage", "Tour", image)" alt="Удалить фото" title="Удалить фото"></a>
+                            }
                             <span class="figcaption">
                                 <span class="icon icon-xl fa fa-search-plus text-white"></span>
                             </span>
@@ -160,7 +192,7 @@
             <div class="offset-top-0">
                 <p class="text-small text-spacing-200 text-italic">Начиная с @($"{Model.CurrencyCode.CurrencyCodeToSymbol()}{Model.Price:F0}")</p>
             </div>
-            <button type="button" data-toggle="modal" data-target="#recall" style="min-width:160px;" class="btn btn-primary">Перезвонить сейчас</button>
+            <button type="button" data-toggle="modal" data-target="#recall" style="min-width: 160px;" class="btn btn-primary">Перезвонить сейчас</button>
         </div>
     </section>
 
@@ -183,52 +215,5 @@
         </div>
     </section>
 
-    <div class="offset-top-20 offset-md-top-40">
-        <div id="recall" tabindex="-1" role="dialog" class="modal modal-custom fade text-center">
-            <div role="document" class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="shell">
-                            <div class="range range-xs-center range-xs-middle">
-                                <div class="cell-sm-6 offset-top-20 bg-image bg-image-1">
-                                    <img src="@Url.Content($"/images/Layout/phone.png")" height="300" width="200" alt="" class="img-responsive center-block">
-                                </div>
-                                <div class="cell-sm-6">
-                                    <div class="modal-body-column-content">
-                                        <div>
-                                            <h5 class="text-ubold">
-                                                Перезвонить <br class="veil reveal-lg-inline-block"> Вам?
-                                            </h5>
-                                        </div>
-                                        <div class="offset-top-15">
-                                            <p class="text-italic text-small text-gray-base">Введите свой номер и мы перезвоним вам в ближайшее время!</p>
-                                        </div>
-                                        <div class="offset-top-35">
-                                            <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" class="rd-mailform rd-mailform-subscribe">
-                                                <div class="form-group form-group-xs">
-                                                    <label for="contact-email" class="form-label">Ваш номер...</label>
-                                                    <input id="contact-email" type="" name="email" data-constraints="@@Email @@Required" class="form-control">
-                                                </div>
-                                                <button type="submit" class="btn btn-block btn-primary">Перезвонить</button>
-                                            </form>
-                                        </div>
-                                        <div class="offset-top-35">
-                                            <ul class="list-inline list-primary list-inline-13">
-                                                <li class="text-center"><a target="blank" href="https://www.facebook.com/okeanvnutry/" class="icon  fa fa-facebook-f text-gray"></a></li>
-                                                <li class="text-center"><a target="blank" href="https://www.instagram.com/okeanvnutry/" class="icon fa fa-instagram text-gray"></a></li>
-                                                <li class="text-center"><a target="blank" href="https://vk.com/okeanvnutry" class="icon fa fa-vk text-gray"></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_CallBox")
 </main>

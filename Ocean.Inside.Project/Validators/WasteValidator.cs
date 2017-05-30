@@ -10,7 +10,7 @@ namespace Ocean.Inside.Project.Validators
     {
         public WasteValidator()
         {
-
+            RuleFor(model => model.Description).NotNull();
         }
     }
 }

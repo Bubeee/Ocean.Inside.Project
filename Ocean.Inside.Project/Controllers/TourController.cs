@@ -11,19 +11,23 @@ namespace Ocean.Inside.Project.Controllers
     using System;
     using System.Linq;
 
-    using Microsoft.Ajax.Utilities;
+    using PagedList;
 
+    [Authorize(Roles = "Admin")]
     [Internationalization]
     public class TourController : Controller
     {
         private readonly ITourService tourService;
+        private readonly IImageService imageService;
 
-        public TourController(ITourService tourService)
+        public TourController(ITourService tourService, IImageService imageService)
         {
             this.tourService = tourService;
+            this.imageService = imageService;
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult HotelTour(int id)
         {
             var model = Mapper.Map<Tour, TourViewModel>(this.tourService.GetTour(id));
@@ -40,45 +44,43 @@ namespace Ocean.Inside.Project.Controllers
         }
 
         [HttpGet]
-        public ActionResult HotelTours()
+        [AllowAnonymous]
+        public ActionResult HotelTours(int page = 1, int take = 20)
         {
-            var model = new List<TourViewModel>();
+            var model = this.tourService.GetManyTours(tour => tour.Hotel != null).Skip((page - 1) * take).Take(take);
+            var mappedModel = Mapper.Map<IEnumerable<Tour>, IEnumerable<TourViewModel>>(model);
 
-            foreach (var tour in this.tourService.GetManyTours(tour => tour.Hotel != null))
-            {
-                model.Add(Mapper.Map<Tour, TourViewModel>(tour));
-            }
-
-            return View(model);
+            return View(mappedModel.ToPagedList(page, 20));
         }
 
         [HttpGet]
-        public ActionResult GroupTours()
+        [AllowAnonymous]
+        public ActionResult GroupTours(int page = 1, int take = 10)
         {
-            var model = this.tourService.GetManyTours(tour => tour.Description != null);
+            var model = this.tourService.GetManyTours(tour => tour.Hotel == null).Skip((page - 1) * take).Take(take);
             var mappedModel = Mapper.Map<IEnumerable<Tour>, IEnumerable<GroupTourViewModel>>(model);
 
-            return View(mappedModel);
+            return View(mappedModel.ToPagedList(page, 20));
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult GroupTour(int id)
         {
             var model = Mapper.Map<Tour, GroupTourViewModel>(this.tourService.GetTour(id));
             if (model != null)
             {
-                model.OtherTours = Mapper.Map<IEnumerable<Tour>, IEnumerable<GroupTourViewModel>>(this.tourService.GetManyTours(tour => tour.Id != id && tour.TourSteps.Any()).Take(5));
+                model.OtherTours = Mapper.Map<IEnumerable<Tour>, IEnumerable<GroupTourViewModel>>(this.tourService.GetManyTours(tour => tour.Id != id && tour.Description != null).Take(5));
 
-                return View(model);
+                return this.View(model);
             }
 
-            Response.StatusCode = 404;
+            this.Response.StatusCode = 404;
 
             return View("404");
         }
 
         [HttpGet]
-        //[Authorize]
         public ActionResult AddTour()
         {
             return View(new TourViewModel
@@ -88,11 +90,18 @@ namespace Ocean.Inside.Project.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
         public ActionResult AddTour(TourViewModel tour)
         {
             if (ModelState.IsValid)
             {
+                tour.CheckIns = new List<CheckIn>
+                                    {
+                                        new CheckIn
+                                            {
+                                                Date = tour.StartDate
+                                            }
+                                    };
+
                 this.tourService.CreateTour(Mapper.Map<TourViewModel, Tour>(tour));
                 this.tourService.SaveTour();
 
@@ -115,6 +124,14 @@ namespace Ocean.Inside.Project.Controllers
         {
             if (ModelState.IsValid)
             {
+                tour.CheckIns = new List<CheckIn>
+                                    {
+                                        new CheckIn
+                                            {
+                                                Date = tour.StartDate
+                                            }
+                                    };
+
                 this.tourService.EditTour(Mapper.Map<TourViewModel, Tour>(tour));
                 return this.RedirectToAction("HotelTours", "Tour");
             }
@@ -127,39 +144,75 @@ namespace Ocean.Inside.Project.Controllers
         public ActionResult RemoveTour(TourViewModel tour)
         {
             this.tourService.RemoveTour(Mapper.Map<TourViewModel, Tour>(tour));
+            this.imageService.RemoveImages(tour.Id);
             return RedirectToAction("HotelTours", "Tour");
         }
 
         [HttpGet]
-        public ActionResult AddStep()
+        public ActionResult AddStep(int tourId)
         {
-            return this.View();
+            return this.View(new TourStepViewModel() { TourId = tourId });
         }
 
+        [HttpPost]
+        public ActionResult AddStep(TourStepViewModel model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                this.tourService.AddStep(Mapper.Map<TourStepViewModel, TourStep>(model));
+                return this.RedirectToAction("GroupTour", new { id = model.TourId });
+            }
+
+            return this.View(model);
+        }
+
+        [HttpGet]
         public ActionResult EditStep(int id)
         {
-            throw new System.NotImplementedException();
+            var model = this.tourService.GetStep(id);
+            return this.View(Mapper.Map<TourStep, TourStepViewModel>(model));
         }
 
-        public ActionResult RemoveStep(int id)
+        [HttpPost]
+        public ActionResult EditStep(TourStepViewModel model)
         {
-            throw new System.NotImplementedException();
+            if (ModelState.IsValid)
+            {
+                this.tourService.EditStep(Mapper.Map<TourStepViewModel, TourStep>(model));
+                return this.RedirectToAction("GroupTour", new { id = model.TourId });
+            }
+
+            return RedirectToAction("EditStep", new { tourId = model.Id });
         }
 
-
-        public ActionResult AddWaste()
+        public ActionResult RemoveStep(TourStepViewModel model)
         {
-            throw new System.NotImplementedException();
+            this.tourService.RemoveStep(Mapper.Map<TourStepViewModel, TourStep>(model));
+            return this.RedirectToAction("GroupTour", new { id = model.TourId });
         }
 
-        public ActionResult EditWaste(int id)
+        [HttpGet]
+        public ActionResult AddWaste(int tourId)
         {
-            throw new System.NotImplementedException();
+            return this.View(new WasteViewModel { TourId = tourId });
         }
 
-        public ActionResult RemoveWaste(int id)
+        [HttpPost]
+        public ActionResult AddWaste(WasteViewModel model)
         {
-            throw new System.NotImplementedException();
+            if (this.ModelState.IsValid)
+            {
+                this.tourService.AddWaste(Mapper.Map<WasteViewModel, Waste>(model));
+                return this.RedirectToAction("GroupTour", new { id = model.TourId });
+            }
+
+            return this.View(model);
+        }
+
+        public ActionResult RemoveWaste(WasteViewModel waste)
+        {
+            this.tourService.RemoveWaste(Mapper.Map<WasteViewModel, Waste>(waste));
+            return this.RedirectToAction("GroupTour", new { id = waste.TourId });
         }
 
         [HttpGet]
@@ -186,7 +239,7 @@ namespace Ocean.Inside.Project.Controllers
         public ActionResult EditGroupTour(int id)
         {
             var model = this.tourService.GetTour(id);
-            return this.View(Mapper.Map<Tour, TourViewModel>(model));
+            return this.View(Mapper.Map<Tour, GroupTourViewModel>(model));
         }
 
         [HttpPost]
@@ -201,9 +254,11 @@ namespace Ocean.Inside.Project.Controllers
             return RedirectToAction("EditGroupTour", new { tourId = model.Id });
         }
 
-        public ActionResult RemoveGroupTour(int id)
+        public ActionResult RemoveGroupTour(GroupTourViewModel tour)
         {
-            throw new System.NotImplementedException();
+            this.tourService.RemoveTour(Mapper.Map<GroupTourViewModel, Tour>(tour));
+            this.imageService.RemoveImages(tour.Id);
+            return RedirectToAction("GroupTours", "Tour");
         }
 
         [HttpGet]
@@ -232,6 +287,22 @@ namespace Ocean.Inside.Project.Controllers
         {
             this.tourService.RemoveCheckIn(Mapper.Map<CheckInViewModel, CheckIn>(checkIn));
             return this.RedirectToAction("GroupTour", new { id = checkIn.TourId });
+        }
+
+        public ActionResult RemoveGroupTourImage(ImageViewModel image)
+        {
+            var imageEntity = Mapper.Map<ImageViewModel, Image>(image);
+            imageEntity.Path = Server.MapPath(image.Path);
+            this.imageService.RemoveImage(imageEntity);
+            return RedirectToAction("GroupTour", new { id = image.TourId });
+        }
+
+        public ActionResult RemoveTourImage(ImageViewModel image)
+        {
+            var imageEntity = Mapper.Map<ImageViewModel, Image>(image);
+            imageEntity.Path = Server.MapPath(image.Path);
+            this.imageService.RemoveImage(imageEntity);
+            return RedirectToAction("HotelTour", new { id = image.TourId });
         }
     }
 }

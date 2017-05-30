@@ -13,15 +13,19 @@ namespace Ocean.Inside.BLL
     {
         private readonly ITourRepository tourRepository;
         private readonly ICheckInRepository checkInRepository;
+        private readonly IWasteRepository wasteRepository;
+        private readonly IStepRepository stepRepository;
         private readonly IUnitOfWork unitOfWork;
 
         public TourService(
             IUnitOfWork unitOfWork,
-            ITourRepository tourRepository, ICheckInRepository checkInRepository)
+            ITourRepository tourRepository, ICheckInRepository checkInRepository, IWasteRepository wasteRepository, IStepRepository stepRepository)
         {
             this.unitOfWork = unitOfWork;
             this.tourRepository = tourRepository;
             this.checkInRepository = checkInRepository;
+            this.wasteRepository = wasteRepository;
+            this.stepRepository = stepRepository;
         }
 
         public IEnumerable<Tour> GetTours()
@@ -67,39 +71,49 @@ namespace Ocean.Inside.BLL
 
         public void AddCheckIn(CheckIn checkIn)
         {
-            checkInRepository.Add(checkIn);
+            this.checkInRepository.Add(checkIn);
             this.unitOfWork.Commit();
         }
 
         public void RemoveCheckIn(CheckIn checkIn)
         {
-            checkInRepository.Delete(checkIn);
+            this.checkInRepository.Delete(checkIn);
             this.unitOfWork.Commit();
         }
 
         public void AddWaste(Waste waste)
         {
-            throw new NotImplementedException();
+            this.wasteRepository.Add(waste);
+            this.unitOfWork.Commit();
         }
 
         public void RemoveWaste(Waste waste)
         {
-            throw new NotImplementedException();
+            this.wasteRepository.Delete(waste);
+            this.unitOfWork.Commit();
         }
 
         public void AddStep(TourStep tourStep)
         {
-            throw new NotImplementedException();
+            this.stepRepository.Add(tourStep);
+            this.unitOfWork.Commit();
         }
 
         public void EditStep(TourStep tourStep)
         {
-            throw new NotImplementedException();
+            this.stepRepository.Update(tourStep);
+            this.unitOfWork.Commit();
         }
 
         public void RemoveStep(TourStep tourStep)
         {
-            throw new NotImplementedException();
+            this.stepRepository.Delete(tourStep);
+            this.unitOfWork.Commit();
+        }
+
+        public TourStep GetStep(int id)
+        {
+            return this.stepRepository.GetById(id);
         }
     }
 }

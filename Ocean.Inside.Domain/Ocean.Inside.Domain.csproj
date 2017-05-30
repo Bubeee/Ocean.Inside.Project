@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Auth\ApplicationUser.cs" />
     <Compile Include="Entities\CheckIn.cs" />
     <Compile Include="Entities\CurrencyCode.cs" />
     <Compile Include="Entities\Image.cs" />

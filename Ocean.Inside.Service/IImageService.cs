@@ -9,6 +9,9 @@
         IEnumerable<Image> GetImages(int tourId);
         void AddImage(Image image);
 
+        void RemoveImage(Image image);
+        void RemoveImages(int tourId);
+
         void SaveImage();
     }
 }

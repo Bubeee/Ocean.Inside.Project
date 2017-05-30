@@ -1,0 +1,54 @@
+﻿<div class="offset-top-20 offset-md-top-40">
+    <div id="recall" tabindex="-1" role="dialog" class="modal modal-custom fade text-center">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="shell">
+                        <div class="range range-xs-center range-xs-middle">
+                            <div class="cell-sm-6 offset-top-20 bg-image bg-image-1">
+                                <img src="@Url.Content($"/images/Layout/phone.png")" height="300" width="200" alt="" class="img-responsive center-block">
+                            </div>
+                            <div class="cell-sm-6">
+                                <div class="modal-body-column-content">
+                                    <div>
+                                        <h5 class="text-ubold">
+                                            Перезвонить <br class="veil reveal-lg-inline-block"> Вам?
+                                        </h5>
+                                    </div>
+                                    <div class="offset-top-15">
+                                        <p class="text-italic text-small text-gray-base">Введите свой номер и мы перезвоним вам в ближайшее время!</p>
+                                    </div>
+                                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                                    <div class="offset-top-35">
+                                        @using (Ajax.BeginForm("SendRecallEmail", "Email", new AjaxOptions { HttpMethod = "Post", OnSuccess = "successHandler", OnFailure = "failureHandler"}))
+                                        {
+                                            <div class="form-group form-group-xs">
+                                                <label for="phoneNumber" class="form-label">Ваш номер...</label>
+                                                <input id="phoneNumber" type="text" name="phoneNumber" class="form-control">
+                                            </div>
+                                            <button type="submit" class="btn btn-block btn-primary">Перезвонить</button>
+                                        }
+                                    </div>
+                                    <div class="offset-top-35">
+                                        <ul class="list-inline list-primary list-inline-13">
+                                            <li class="text-center"><a target="blank" href="https://www.facebook.com/okeanvnutry/" class="icon  fa fa-facebook-f text-gray"></a></li>
+                                            <li class="text-center"><a target="blank" href="https://www.instagram.com/okeanvnutry/" class="icon fa fa-instagram text-gray"></a></li>
+                                            <li class="text-center"><a target="blank" href="https://vk.com/okeanvnutry" class="icon fa fa-vk text-gray"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

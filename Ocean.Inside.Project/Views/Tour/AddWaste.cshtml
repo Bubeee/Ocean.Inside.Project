@@ -1,0 +1,24 @@
+﻿@model Ocean.Inside.Project.Models.WasteViewModel
+
+<h2 class="offset-top-25">Добавить трату</h2>
+
+<div class="box bg-white offset-top-25" style="min-width: 45%">
+    <form method="post" action="@Url.Action("AddWaste", "Tour")">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group form-group-xs">
+            <label for="Description" class="form-label">Заголовок</label>
+            <textarea name="Description" id="Description" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group form-group-xs text-center">
+            <label for="IsIncluded" class="label form-label-outside text-big label">Включено в стоимость тура?</label>
+            @Html.CheckBoxFor(model => model.IsIncluded, new {@class = "checkbox checkbox-inline checkbox-inline-right" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Добавить" class="btn btn-success" />
+            <input type="hidden" value="@Model.TourId" id="TourId" name="TourId" />
+        </div>
+    </form>
+</div>

@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using Ocean.Inside.DAL.DbConfiguration;
-using Ocean.Inside.Domain.Auth;
 using Ocean.Inside.Domain.Entities;
 
 namespace Ocean.Inside.DAL
@@ -14,7 +13,6 @@ namespace Ocean.Inside.DAL
         public DbSet<TourStep> TourSteps { get; set; }
         public DbSet<CheckIn> CheckIns { get; set; }
         public DbSet<Waste> Wastes { get; set; }
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         public virtual void Commit()
         {

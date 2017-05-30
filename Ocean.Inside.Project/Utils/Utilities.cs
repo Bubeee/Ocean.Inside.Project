@@ -6,7 +6,7 @@
     {
         public static string IsActive(this HtmlHelper html,
                                       string controller,
-                                      string action)
+                                      string action = null)
         {
             var routeData = html.ViewContext.RouteData;
 
@@ -14,8 +14,7 @@
             var routeControl = (string)routeData.Values["controller"];
 
             // both must match
-            var returnActive = controller == routeControl &&
-                               action == routeAction;
+            var returnActive = controller == routeControl && (action == null || action == routeAction);
 
             return returnActive ? "active" : "";
         }

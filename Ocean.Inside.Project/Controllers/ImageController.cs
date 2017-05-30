@@ -12,6 +12,7 @@ namespace Ocean.Inside.Project.Controllers
     using Ocean.Inside.Domain.Entities;
     using Ocean.Inside.Project.Models;
 
+    [Authorize(Roles = "Admin")]
     public class ImageController : Controller
     {
         private readonly IImageService imageService;
@@ -22,7 +23,6 @@ namespace Ocean.Inside.Project.Controllers
         }
 
         [HttpGet]
-        //[Authorize]
         public ActionResult AddImage(int tourId)
         {
             return View(new ImageViewModel
@@ -32,7 +32,6 @@ namespace Ocean.Inside.Project.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
         public ActionResult AddImage(ImageViewModel imageViewModel)
         {
             var pictureName = Path.GetFileName(imageViewModel.ImageRaw?.FileName);

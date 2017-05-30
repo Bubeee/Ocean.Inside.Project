@@ -12,7 +12,7 @@ namespace Ocean.Inside.Project.Models
     {
         public string Description { get; set; }
 
-        public List<Waste> Wastes { get; set; }
+        public List<WasteViewModel> Wastes { get; set; }
 
         public List<TourStepViewModel> TourSteps { get; set; }
     }

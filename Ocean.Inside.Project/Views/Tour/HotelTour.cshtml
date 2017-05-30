@@ -12,7 +12,12 @@
                                 <p class="text-extra-small text-silver-chalice text-italic text-uppercase text-spacing-200">ДАТЫ</p>
                             </div>
                             <div class="offset-top-0">
-                                <p class="text-big text-ubold text-gray-base text-uppercase">@($"{Model.CheckIns.FirstOrDefault()?.Date:M} - {Model.CheckIns.FirstOrDefault()?.Date.AddDays(Model.Duration):M}")</p>
+                                <p class="text-big text-ubold text-gray-base text-uppercase">
+                                    @if (Model.CheckIns.Any())
+                                    {
+                                        @($"{Model.CheckIns.FirstOrDefault()?.Date:M} - {Model.CheckIns.FirstOrDefault()?.Date.AddDays(Model.Duration):M}")
+                                    }
+                                </p>
                             </div>
                         </div>
                         <div class="cell-xs-6 cell-sm-5 cell-md-3 offset-top-40 offset-xs-top-0">
@@ -49,9 +54,15 @@
         <div class="shell">
             <div>
                 <h3>
-                    <a class="glyphicon glyphicon-edit" href="@Url.Action("EditTour", "Tour", new { tourId = Model.Id })" alt="Редактировать тур" title="Редактировать"></a>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="glyphicon glyphicon-edit" href="@Url.Action("EditTour", "Tour", new { tourId = Model.Id })" alt="Редактировать тур" title="Редактировать"></a>
+                    }
                     <span>Описание тура</span>
-                    <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveTour", "Tour", Model)" alt="Удалить тур" title="Удалить"></a>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveTour", "Tour", Model)" alt="Удалить тур" title="Удалить"></a>
+                    }
                 </h3>
             </div>
             <div class="offset-top-40 text-left">
@@ -74,11 +85,21 @@
                     </div>
                     <div class="offset-top-20">
                         <span class="text-bold text-silver-chalice">Дата начала: </span>
-                        <span class="text-small text-silver-chalice">@Model.CheckIns.First().Date.ToString("D")</span>
+                        <span class="text-small text-silver-chalice">
+                            @if (Model.CheckIns.Any())
+                            {
+                                @(Model.CheckIns.FirstOrDefault()?.Date.ToString("D"))
+                            }
+                        </span>
                     </div>
                     <div class="offset-top-20">
                         <span class="text-bold text-silver-chalice">Дата завершения: </span>
-                        <span class="text-small text-silver-chalice">@Model.CheckIns.First().Date.AddDays(@Model.Duration).ToString("D")</span>
+                        <span class="text-small text-silver-chalice">
+                            @if (Model.CheckIns.Any())
+                            {
+                                @(Model.CheckIns.FirstOrDefault()?.Date.AddDays(@Model.Duration).ToString("D"))
+                            }
+                        </span>
                     </div>
                     <div class="offset-top-20">
                         <span class="text-bold text-silver-chalice">Цена: </span>
@@ -89,7 +110,10 @@
         </div>
     </section>
     <section>
-        <a class="glyphicon glyphicon-plus" href="@Url.Action("AddImage", "Image", new { tourId = Model.Id })" alt="Добавить фото" title="Добавить фото"></a>
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <a class="glyphicon glyphicon-plus" href="@Url.Action("AddImage", "Image", new { tourId = Model.Id })" alt="Добавить фото" title="Добавить фото"></a>
+        }
         <div data-photo-swipe-gallery="gallery" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="5" data-stage-padding="20" data-loop="true" data-margin="6" data-mouse-drag="false" data-dots="true" data-nav="true" class="owl-carousel owl-carusel-inset-bottom owl-nav-type-3 owl-dots-primary">
             @foreach (var image in Model.GalleryImages)
             {
@@ -97,6 +121,10 @@
                     <a data-photo-swipe-item="" data-size="1170x780" href="@Url.Content(image.Path)" class="thumbnail-rayen">
                         <span class="figure">
                             <img width="370" height="310" src="@Url.Content(image.Path)" alt="" class="img-responsive center-block">
+                            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <a class="glyphicon glyphicon-minus" href="@Url.Action("RemoveTourImage", "Tour", image)" alt="Удалить фото" title="Удалить фото"></a>
+                            }
                             <span class="figcaption">
                                 <span class="icon icon-xl fa fa-search-plus text-white"></span>
                             </span>
@@ -112,7 +140,7 @@
             <div class="offset-top-0">
                 <p class="text-small text-spacing-200 text-italic">Начиная с @($"{Model.CurrencyCode.CurrencyCodeToSymbol()}{Model.Price:F0}")</p>
             </div>
-            <div class="offset-top-50"><a href="" class="btn btn-primary">Позвонить сейчас</a></div>
+            <button type="button" data-toggle="modal" data-target="#recall" style="min-width:160px;" class="btn btn-primary">Перезвонить сейчас</button>
         </div>
     </section>
     <section class="section-34 section-lg-bottom-45 offset-top-80 bg-alabaster">
@@ -133,4 +161,6 @@
             </div>
         </div>
     </section>
+
+    @Html.Partial("_CallBox")
 </main>

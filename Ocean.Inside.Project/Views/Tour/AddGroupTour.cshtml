@@ -11,9 +11,9 @@
             <input name="Title" id="Title" class="form-control" type="text" />
         </div>
 
-        <div class="form-group form-group-xs">
+        <div class="form-group">
             <label for="Description" class="form-label">Описание</label>
-            <input name="Description" id="Description" class="form-control" type="text" />
+            <textarea name="Description" id="Description" class="form-control" type="text"></textarea>
         </div>
 
         <div class="form-group form-group-xs">
@@ -22,19 +22,14 @@
         </div>
 
         <div class="form-group form-group-xs">
-            <label for="DurationNights" class="form-label">Количество ночей</label>
-            <input name="DurationNights" id="DurationNights" class="form-control" type="text" />
+            @Html.EnumDropDownListFor(model => model.CurrencyCode, null, new { @class = "form-control" })
         </div>
 
         <div class="form-group form-group-xs">
             <label for="Price" class="form-label">Цена</label>
             <input name="Price" id="Price" class="form-control" type="text" />
         </div>
-
-        <div class="form-group form-group-xs">
-            @Html.EnumDropDownListFor(model => model.CurrencyCode, null, new { @class = "form-control" })
-        </div>
-
+        
         <div class="form-group">
             <input type="submit" value="Добавить" class="btn btn-success" />
         </div>
