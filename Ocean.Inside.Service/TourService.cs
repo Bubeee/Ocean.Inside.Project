@@ -66,6 +66,11 @@ namespace Ocean.Inside.BLL
         public void EditTour(Tour tour)
         {
             this.tourRepository.Update(tour);
+            foreach (var checkIn in tour.CheckIns)
+            {
+                EditCheckIn(checkIn);
+            }
+
             this.SaveTour();
         }
 
@@ -73,6 +78,12 @@ namespace Ocean.Inside.BLL
         {
             this.checkInRepository.Add(checkIn);
             this.unitOfWork.Commit();
+        }
+
+        public void EditCheckIn(CheckIn checkIn)
+        {
+            this.checkInRepository.Update(checkIn);
+            this.SaveTour();
         }
 
         public void RemoveCheckIn(CheckIn checkIn)

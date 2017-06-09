@@ -36,7 +36,7 @@
 
                     </div>
                     <div class="offset-top-50">
-                        @Html.PagedListPager(Model, page => Url.Action("GroupTours", new { skip = page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                        @Html.PagedListPager(Model, page => Url.Action("HotelTours", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
                     </div>
                 </div>
             </div>

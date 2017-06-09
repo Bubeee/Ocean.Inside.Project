@@ -29,6 +29,11 @@
         <div class="form-group form-group-xs">
             <label for="StartDate" class="form-label">Дата</label>
             <input name="StartDate" id="StartDate" class="form-control" type="date" value="@Model.CheckIns.FirstOrDefault().Date.ToString("yyyy-MM-dd")" />
+            @for (var i = 0; i < Model.CheckIns.Count; i++)
+            {
+                @Html.HiddenFor(model => Model.CheckIns[i].Id);
+                @Html.HiddenFor(model => Model.CheckIns[i].TourId);
+            }
         </div>
 
         <div class="form-group form-group-xs">

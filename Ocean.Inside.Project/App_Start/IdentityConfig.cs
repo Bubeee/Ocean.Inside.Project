@@ -27,7 +27,7 @@
         {
             var composedSmtpMessage = new MailMessage();
             composedSmtpMessage.To.Add(message.Destination);
-            composedSmtpMessage.From = new MailAddress("okeanvnutry@gmail.com", "Yauheni Varkov, okeanvnutry.by");
+            composedSmtpMessage.From = new MailAddress("okeanvnutry@gmail.com", "Евгений Варков, okeanvnutry.by");
             composedSmtpMessage.Subject = message.Subject;
 
             var text = message.Body;
@@ -36,9 +36,10 @@
             composedSmtpMessage.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
 
             // change to actual client
-            var smtpClient = new SmtpClient("localhost", Convert.ToInt32(25));
-            //var credentials = new NetworkCredential(ConfigurationManager.AppSettings["mailAccount"], ConfigurationManager.AppSettings["mailPassword"]);
-            //smtpClient.Credentials = credentials;
+            var smtpClient = new SmtpClient(ConfigurationManager.AppSettings["smtpAddress"], int.Parse(ConfigurationManager.AppSettings["smtpPort"]));
+            var credentials = new NetworkCredential(ConfigurationManager.AppSettings["mailAddress"], ConfigurationManager.AppSettings["mailPassword"]);
+            smtpClient.Credentials = credentials;
+            smtpClient.EnableSsl = true;
 
             smtpClient.Send(composedSmtpMessage);
 

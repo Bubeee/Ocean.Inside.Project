@@ -33,7 +33,7 @@ namespace Ocean.Inside.Project.Controllers
             var model = Mapper.Map<Tour, TourViewModel>(this.tourService.GetTour(id));
             if (model != null)
             {
-                model.OtherTours = Mapper.Map<IEnumerable<Tour>, IEnumerable<GroupTourViewModel>>(this.tourService.GetManyTours(tour => tour.Id != id && tour.TourSteps.Any() == false).Take(5));
+                model.OtherTours = Mapper.Map<IEnumerable<Tour>, IEnumerable<TourViewModel>>(this.tourService.GetManyTours(tour => tour.Id != id && tour.TourSteps.Any() == false).Take(5));
 
                 return View(model);
             }
@@ -45,22 +45,22 @@ namespace Ocean.Inside.Project.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult HotelTours(int page = 1, int take = 20)
+        public ActionResult HotelTours(int? page, int take = 21)
         {
-            var model = this.tourService.GetManyTours(tour => tour.Hotel != null).Skip((page - 1) * take).Take(take);
+            var model = this.tourService.GetManyTours(tour => tour.Hotel != null);
             var mappedModel = Mapper.Map<IEnumerable<Tour>, IEnumerable<TourViewModel>>(model);
 
-            return View(mappedModel.ToPagedList(page, 20));
+            return View(mappedModel.ToPagedList(page ?? 1, take));
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult GroupTours(int page = 1, int take = 10)
+        public ActionResult GroupTours(int? page, int take = 10)
         {
-            var model = this.tourService.GetManyTours(tour => tour.Hotel == null).Skip((page - 1) * take).Take(take);
+            var model = this.tourService.GetManyTours(tour => tour.Hotel == null);
             var mappedModel = Mapper.Map<IEnumerable<Tour>, IEnumerable<GroupTourViewModel>>(model);
 
-            return View(mappedModel.ToPagedList(page, 20));
+            return View(mappedModel.ToPagedList(page ?? 1, take));
         }
 
         [HttpGet]
@@ -124,15 +124,10 @@ namespace Ocean.Inside.Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                tour.CheckIns = new List<CheckIn>
-                                    {
-                                        new CheckIn
-                                            {
-                                                Date = tour.StartDate
-                                            }
-                                    };
+                var tourEntity = Mapper.Map<TourViewModel, Tour>(tour);
+                tourEntity.CheckIns.First().Date = tour.StartDate;
 
-                this.tourService.EditTour(Mapper.Map<TourViewModel, Tour>(tour));
+                this.tourService.EditTour(tourEntity);
                 return this.RedirectToAction("HotelTours", "Tour");
             }
 

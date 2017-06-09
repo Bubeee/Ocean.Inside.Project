@@ -6,7 +6,7 @@
 
     using Domain.Entities;
 
-    public class OceanInsideSeedData : DropCreateDatabaseIfModelChanges<OceanInsideDbContext>
+    public class OceanInsideSeedData : CreateDatabaseIfNotExists<OceanInsideDbContext>
     {
         protected override void Seed(OceanInsideDbContext context)
         {

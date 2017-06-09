@@ -44,7 +44,7 @@
 
         public DateTime StartDate { get; set; }
 
-        public IEnumerable<CheckIn> CheckIns { get; set; }
+        public IList<CheckIn> CheckIns { get; set; }
 
         public IEnumerable<ImageViewModel> GalleryImages { get; set; }
 

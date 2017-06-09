@@ -18,6 +18,7 @@ namespace Ocean.Inside.BLL
 
 
         void AddCheckIn(CheckIn checkIn);
+        void EditCheckIn(CheckIn checkIn);
         void RemoveCheckIn(CheckIn checkIn);
 
         void AddWaste(Waste waste);

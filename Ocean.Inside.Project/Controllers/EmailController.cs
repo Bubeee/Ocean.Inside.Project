@@ -31,7 +31,7 @@ namespace Ocean.Inside.Project.Controllers
             this.UserManager.EmailService.SendAsync(new IdentityMessage
                                                         {
                                                             Body = "Встречай нового клиента! " + model.Number,
-                                                            Destination = "okeanvnutry@gmail.com",
+                                                            Destination = "voweer@gmail.com",
                                                             Subject = "Новый клиент"
                                                         });
 
