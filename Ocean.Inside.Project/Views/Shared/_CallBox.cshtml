@@ -1,4 +1,6 @@
-﻿<div class="offset-top-20 offset-md-top-40">
+﻿@model String
+
+<div class="offset-top-20 offset-md-top-40">
     <div id="recall" tabindex="-1" role="dialog" class="modal modal-custom fade text-center">
         <div role="document" class="modal-dialog">
             <div class="modal-content">
@@ -26,8 +28,9 @@
                                         @using (Ajax.BeginForm("SendRecallEmail", "Email", new AjaxOptions { HttpMethod = "Post", OnSuccess = "successHandler", OnFailure = "failureHandler"}))
                                         {
                                             <div class="form-group form-group-xs">
-                                                <label for="phoneNumber" class="form-label">Ваш номер...</label>
-                                                <input id="phoneNumber" type="text" name="phoneNumber" class="form-control">
+                                                <label for="Number" class="form-label">Ваш номер...</label>
+                                                <input id="Number" type="text" name="Number" class="form-control">
+                                                <input id="TourTitle" type="hidden" name="TourTitle" value="@Model">
                                             </div>
                                             <button type="submit" class="btn btn-block btn-primary">Перезвонить</button>
                                         }

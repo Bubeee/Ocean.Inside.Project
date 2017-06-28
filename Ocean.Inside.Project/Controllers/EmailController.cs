@@ -28,12 +28,15 @@ namespace Ocean.Inside.Project.Controllers
         [HttpPost]
         public ActionResult SendRecallEmail(AddPhoneNumberViewModel model)
         {
-            this.UserManager.EmailService.SendAsync(new IdentityMessage
-                                                        {
-                                                            Body = "Встречай нового клиента! " + model.Number,
-                                                            Destination = "voweer@gmail.com",
-                                                            Subject = "Новый клиент"
-                                                        });
+            this.UserManager.EmailService.SendAsync(
+                new IdentityMessage
+                    {
+                        Body =
+                            "Встречай нового клиента! " + model.Number + "\n\r" + "Тур: "
+                            + model.TourTitle,
+                        Destination = "voweer@gmail.com",
+                        Subject = "Новый клиент"
+                    });
 
             return RedirectToAction("Index", "Home");
         }

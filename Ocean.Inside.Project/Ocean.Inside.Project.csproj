@@ -296,9 +296,6 @@
     <Content Include="images\About\place-09-132x84.png" />
     <Content Include="images\About\Yauhen_mini.jpg" />
     <Content Include="images\Home\Turkish_main.jpg" />
-    <Content Include="images\Layout\1920x900.jpg" />
-    <Content Include="images\Layout\1920x900_1.jpg" />
-    <Content Include="images\Layout\1920x900_2.jpg" />
     <Content Include="images\Home\background-05-1920x900.jpg" />
     <Content Include="images\Home\background-06-1920x900.jpg" />
     <Content Include="images\Home\background-07-1920x900.jpg" />
@@ -316,6 +313,15 @@
     <Content Include="images\Layout\logo.jpg" />
     <Content Include="images\Layout\logo.png" />
     <Content Include="images\Layout\logo_2.jpg" />
+    <Content Include="images\Layout\main_background_slider_1.png" />
+    <Content Include="images\Layout\main_background_slider_2.png" />
+    <Content Include="images\Layout\main_background_slider_3.png" />
+    <Content Include="images\Layout\main_background_slider_4.png" />
+    <Content Include="images\Layout\main_background_slider_5.png" />
+    <Content Include="images\Layout\main_background_slider_6.png" />
+    <Content Include="images\Layout\main_background_slider_7.png" />
+    <Content Include="images\Layout\main_background_slider_8.png" />
+    <Content Include="images\Layout\main_background_slider_9.png" />
     <Content Include="images\Layout\phone.png" />
     <Content Include="images\Tours\Испания\1.jpg" />
     <Content Include="images\Tours\Испания\4.jpg" />

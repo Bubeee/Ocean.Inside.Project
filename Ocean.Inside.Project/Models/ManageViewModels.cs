@@ -69,6 +69,8 @@ namespace Ocean.Inside.Project.Models
         [Phone]
         [Display(Name = "Phone Number")]
         public string Number { get; set; }
+
+        public string TourTitle { get; set; }
     }
 
     public class VerifyPhoneNumberViewModel

@@ -7,6 +7,8 @@ using Ocean.Inside.Project.Models;
 
 namespace Ocean.Inside.Project.Controllers
 {
+    using System.Linq;
+
     public class HomeController : Controller
     {
         private readonly ITourService tourService;
@@ -23,7 +25,7 @@ namespace Ocean.Inside.Project.Controllers
                 TourViewModels = new List<TourViewModel>()
             };
 
-            foreach (var tour in this.tourService.GetTours())
+            foreach (var tour in this.tourService.GetManyTours(tour => tour.Wastes.Any() == false))
             {
                 model.TourViewModels.Add(Mapper.Map<Tour, TourViewModel>(tour));
             }
