@@ -34,7 +34,7 @@ namespace Ocean.Inside.Project.Controllers
                         Body =
                             "Встречай нового клиента! " + model.Number + "\n\r" + "Тур: "
                             + model.TourTitle,
-                        Destination = "voweer@gmail.com",
+                        Destination = "okeanvnutry@gmail.com",
                         Subject = "Новый клиент"
                     });
 

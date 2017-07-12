@@ -86,7 +86,7 @@
                                             <div class="cell-sm-6">
                                                 <div>
                                                     <p class="reveal-block text-small">
-                                                        <a href="#" class="text-gray">
+                                                        <a class="text-gray">
                                                             <span class="unit unit-horizontal unit-spacing-xs">
                                                                 <span class="unit-left">
                                                                     <img src="/images/Layout/icon-01-16x21.png" width="16" height="21" alt="" class="img-responsive center-block offset-top-4">
@@ -164,6 +164,7 @@
             </div>
         </footer>
     </div>
+
     <div id="form-output-global" class="snackbars"></div>
     <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp">
         <div class="pswp__bg"></div>
@@ -199,8 +200,28 @@
             </div>
         </div>
     </div>
+
+    <div id="map" style="height: 400px; width: 100%"></div>
+
     <script src="/js/core.min.js"></script>
     <script src="/js/script.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlnsjJLlThhNX_Jc5v3OwwSfSUXRNA49U&callback=initMap">
+    </script>
+
+    <script>
+        function initMap() {
+            var address = { lat: 53.9031779, lng: 27.5408612 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: address
+            });
+            var marker = new google.maps.Marker({
+                position: address,
+                map: map
+            });
+        }
+    </script>
 
     @RenderSection("scripts", required: false)
 </body>
