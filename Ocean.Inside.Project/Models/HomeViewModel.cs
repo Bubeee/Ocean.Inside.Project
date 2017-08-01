@@ -5,5 +5,7 @@
     public class HomeViewModel
     {
         public IList<TourViewModel> TourViewModels { get; set; }
+
+        public IList<CommentViewModel> Testimonials { get; set; }
     }
 }

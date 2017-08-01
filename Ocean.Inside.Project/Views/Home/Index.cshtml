@@ -74,7 +74,7 @@
                                                 <p class="text-small text-gray-base text-uppercase text-ubold">Профессионализм</p>
                                             </div>
                                             <div class="offset-top-4">
-                                                <p class="text-small text-silver-chalice">Наши сотрудники регулярно проходят обучениеб посещают рекламные туры.</p>
+                                                <p class="text-small text-silver-chalice">Наши сотрудники регулярно проходят обучение, посещают рекламные туры.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -137,7 +137,7 @@
             </div>
         </div>
     </section>
-    <section data-wow-delay=".2s" class="section-70 section-md-bottom-80 wow fadeIn">
+    @*<section data-wow-delay=".2s" class="section-70 section-md-bottom-80 wow fadeIn">
         <div class="shell">
             <div>
                 <h3>Отзывы наших клиентов</h3>
@@ -145,6 +145,12 @@
             <div class="offset-top-10">
                 <p>Отзывы о наших поездках</p>
             </div>
+
+            <div id="vk_comments"></div>
+            <script type="text/javascript">
+                VK.Widgets.Comments("vk_comments", { limit: 10, attach: "*" });
+            </script>
+
             <div class="range range-xs-center offset-top-40">
                 <div class="cell-md-10 cell-lg-12">
                     <div data-items="1" data-sm-items="2" data-lg-items="3" data-stage-padding="5" data-loop="false" data-margin="30" data-mouse-drag="false" data-dots="true" data-nav="true" class="owl-carousel owl-dots-primary">
@@ -161,51 +167,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="owl-item">
-                            <div class="team-member">
-                                <div class="team-member-img-wrap"><img src="/images/Home/icon-09-20x20.png" width="100" height="100" alt="" class="img-circle img-responsive center-block"></div>
-                                <div class="team-member-body">
-                                    <div class="offset-top-20">
-                                        <div class="team-member-title text-small text-ubold text-uppercase text-spacing-200 text-gray-base">Вероника Остин</div>
-                                    </div>
-                                    <div class="offset-top-20">
-                                        <p class="text-small text-italic text-silver-chalice">"Безмерно благодарна ребятам за незабываемый отдых. Мы жили просто в таком ритме, который хочется поддерживать и дальше. Куча новых открытий, один день интереснее другого. Когда в один день может происходить столько всего, что потом удивляешься, как вы вообще всё успели. Ребята позитивные, легки на подъём (немаловажное!). Я на день 5-6 осознала, что не думаю вообще ни о чём и не вспоминаю Беларусь. Это самое замечательное в путешествиях, когда погружаешься в них с головой - именно это и ждёт вас с этими ребятами. Мыслей и впечатлений очень много и не уверена, что смогу всё высказать! Я ни на секунду не пожалела."</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="team-member">
-                                <div class="team-member-img-wrap"><img src="/images/Home/icon-09-20x20.png" width="100" height="100" alt="" class="img-circle img-responsive center-block"></div>
-                                <div class="team-member-body">
-                                    <div class="offset-top-20">
-                                        <div class="team-member-title text-small text-ubold text-uppercase text-spacing-200 text-gray-base">Татьяна Лелявко</div>
-                                    </div>
-                                    <div class="offset-top-20">
-                                        <p class="text-small text-italic text-silver-chalice">"Синдром Гоа… теперь не просто слова для меня. Передать это сложно. Я не могу вам сказать, чем пахнет счастье, как выглядит умиротворение, вы не ощутите рай, пока не окажетесь там. Гоа меняет… Навсегда ! Вы только позвольте Ему это сделать… Не стоит ехать, чтобы просто посмотреть… почувствуйте его, вдохните, не суетитесь… Смотрите в глаза…прикасайтесь…слушайте ! Позвольте волнам унести грязь и тяжесть из вашей души, оставьте это там… на дне, и может тогда, чувствуя скорость, вы поймете - то не ветер шумит, а души вашей крылья. Позвольте себе разбудить Океан внутри ! Евгений и Наталья, спасибо Вам… За мой Океан внутри !!!."</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="team-member">
-                                <div class="team-member-img-wrap"><img src="/images/Home/icon-09-20x20.png" width="100" height="100" alt="" class="img-circle img-responsive center-block"></div>
-                                <div class="team-member-body">
-                                    <div class="offset-top-20">
-                                        <div class="team-member-title text-small text-ubold text-uppercase text-spacing-200 text-gray-base">Александр Жук</div>
-                                    </div>
-                                    <div class="offset-top-20">
-                                        <p class="text-small text-italic text-silver-chalice">"Гоа! Пьянящий запах свободы и отрешенности, другой мир, который манит, завораживает, заставляет изменить себя и пересмотреть свои жизненные ценности, меняет твое сознание и оставляет на всю жизнь отпечаток в твоем сердце. Эта поездка была очаровательна, бесподобна и незабываема. И все это благодаря замечательной компании людей, малознакомых, однако за этот короткий период ставших такими близкими! Поездка подарила огромную массу незабываемых впечатлений и ярких эмоций которыми я буду жить в ближайшем обозримом будущем. Спасибо Жене, он помог нам за то небольшое время максимально полно проникнуться бытом, культурой, жизнью этой самобытной земли. Боюсь без его советов и организаторских способностей мы б не смогли в полной мере ощутить что же это за терро инкогнито - Индия, что такое Гоа. Эта поездка была одна из самых незабываемых в моей жизни. Я уверен что рано или поздно, так или иначе я вернусь туда...)."</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-            @*<div class="offset-top-40"><a href="testimonials.html" class="btn btn-primary">View More</a></div>*@
+
+            <div class="offset-top-40"><a href="testimonials.html" class="btn btn-primary">View More</a></div>
         </div>
-    </section>
+    </section>*@
     <section class="section-80 section-md-bottom-70">
         <div class="shell">
             <div class="range range-xs-center">

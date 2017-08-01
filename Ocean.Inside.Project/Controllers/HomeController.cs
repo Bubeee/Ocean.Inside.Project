@@ -9,10 +9,13 @@ namespace Ocean.Inside.Project.Controllers
 {
     using System.Linq;
 
+    using VkNet;
+    using VkNet.Model.RequestParams;
+
     public class HomeController : Controller
     {
         private readonly ITourService tourService;
-
+        
         public HomeController(ITourService tourService)
         {
             this.tourService = tourService;
@@ -31,6 +34,26 @@ namespace Ocean.Inside.Project.Controllers
             }
 
             return View(model);
+        }
+
+        [Authorize]
+        public void GetTestimonials()
+        {
+            var api = new VkApi();
+            var comments = api.Board.GetComments(
+                new BoardGetCommentsParams { GroupId = 56790707, TopicId = 29636087, Count = 50, StartCommentId = 100, Extended = true }, true);
+
+            var items = comments.Items.Where(comment => comment.FromId > 0);
+            var testimonials = (from item in items
+                                  join user in comments.Profiles on item.FromId equals user.Id
+                                  select
+                                  new CommentViewModel
+                                  {
+                                      Id = item.Id,
+                                      Text = item.Text,
+                                      PhotoUrl = user.Photo50.AbsoluteUri
+                                  }).ToList();
+
         }
 
         public ActionResult About()

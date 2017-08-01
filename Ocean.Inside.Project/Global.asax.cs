@@ -7,6 +7,9 @@ using FluentValidation.Mvc;
 
 namespace Ocean.Inside.Project
 {
+    using System;
+    using System.Web;
+
     using DAL.DataGeneration;
 
     public class MvcApplication : System.Web.HttpApplication
@@ -22,6 +25,25 @@ namespace Ocean.Inside.Project
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             Bootstrapper.Run();
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+            if (ex is HttpException)
+            {
+                if (((HttpException)(ex)).GetHttpCode() == 404)
+                {
+                    Response.Redirect("/Error/PageNotFound");
+                }
+                if (((HttpException)(ex)).GetHttpCode() == 503)
+                {
+
+                    Response.Redirect("/Error/InternalServerError");
+                }
+            }
+
+            Response.Redirect("/Error/Index");
         }
     }
 }

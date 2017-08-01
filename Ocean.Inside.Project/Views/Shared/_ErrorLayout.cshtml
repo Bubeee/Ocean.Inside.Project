@@ -52,16 +52,14 @@
                     </div>
                 </nav>
             </div>
-            @if (Request?.Url?.ToString().Contains("account") == false
-                && Request.Url.ToString().Contains("Error") == false)
+            @if (Request.Url == null || Request.Url.ToString().Contains("Auth") == false)
             {
                 @Html.Partial("_HeaderSliderPartial")
             }
         </header>
 
-
         @RenderBody()
-        
+
         <!-- VK Widget -->
         <div align="center">
             <div id="vk_groups"></div>
