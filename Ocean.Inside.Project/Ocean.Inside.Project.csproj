@@ -415,10 +415,6 @@
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Error.cshtml" />
@@ -426,7 +422,9 @@
     <Content Include="Views\Tour\_TourItem.cshtml" />
     <Content Include="Views\Tour\_GroupTourItem.cshtml" />
     <Content Include="Views\Tour\_GroupTourStepItem.cshtml" />
-    <Content Include="Views\Shared\_ErrorLayout.cshtml" />
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -243,3 +243,5 @@ ModelManifest.xml
 .fake/
 /Ocean.Inside.Project/images/Tours
 /Ocean.Inside.Project/Properties/PublishProfiles/ocean-inside - Web Deploy.pubxml
+Ocean.Inside.Project/Web.Release.config
+Ocean.Inside.Project/Web.Debug.config
