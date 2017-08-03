@@ -349,6 +349,7 @@
     <Content Include="images\Tours\Испания\5.jpg" />
     <Content Include="images\Tours\Испания\6.jpg" />
     <Content Include="images\Tours\Испания\7.jpg" />
+    <Content Include="robots.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="js\core.min.js" />
@@ -390,8 +391,8 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\_404.cshtml" />
-    <Content Include="Views\Shared\_503.cshtml" />
+    <Content Include="Views\Error\_404.cshtml" />
+    <Content Include="Views\Error\_503.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_HotelTourItem.cshtml" />
@@ -417,7 +418,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Error.cshtml" />
+    <Content Include="Views\Error\_Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Tour\_TourItem.cshtml" />
     <Content Include="Views\Tour\_GroupTourItem.cshtml" />
@@ -433,7 +434,6 @@
     <Folder Include="images\Visas\" />
     <Folder Include="Views\Blog\" />
     <Folder Include="Views\Email\" />
-    <Folder Include="Views\Error\" />
     <Folder Include="Views\Gallery\" />
   </ItemGroup>
   <ItemGroup>
@@ -453,6 +453,9 @@
       <Project>{3FD04866-D0E2-456D-91FE-172332499E2E}</Project>
       <Name>Ocean.Inside.BLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -33,22 +33,28 @@ namespace Ocean.Inside.Project.Controllers
             var model = Mapper.Map<Tour, TourViewModel>(this.tourService.GetTour(id));
             if (model != null)
             {
-                model.OtherTours = Mapper.Map<IEnumerable<Tour>, IEnumerable<TourViewModel>>(this.tourService.GetManyTours(tour => tour.Id != id && tour.TourSteps.Any() == false).Take(5));
+                model.OtherTours =
+                    Mapper.Map<IEnumerable<Tour>, IEnumerable<TourViewModel>>(
+                        this.tourService.GetManyTours(tour => tour.Id != id && tour.TourSteps.Any() == false).Take(5));
 
                 return View(model);
             }
 
-            Response.StatusCode = 404;
-
-            return View("404");
+            return this.RedirectToAction("PageNotFound", "Error");
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult HotelTours(int? page, int take = 21)
+        public ActionResult HotelTours(int? page, int take = 21, string sort = "date")
         {
+            this.ViewBag.Sort = sort;
             var model = this.tourService.GetManyTours(tour => tour.Hotel != null);
             var mappedModel = Mapper.Map<IEnumerable<Tour>, IEnumerable<TourViewModel>>(model);
+
+            if (sort != "date")
+            {
+                mappedModel = mappedModel.OrderBy(viewModel => viewModel.Title);
+            }
 
             return View(mappedModel.ToPagedList(page ?? 1, take));
         }
@@ -75,9 +81,7 @@ namespace Ocean.Inside.Project.Controllers
                 return this.View(model);
             }
 
-            this.Response.StatusCode = 404;
-
-            return View("404");
+            return this.RedirectToAction("PageNotFound", "Error");
         }
 
         [HttpGet]

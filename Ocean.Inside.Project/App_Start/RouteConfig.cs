@@ -8,13 +8,7 @@ namespace Ocean.Inside.Project
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-            routes.MapRoute(
-                "Tours",
-                "Tours/{action}",
-                new { controller = "Tours", action = "AllTours" }
-            );
-
+            
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

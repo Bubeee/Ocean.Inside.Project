@@ -1,6 +1,18 @@
 ﻿@using PagedList.Mvc
 @model PagedList.IPagedList<Ocean.Inside.Project.Models.TourViewModel>
 
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sort").change(function () {
+                var form = this.form;
+                form.submit();
+            });
+        });
+    </script>
+}
+
 <main class="page-content">
     <section class="section-80 bg-wild-wand">
         <div class="shell">
@@ -13,10 +25,13 @@
                                     <p class="text-extra-small text-uppercase text-gray-base">Сортировать:</p>
                                 </div>
                                 <div class="pull-right shadow-drop-xs reveal-inline-block select-xs">
-                                    <select data-minimum-results-for-search="Infinity" data-constraints="@@Required" class="form-control select-filter">
-                                        <option value="2">Популярные</option>
-                                        <option value="3">Новые</option>
-                                    </select>
+                                    @using (Html.BeginForm("HotelTours", "Tour", FormMethod.Get))
+                                    {
+                                        <select name="sort" id="sort" data-minimum-results-for-search="Infinity" data-constraints="@@Required" class="form-control select-filter">
+                                            <option selected="@(ViewBag.Sort == "date")" value="date">По свежести</option>
+                                            <option selected="@(ViewBag.Sort == "country")" value="country">По странам</option>
+                                        </select>
+                                    }
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -42,4 +57,5 @@
             </div>
         </div>
     </section>
+
 </main>

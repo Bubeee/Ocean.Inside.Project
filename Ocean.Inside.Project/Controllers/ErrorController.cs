@@ -10,10 +10,12 @@ namespace Ocean.Inside.Project.Controllers
         }
         public ActionResult PageNotFound()
         {
+            Response.StatusCode = 404;
             return View("_404");
         }
         public ActionResult InternalServerError()
         {
+            Response.StatusCode = 503;
             return View("_503");
         }
     }
