@@ -54,6 +54,15 @@
     <Compile Include="Infrastructure\DbFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IDbFactory.cs" />
+    <Compile Include="Migrations\201705222024371_InitialCreate.cs" />
+    <Compile Include="Migrations\201705222024371_InitialCreate.Designer.cs">
+      <DependentUpon>201705222024371_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708032235377_Create testimonials table.cs" />
+    <Compile Include="Migrations\201708032235377_Create testimonials table.Designer.cs">
+      <DependentUpon>201708032235377_Create testimonials table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OceanInsideDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
@@ -61,12 +70,14 @@
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\ICheckInRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\IStepRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\ITestimonialRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\IWasteRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\IImageRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\StepRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\CheckInRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\ImageRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\ITourRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\TestimonialRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\TourRepository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="DataGeneration\OceanInsideSeedData.cs" />
@@ -84,6 +95,14 @@
       <Project>{3DA9E597-566B-4F8A-BFF3-1F585C89B839}</Project>
       <Name>Ocean.Inside.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705222024371_InitialCreate.resx">
+      <DependentUpon>201705222024371_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708032235377_Create testimonials table.resx">
+      <DependentUpon>201708032235377_Create testimonials table.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

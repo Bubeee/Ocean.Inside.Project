@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Ocean.Inside.DAL.DbConfiguration;
+
 using FluentValidation.Mvc;
 
 namespace Ocean.Inside.Project
@@ -12,7 +12,7 @@ namespace Ocean.Inside.Project
 
     using DAL.DataGeneration;
 
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {

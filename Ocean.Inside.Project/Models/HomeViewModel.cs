@@ -6,6 +6,6 @@
     {
         public IList<TourViewModel> TourViewModels { get; set; }
 
-        public IList<CommentViewModel> Testimonials { get; set; }
+        public IList<TestimonialViewModel> Testimonials { get; set; }
     }
 }

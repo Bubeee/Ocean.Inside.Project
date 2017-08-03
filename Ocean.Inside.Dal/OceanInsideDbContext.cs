@@ -13,6 +13,7 @@ namespace Ocean.Inside.DAL
         public DbSet<TourStep> TourSteps { get; set; }
         public DbSet<CheckIn> CheckIns { get; set; }
         public DbSet<Waste> Wastes { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
 
         public virtual void Commit()
         {

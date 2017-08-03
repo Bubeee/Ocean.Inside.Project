@@ -137,10 +137,10 @@
             </div>
         </div>
     </section>
-    @*<section data-wow-delay=".2s" class="section-70 section-md-bottom-80 wow fadeIn">
+    <section data-wow-delay=".2s" class="section-70 section-md-bottom-80 wow fadeIn">
         <div class="shell">
             <div>
-                <h3>Отзывы наших клиентов</h3>
+                <h2>Отзывы наших клиентов</h2>
             </div>
             <div class="offset-top-10">
                 <p>Отзывы о наших поездках</p>
@@ -153,27 +153,30 @@
 
             <div class="range range-xs-center offset-top-40">
                 <div class="cell-md-10 cell-lg-12">
-                    <div data-items="1" data-sm-items="2" data-lg-items="3" data-stage-padding="5" data-loop="false" data-margin="30" data-mouse-drag="false" data-dots="true" data-nav="true" class="owl-carousel owl-dots-primary">
-                        <div class="owl-item">
-                            <div class="team-member">
-                                <div class="team-member-img-wrap"><img src="/images/Home/icon-09-20x20.png" width="100" height="100" alt="" class="img-circle img-responsive center-block"></div>
-                                <div class="team-member-body">
-                                    <div class="offset-top-20">
-                                        <div class="team-member-title text-small text-ubold text-uppercase text-spacing-200 text-gray-base">Аня Данисевич</div>
-                                    </div>
-                                    <div class="offset-top-20">
-                                        <p class="text-small text-italic text-silver-chalice">"Огромное спасибо за прекрасно организованный и в то же время совершенно непредсказуемый отдых на ГОА. Индия не оставила равнодушным никого из нашей группы. Принцип Шанти-шанти действовал на протяжении всего отдыха. Ничего не планируй, что суждено, то сбудется, поэтому раслабьтесь и не переживайте. Приключения ждали нас каждый день. Это был лучший отдых в моей жизни. Я люблю движение, люблю все новое, поэтому схема- пляж -отель -ресторан не для меня. Наш отдых был активным, познавательным, но в то же время очень комфортным. Огромное спасибо Яне, жене, Илье за неповторимую атмосферу праздника. Вы перевернули мой взгляд на путешествия. Моя жизнь уже не будет прежней. Хочу снова с вами, хоть на край земли...Скучаю. до новых встреч."</p>
+                    <div data-items="1" data-sm-items="2" data-lg-items="3" data-stage-padding="5" data-loop="false" data-margin="30" data-mouse-drag="true" data-dots="true" data-nav="true" class="owl-carousel owl-dots-primary">
+                        @foreach (var testimonialViewModel in Model.Testimonials)
+                        {
+                            <div class="owl-item" id="@testimonialViewModel.Id">
+                                <div class="team-member">
+                                    <div class="team-member-img-wrap"><img src="@testimonialViewModel.PhotoUrl" width="100" height="100" alt="" class="img-circle img-responsive center-block"></div>
+                                    <div class="team-member-body">
+                                        <div class="offset-top-20">
+                                            <div class="team-member-title text-small text-ubold text-uppercase text-spacing-200 text-gray-base">@testimonialViewModel.Name</div>
+                                        </div>
+                                        <div class="offset-top-20">
+                                            <p class="text-small text-italic text-silver-chalice">@testimonialViewModel.Text</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>
 
-            <div class="offset-top-40"><a href="testimonials.html" class="btn btn-primary">View More</a></div>
+            @*<div class="offset-top-40"><a href="testimonials.html" class="btn btn-primary">View More</a></div>*@
         </div>
-    </section>*@
+    </section>
     <section class="section-80 section-md-bottom-70">
         <div class="shell">
             <div class="range range-xs-center">

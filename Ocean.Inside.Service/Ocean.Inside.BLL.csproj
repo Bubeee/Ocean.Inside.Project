@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="IImageService.cs" />
     <Compile Include="ImageService.cs" />
+    <Compile Include="Services\Implementations\TestimonialService.cs" />
+    <Compile Include="Services\Interfaces\ITestimonialService.cs" />
     <Compile Include="TourService.cs" />
     <Compile Include="ITourService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
