@@ -10,7 +10,6 @@ namespace Ocean.Inside.DAL.DbConfiguration
         {
             ToTable("Image");
             Property(image => image.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(image => image.TourId).IsRequired();
             Property(image => image.Path).IsRequired();
         }
     }

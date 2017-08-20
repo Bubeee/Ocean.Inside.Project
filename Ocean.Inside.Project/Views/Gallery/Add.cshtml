@@ -1,0 +1,22 @@
+﻿@model Ocean.Inside.Project.Models.GalleryItemViewModel
+@{
+    ViewBag.Title = "Добавить коллаж";
+}
+
+<main class="page-content">
+    <h2>Добавить коллаж</h2>
+    <section class="section-45">
+        <div class="box bg-white" style="min-width: 45%">
+            <form method="post" action="@Url.Action("Add")" class="text-center">
+
+                <div class="form-group form-group-xs">
+                    <label for="Name" class="form-label">Заголовок</label>
+                    <input name="Name" id="Name" class="form-control" type="text" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Добавить" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </section>
+</main>

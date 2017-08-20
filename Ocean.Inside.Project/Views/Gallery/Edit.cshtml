@@ -1,0 +1,30 @@
+﻿@model Ocean.Inside.Project.Models.GalleryItemViewModel
+@{
+    ViewBag.Title = "Редактировать набор";
+}
+
+<section>
+    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <a class="glyphicon glyphicon-plus" href="@Url.Action("AddImage", "Gallery", new { id = Model.Id })" alt="Добавить фото" title="Добавить фото"></a>
+    }
+    <div data-photo-swipe-gallery="gallery" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="5" data-stage-padding="20" data-loop="true" data-margin="6" data-mouse-drag="false" data-dots="true" data-nav="true" class="owl-carousel owl-carusel-inset-bottom owl-nav-type-3 owl-dots-primary">
+        @foreach (var image in Model.Images)
+            {
+            <div class="owl-item">
+                <a data-photo-swipe-item="" data-size="1170x780" href="@Url.Content(image.Path)" class="thumbnail-rayen">
+                    <span class="figure">
+                        <img width="370" height="310" src="@Url.Content(image.Path)" alt="" class="img-responsive center-block">
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <a class="glyphicon glyphicon-minus" href="@Url.Action("RemoveImage", "Gallery", image)" alt="Удалить фото" title="Удалить фото"></a>
+                        }
+                        <span class="figcaption">
+                            <span class="icon icon-xl fa fa-search-plus text-white"></span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+        }
+    </div>
+</section>

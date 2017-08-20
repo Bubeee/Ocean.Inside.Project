@@ -41,12 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IImageService.cs" />
-    <Compile Include="ImageService.cs" />
+    <Compile Include="Services\Interfaces\IImageService.cs" />
+    <Compile Include="Services\Implementations\ImageService.cs" />
+    <Compile Include="Services\Implementations\StepService.cs" />
+    <Compile Include="Services\Implementations\WasteService.cs" />
+    <Compile Include="Services\Implementations\CheckInService.cs" />
+    <Compile Include="Services\Implementations\GalleryService.cs" />
     <Compile Include="Services\Implementations\TestimonialService.cs" />
+    <Compile Include="Services\Interfaces\IStepService.cs" />
+    <Compile Include="Services\Interfaces\IWasteService.cs" />
+    <Compile Include="Services\Interfaces\ICheckInService.cs" />
+    <Compile Include="Services\Interfaces\IGalleryService.cs" />
     <Compile Include="Services\Interfaces\ITestimonialService.cs" />
-    <Compile Include="TourService.cs" />
-    <Compile Include="ITourService.cs" />
+    <Compile Include="Services\Implementations\TourService.cs" />
+    <Compile Include="Services\Interfaces\ITourService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

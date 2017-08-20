@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Entities\CheckIn.cs" />
     <Compile Include="Entities\CurrencyCode.cs" />
+    <Compile Include="Entities\GalleryItem.cs" />
     <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\Testimonial.cs" />
     <Compile Include="Entities\TourStep.cs" />

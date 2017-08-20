@@ -7,8 +7,7 @@ namespace Ocean.Inside.Project.Controllers
 
     using AutoMapper;
 
-    using BLL;
-
+    using Ocean.Inside.BLL.Services.Interfaces;
     using Ocean.Inside.Domain.Entities;
     using Ocean.Inside.Project.Models;
 

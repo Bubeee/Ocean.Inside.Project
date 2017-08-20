@@ -8,6 +8,8 @@ using Ocean.Inside.DAL.Repositories.RepositoryInterfaces;
 
 namespace Ocean.Inside.Project
 {
+    using Ocean.Inside.BLL.Services.Implementations;
+
     public class Bootstrapper
     {
         public static void Run()

@@ -1,9 +1,9 @@
-﻿namespace Ocean.Inside.BLL
+﻿namespace Ocean.Inside.BLL.Services.Implementations
 {
     using System.Collections.Generic;
-    using System.Configuration;
     using System.IO;
 
+    using Ocean.Inside.BLL.Services.Interfaces;
     using Ocean.Inside.DAL.Infrastructure;
     using Ocean.Inside.DAL.Repositories.RepositoryInterfaces;
     using Ocean.Inside.Domain.Entities;
@@ -31,7 +31,7 @@
 
         public void SaveImage()
         {
-            unitOfWork.Commit();
+            this.unitOfWork.Commit();
         }
 
 
@@ -39,16 +39,16 @@
         {
             File.Delete(image.Path);
             this.imageRepository.Delete(image);
-            unitOfWork.Commit();
+            this.unitOfWork.Commit();
         }
 
         public void RemoveImages(int tourId)
         {
-            foreach (var image in GetImages(tourId))
+            foreach (var image in this.GetImages(tourId))
             {
                 this.imageRepository.Delete(image);
             }
-            unitOfWork.Commit();
+            this.unitOfWork.Commit();
 
             //var folderPath = ConfigurationManager.AppSettings["toursImageRoot"] + tourId;
             //Directory.Delete(folderPath);

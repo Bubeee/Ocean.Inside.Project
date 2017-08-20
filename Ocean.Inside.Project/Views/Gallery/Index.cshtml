@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Ocean.Inside.Project.Models.GalleryItemViewModel>
+
+@{
+    ViewBag.Title = "Галерея";
+}
+
+<br />
+
+<main class="page-content">
+    <h2>Галерея</h2>
+    <section>
+
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <a class="glyphicon glyphicon-plus" href="@Url.Action("Add", "Gallery")" alt="Добавить коллаж" title="Добавить"></a>
+        }
+        <div data-photo-swipe-gallery="gallery" class="range range-condensed range-xs-center range-sm-left">
+            @foreach (var item in Model)
+            {
+                <div class="cell-xs-6 cell-md-4 cell-lg-3">
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="glyphicon glyphicon-edit" href="@Url.Action("Edit", "Gallery", new { id = item.Id})" alt="Редактировать набор" title="Редактировать"></a>
+                        <a class="glyphicon glyphicon-minus" href="@Url.Action("Remove", "Gallery", new { id = item.Id })" alt="Удалить фото" title="Удалить фото"></a>
+                    }
+                    <a data-photo-swipe-item="" data-size="1170x780" href="@item.MainImage.Path" data-author="@item.Name" class="thumbnail-classic thumbnail-classic-fullwidth">
+                        <span class="figure">
+                            <img width="370" height="240" src="@item.MainImage.Path" alt="@item.Name" style="max-height: 240px">
+
+                            <span class="figcaption text-left">
+                                <span class="text-ubold text-white">@item.Name</span>
+                            </span>
+                        </span>
+                    </a>
+                    @foreach (var imageViewModel in item.Images)
+                    {
+                        <a data-photo-swipe-item="" data-author="@item.Name" data-size="1170x780" href="@Url.Content(imageViewModel.Path)"></a>
+                    }
+                </div>
+            }
+        </div>
+    </section>
+</main>
+
+<br /><br />

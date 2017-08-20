@@ -62,13 +62,31 @@
     <Compile Include="Migrations\201708032235377_Create testimonials table.Designer.cs">
       <DependentUpon>201708032235377_Create testimonials table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708071444536_Adding Gallery.cs" />
+    <Compile Include="Migrations\201708071444536_Adding Gallery.Designer.cs">
+      <DependentUpon>201708071444536_Adding Gallery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091221552_Adding Gallery v2.cs" />
+    <Compile Include="Migrations\201708091221552_Adding Gallery v2.Designer.cs">
+      <DependentUpon>201708091221552_Adding Gallery v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091230354_Adding Gallery v3.cs" />
+    <Compile Include="Migrations\201708091230354_Adding Gallery v3.Designer.cs">
+      <DependentUpon>201708091230354_Adding Gallery v3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091304175_Adding Gallery v4.cs" />
+    <Compile Include="Migrations\201708091304175_Adding Gallery v4.Designer.cs">
+      <DependentUpon>201708091304175_Adding Gallery v4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OceanInsideDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\GalleryRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\ICheckInRepository.cs" />
+    <Compile Include="Repositories\RepositoryInterfaces\IGalleryRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\IStepRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\ITestimonialRepository.cs" />
     <Compile Include="Repositories\RepositoryInterfaces\IWasteRepository.cs" />
@@ -102,6 +120,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708032235377_Create testimonials table.resx">
       <DependentUpon>201708032235377_Create testimonials table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708071444536_Adding Gallery.resx">
+      <DependentUpon>201708071444536_Adding Gallery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091221552_Adding Gallery v2.resx">
+      <DependentUpon>201708091221552_Adding Gallery v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091230354_Adding Gallery v3.resx">
+      <DependentUpon>201708091230354_Adding Gallery v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091304175_Adding Gallery v4.resx">
+      <DependentUpon>201708091304175_Adding Gallery v4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

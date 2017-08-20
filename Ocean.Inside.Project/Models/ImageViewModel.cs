@@ -5,8 +5,10 @@
     public class ImageViewModel
     {
         public int Id { get; set; }
-        public int TourId { get; set; }
+        public int? TourId { get; set; }
         public string Path { get; set; }
+
+        public int? GalleryItemId { get; set; }
 
         public HttpPostedFileBase ImageRaw { get; set; }
     }

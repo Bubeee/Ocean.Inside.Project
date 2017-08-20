@@ -231,6 +231,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapping\GalleryItemMappingProfile.cs" />
     <Compile Include="Mapping\TestimonialMappingProfile.cs" />
     <Compile Include="Mapping\WasteMappingProfile.cs" />
     <Compile Include="Mapping\CheckInMappingProfile.cs" />
@@ -240,6 +241,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\GalleryItemViewModel.cs" />
     <Compile Include="Models\TestimonialViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\CheckInViewModel.cs" />
@@ -424,6 +426,10 @@
     <Content Include="Views\Tour\_TourItem.cshtml" />
     <Content Include="Views\Tour\_GroupTourItem.cshtml" />
     <Content Include="Views\Tour\_GroupTourStepItem.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Gallery\Edit.cshtml" />
+    <Content Include="Views\Gallery\Add.cshtml" />
+    <Content Include="Views\Gallery\AddImage.cshtml" />
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -435,7 +441,6 @@
     <Folder Include="images\Visas\" />
     <Folder Include="Views\Blog\" />
     <Folder Include="Views\Email\" />
-    <Folder Include="Views\Gallery\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

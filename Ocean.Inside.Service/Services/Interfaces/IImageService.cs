@@ -1,8 +1,8 @@
-﻿namespace Ocean.Inside.BLL
+﻿namespace Ocean.Inside.BLL.Services.Interfaces
 {
     using System.Collections.Generic;
 
-    using Domain.Entities;
+    using Ocean.Inside.Domain.Entities;
 
     public interface IImageService
     {

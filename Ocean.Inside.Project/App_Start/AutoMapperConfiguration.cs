@@ -15,6 +15,7 @@ namespace Ocean.Inside.Project
                 config.AddProfile<CheckInMappingProfile>();
                 config.AddProfile<WasteMappingProfile>();
                 config.AddProfile<TestimonialMappingProfile>();
+                config.AddProfile<GalleryItemMappingProfile>();
             });
         }
     }
