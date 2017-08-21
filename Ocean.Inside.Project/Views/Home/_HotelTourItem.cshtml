@@ -5,7 +5,7 @@
     <div data-wow-delay=".2s" class="box-offer wow bounceIn">
         <div class="box-offer-img-wrap">
             <a href="@Url.Action("HotelTour", "Tour", new { id = Model.Id })">
-            <img src="@Model.CoverImage.Path" width="370" height="310" alt="" class="img-responsive center-block">
+            <img src="@Model.CoverImage.Path" alt="Тур @Model.CoverImage.TourId" class="img-responsive center-block image-main">
             </a>
         </div>
         <div class="box-offer-caption text-left">

@@ -245,3 +245,6 @@ ModelManifest.xml
 /Ocean.Inside.Project/Properties/PublishProfiles/ocean-inside - Web Deploy.pubxml
 Ocean.Inside.Project/Web.Release.config
 Ocean.Inside.Project/Web.Debug.config
+
+
+Ocean.Inside.Project/Properties/PublishProfiles
