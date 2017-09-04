@@ -9,6 +9,7 @@ using Ocean.Inside.DAL.Repositories.RepositoryInterfaces;
 namespace Ocean.Inside.Project
 {
     using Ocean.Inside.BLL.Services.Implementations;
+    using Ocean.Inside.Project.Utils;
 
     public class Bootstrapper
     {
@@ -24,6 +25,7 @@ namespace Ocean.Inside.Project
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
             builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
+            builder.RegisterType<SiteMapBuilder>().AsSelf();
 
             // Repositories
             builder.RegisterAssemblyTypes(typeof(TourRepository).Assembly)

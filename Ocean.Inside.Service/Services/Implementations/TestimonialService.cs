@@ -32,5 +32,11 @@
         {
             unitOfWork.Commit();
         }
+
+        public void DeleteAll()
+        {
+            this.testimonialRepository.Delete(testimonial => true);
+            this.unitOfWork.Commit();
+        }
     }
 }

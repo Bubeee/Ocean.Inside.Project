@@ -10,6 +10,8 @@
         
         void AddTestimonial(Testimonial testimonial);
 
+        void DeleteAll();
+
         void Save();
     }
 }

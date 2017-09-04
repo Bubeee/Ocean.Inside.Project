@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocean.Inside.Project", "Ocean.Inside.Project\Ocean.Inside.Project.csproj", "{1A20111D-A381-42EA-AD2D-87EDDA3B5341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocean.Inside.Project.Tests", "Ocean.Inside.Project.Tests\Ocean.Inside.Project.Tests.csproj", "{986C3115-AB26-4E9E-8990-967695CAD725}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocean.Inside.Domain", "Ocean.Inside.Domain\Ocean.Inside.Domain.csproj", "{3DA9E597-566B-4F8A-BFF3-1F585C89B839}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocean.Inside.DAL", "Ocean.Inside.Dal\Ocean.Inside.DAL.csproj", "{90930C2E-678A-4ECC-92B6-D9655F14D260}"
@@ -23,10 +21,6 @@ Global
 		{1A20111D-A381-42EA-AD2D-87EDDA3B5341}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A20111D-A381-42EA-AD2D-87EDDA3B5341}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A20111D-A381-42EA-AD2D-87EDDA3B5341}.Release|Any CPU.Build.0 = Release|Any CPU
-		{986C3115-AB26-4E9E-8990-967695CAD725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{986C3115-AB26-4E9E-8990-967695CAD725}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{986C3115-AB26-4E9E-8990-967695CAD725}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{986C3115-AB26-4E9E-8990-967695CAD725}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3DA9E597-566B-4F8A-BFF3-1F585C89B839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3DA9E597-566B-4F8A-BFF3-1F585C89B839}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DA9E597-566B-4F8A-BFF3-1F585C89B839}.Release|Any CPU.ActiveCfg = Release|Any CPU
