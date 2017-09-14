@@ -150,7 +150,6 @@ namespace Ocean.Inside.Project.Controllers
             if (this.ModelState.IsValid)
             {
                 this.tourService.CreateTour(Mapper.Map<GroupTourViewModel, Tour>(model));
-                this.tourService.SaveTour();
 
                 return this.RedirectToAction("GroupTours", "Tour");
             }
@@ -223,7 +222,6 @@ namespace Ocean.Inside.Project.Controllers
                 tour.CheckIns = new List<CheckIn> { new CheckIn { Date = tour.StartDate } };
 
                 this.tourService.CreateTour(Mapper.Map<TourViewModel, Tour>(tour));
-                this.tourService.SaveTour();
 
                 return this.RedirectToAction("HotelTours", "Tour");
             }
@@ -500,22 +498,46 @@ namespace Ocean.Inside.Project.Controllers
         public ActionResult RemoveCheckIn(CheckInViewModel checkIn)
         {
             this.checkInService.RemoveCheckIn(Mapper.Map<CheckInViewModel, CheckIn>(checkIn));
+            this.checkInService.CommitChanges();
             return this.RedirectToAction("GroupTour", new { id = checkIn.TourId });
         }
 
         /// <summary>
         /// The remove group tour.
         /// </summary>
-        /// <param name="tour">
+        /// <param name="id">
         /// The tour.
         /// </param>
         /// <returns>
         /// The <see cref="ActionResult"/>.
         /// </returns>
-        public ActionResult RemoveGroupTour(GroupTourViewModel tour)
+        public ActionResult RemoveGroupTour(int id)
         {
-            this.tourService.RemoveTour(Mapper.Map<GroupTourViewModel, Tour>(tour));
-            this.imageService.RemoveImages(tour.Id);
+            var tour = this.tourService.GetTour(id);
+            
+            foreach (var tourGalleryImage in tour.GalleryImages)
+            {
+                tourGalleryImage.Path = this.Server.MapPath(tourGalleryImage.Path);
+                this.imageService.RemoveImage(tourGalleryImage);
+            }
+            
+            foreach (var tourCheckIn in tour.CheckIns)
+            {
+                this.checkInService.RemoveCheckIn(tourCheckIn);
+            }
+
+            foreach (var tourTourStep in tour.TourSteps)
+            {
+                this.stepService.RemoveStep(tourTourStep);
+            }
+
+            foreach (var tourWaste in tour.Wastes)
+            {
+                this.wasteService.RemoveWaste(tourWaste);
+            }
+
+            this.tourService.RemoveTour(tour);
+            this.tourService.CommitChanges();
             return this.RedirectToAction("GroupTours", "Tour");
         }
 
@@ -533,6 +555,7 @@ namespace Ocean.Inside.Project.Controllers
             var imageEntity = Mapper.Map<ImageViewModel, Image>(image);
             imageEntity.Path = this.Server.MapPath(image.Path);
             this.imageService.RemoveImage(imageEntity);
+            this.imageService.CommitChanges();
             return this.RedirectToAction("GroupTour", new { id = image.TourId });
         }
 
@@ -548,13 +571,14 @@ namespace Ocean.Inside.Project.Controllers
         public ActionResult RemoveStep(TourStepViewModel model)
         {
             this.stepService.RemoveStep(Mapper.Map<TourStepViewModel, TourStep>(model));
+            this.stepService.CommitChanges();
             return this.RedirectToAction("GroupTour", new { id = model.TourId });
         }
 
         /// <summary>
         /// The remove tour.
         /// </summary>
-        /// <param name="tour">
+        /// <param name="id">
         /// The tour.
         /// </param>
         /// <returns>
@@ -563,10 +587,24 @@ namespace Ocean.Inside.Project.Controllers
         [HttpGet]
 
         // [Authorize]
-        public ActionResult RemoveTour(TourViewModel tour)
+        public ActionResult RemoveTour(int id)
         {
-            this.tourService.RemoveTour(Mapper.Map<TourViewModel, Tour>(tour));
-            this.imageService.RemoveImages(tour.Id);
+            var tour = this.tourService.GetTour(id);
+
+            foreach (var tourGalleryImage in tour.GalleryImages.ToList())
+            {
+                tourGalleryImage.Path = this.Server.MapPath(tourGalleryImage.Path);
+                this.imageService.RemoveImage(tourGalleryImage);
+            }
+
+            foreach (var tourCheckIn in tour.CheckIns.ToList())
+            {
+                this.checkInService.RemoveCheckIn(tourCheckIn);
+            }
+
+            this.tourService.RemoveTour(tour);
+            this.tourService.CommitChanges();
+
             return this.RedirectToAction("HotelTours", "Tour");
         }
 
@@ -584,6 +622,7 @@ namespace Ocean.Inside.Project.Controllers
             var imageEntity = Mapper.Map<ImageViewModel, Image>(image);
             imageEntity.Path = this.Server.MapPath(image.Path);
             this.imageService.RemoveImage(imageEntity);
+            this.imageService.CommitChanges();
             return this.RedirectToAction("HotelTour", new { id = image.TourId });
         }
 
@@ -599,6 +638,7 @@ namespace Ocean.Inside.Project.Controllers
         public ActionResult RemoveWaste(WasteViewModel waste)
         {
             this.wasteService.RemoveWaste(Mapper.Map<WasteViewModel, Waste>(waste));
+            this.wasteService.CommitChanges();
             return this.RedirectToAction("GroupTour", new { id = waste.TourId });
         }
     }

@@ -7,6 +7,6 @@
         void AddCheckIn(CheckIn checkIn);
         void EditCheckIn(CheckIn checkIn);
         void RemoveCheckIn(CheckIn checkIn);
-        void Save();
+        void CommitChanges();
     }
 }

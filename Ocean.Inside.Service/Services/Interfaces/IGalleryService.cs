@@ -13,6 +13,6 @@
 
         void Remove(GalleryItem galleryItem);
 
-        void SaveChanges();
+        void CommitChanges();
     }
 }

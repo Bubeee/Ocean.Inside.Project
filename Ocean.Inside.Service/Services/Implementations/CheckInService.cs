@@ -25,7 +25,7 @@
         public void EditCheckIn(CheckIn checkIn)
         {
             this.checkInRepository.Update(checkIn);
-            this.Save();
+            this.CommitChanges();
         }
 
         public void RemoveCheckIn(CheckIn checkIn)
@@ -34,7 +34,7 @@
             this.unitOfWork.Commit();
         }
 
-        public void Save()
+        public void CommitChanges()
         {
             this.unitOfWork.Commit();
         }

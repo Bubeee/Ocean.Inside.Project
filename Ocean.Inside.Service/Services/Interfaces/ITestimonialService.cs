@@ -12,6 +12,6 @@
 
         void DeleteAll();
 
-        void Save();
+        void CommitChanges();
     }
 }

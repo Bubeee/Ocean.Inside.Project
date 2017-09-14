@@ -29,29 +29,15 @@
             this.imageRepository.Add(image);
         }
 
-        public void SaveImage()
+        public void CommitChanges()
         {
             this.unitOfWork.Commit();
         }
-
 
         public void RemoveImage(Image image)
         {
             File.Delete(image.Path);
             this.imageRepository.Delete(image);
-            this.unitOfWork.Commit();
-        }
-
-        public void RemoveImages(int tourId)
-        {
-            foreach (var image in this.GetImages(tourId))
-            {
-                this.imageRepository.Delete(image);
-            }
-            this.unitOfWork.Commit();
-
-            //var folderPath = ConfigurationManager.AppSettings["toursImageRoot"] + tourId;
-            //Directory.Delete(folderPath);
         }
     }
 }

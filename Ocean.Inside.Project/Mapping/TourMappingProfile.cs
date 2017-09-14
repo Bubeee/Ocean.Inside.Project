@@ -10,7 +10,7 @@ namespace Ocean.Inside.Project.Mapping
     {
         public TourMappingProfile()
         {
-            CreateMap<Tour, TourViewModel>();
+            CreateMap<Tour, TourViewModel>().ForMember(model => model.StartDate, expression => expression.MapFrom(tour => tour.CheckIns.FirstOrDefault().Date));
 
             CreateMap<TourViewModel, Tour>();
         }

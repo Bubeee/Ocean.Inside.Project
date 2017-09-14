@@ -53,6 +53,7 @@
     <section class="section-34 section-md-bottom-15">
         <div class="shell">
             <div>
+                <h2>@Model.Title</h2>
                 <h3>
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
@@ -61,7 +62,7 @@
                     <span>Описание тура</span>
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveGroupTour", "Tour", Model)" alt="Удалить тур" title="Удалить"></a>
+                        <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveGroupTour", "Tour", new {id = Model.Id})" alt="Удалить тур" title="Удалить"></a>
                     }
                 </h3>
             </div>
@@ -73,7 +74,7 @@
             <div class="offset-top-30">
                 <p class="text-center">
                     <a>
-                        <img src="@Model.CoverImage.Path" alt="" class="img-responsive center-block">
+                        <img src="@Model.CoverImage.Path" alt="@Model.Title" class="img-responsive center-block">
                     </a>
                 </p>
             </div>
@@ -172,7 +173,7 @@
                 <div class="owl-item">
                     <a data-photo-swipe-item="" data-size="1170x780" href="@Url.Content(image.Path)" class="thumbnail-rayen">
                         <span class="figure">
-                            <img src="@Url.Content(image.Path)" alt="" class="img-responsive center-block">
+                            <img src="@Url.Content(image.Path)" alt="@Model.Title" class="img-responsive center-block">
                             @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                             {
                                 <a class="glyphicon glyphicon-minus" href="@Url.Action("RemoveGroupTourImage", "Tour", image)" alt="Удалить фото" title="Удалить фото"></a>

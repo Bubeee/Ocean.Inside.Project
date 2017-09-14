@@ -26,16 +26,16 @@
         public void Add(GalleryItem galleryItem)
         {
             this.galleryRepository.Add(galleryItem);
-            this.SaveChanges();
+            this.CommitChanges();
         }
 
         public void Remove(GalleryItem galleryItem)
         {
             this.galleryRepository.Delete(galleryItem);
-            this.SaveChanges();
+            this.CommitChanges();
         }
 
-        public void SaveChanges()
+        public void CommitChanges()
         {
             this.unitOfWork.Commit();
         }
@@ -43,7 +43,7 @@
         public void Update(GalleryItem galleryItem)
         {
             this.galleryRepository.Update(galleryItem);
-            this.SaveChanges();
+            this.CommitChanges();
         }
 
         public GalleryItem GetById(int id)

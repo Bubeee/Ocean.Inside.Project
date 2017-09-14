@@ -51,7 +51,7 @@ namespace Ocean.Inside.Project.Controllers
                 imageViewModel.ImageRaw.SaveAs(fullPath);
 
                 this.imageService.AddImage(Mapper.Map<ImageViewModel, Image>(imageViewModel));
-                this.imageService.SaveImage();
+                this.imageService.CommitChanges();
             }
 
             return View(new ImageViewModel

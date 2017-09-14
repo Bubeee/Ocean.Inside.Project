@@ -30,7 +30,6 @@
         public void RemoveStep(TourStep tourStep)
         {
             this.stepRepository.Delete(tourStep);
-            this.unitOfWork.Commit();
         }
 
         public TourStep GetStep(int id)
@@ -38,7 +37,7 @@
             return this.stepRepository.GetById(id);
         }
 
-        public void Save()
+        public void CommitChanges()
         {
             this.unitOfWork.Commit();
         }

@@ -7,6 +7,7 @@ using Ocean.Inside.Project.Models;
 
 namespace Ocean.Inside.Project.Controllers
 {
+    using System;
     using System.Linq;
     using System.Net.Mime;
     using System.Text;
@@ -38,9 +39,11 @@ namespace Ocean.Inside.Project.Controllers
             };
 
             var testimonials = this.testimonialService.GetTestimonials();
+            var countedTestimonials = testimonials as Testimonial[] ?? testimonials.ToArray();
             model.Testimonials =
                 Mapper.Map<IEnumerable<Testimonial>, IEnumerable<TestimonialViewModel>>(
-                    testimonials.OrderByDescending(testimonial => testimonial.Text.Length)).ToList();
+                    countedTestimonials.Skip(DateTime.Now.Millisecond % countedTestimonials.Count())
+                        .Take(7)).ToList();
 
             foreach (var tour in this.tourService.GetManyTours(tour => tour.Wastes.Any() == false))
             {
@@ -80,11 +83,11 @@ namespace Ocean.Inside.Project.Controllers
                 this.testimonialService.AddTestimonial(Mapper.Map<TestimonialViewModel, Testimonial>(testimonial));
             }
 
-            this.testimonialService.Save();
+            this.testimonialService.CommitChanges();
         }
         public ActionResult About()
         {
-            this.ViewBag.Message = "Your application description page.";
+            this.ViewBag.Message = "О компании Океан внутри";
 
             return View();
         }
@@ -108,7 +111,7 @@ namespace Ocean.Inside.Project.Controllers
             return this.Content(stringBuilder.ToString(), "text/plain", Encoding.UTF8);
         }
 
-        //[OutputCache(Duration = 86400)]
+        [OutputCache(Duration = 86400)]
         public ContentResult Sitemap()
         {
             var sitemapNodes = this.siteMapBuilder.GetSitemapNodes(this.Url);

@@ -5,7 +5,7 @@
     <div class="box-offer box-offer-xs">
         <div class="box-offer-img-wrap">
             <a href="@Url.Action("HotelTour", "Tour", new { id = Model.Id })">
-                <img src="@Model.CoverImage.Path" alt="" class="img-responsive center-block image-tours">
+                <img src="@Model.CoverImage.Path" alt="@Model.Title" class="img-responsive center-block image-tours">
             </a>
         </div>
         <div class="box-offer-caption text-left">
@@ -20,9 +20,11 @@
             <div class="clearfix"></div>
             <div class="offset-top-8 offset-xs-top-4">
                 <ul class="list-inline list-inline-13 list-inline-marked list-inline-marked-offset-inverse-top text-silver-chalice text-extra-small">
-                    <li>@Model.Place</li>
+                    <li><h6>@Model.Place</h6></li>
                     <li>@Model.Duration дней /@Model.DurationNights ночей</li>
                     <li>Вылет: @Model.FlyFrom</li>
+                    <li>Дата начала: @(Model.StartDate.ToString("D"))</li>
+                    <li><h6>Отель: @(Model.Hotel)</h6></li>
                 </ul>
             </div>
         </div>

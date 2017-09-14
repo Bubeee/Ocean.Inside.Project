@@ -28,7 +28,7 @@
             testimonialRepository.Add(testimonial);
         }
 
-        public void Save()
+        public void CommitChanges()
         {
             unitOfWork.Commit();
         }

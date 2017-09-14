@@ -14,6 +14,6 @@
         void CreateTour(Tour tour);
         void EditTour(Tour tour);
         void RemoveTour(Tour tour);
-        void SaveTour();
+        void CommitChanges();
     }
 }

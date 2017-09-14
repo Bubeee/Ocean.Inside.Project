@@ -49,17 +49,12 @@
         public void CreateTour(Tour tour)
         {
             this.tourRepository.Add(tour);
-        }
-
-        public void SaveTour()
-        {
             this.unitOfWork.Commit();
         }
 
         public void RemoveTour(Tour tour)
         {
             this.tourRepository.Delete(tour);
-            this.SaveTour();
         }
 
         public void EditTour(Tour tour)
@@ -70,7 +65,12 @@
                 checkInService.EditCheckIn(checkIn);
             }
 
-            this.SaveTour();
+            this.unitOfWork.Commit();
+        }
+
+        public void CommitChanges()
+        {
+            this.unitOfWork.Commit();
         }
     }
 }

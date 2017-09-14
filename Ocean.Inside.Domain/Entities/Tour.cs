@@ -17,9 +17,9 @@ namespace Ocean.Inside.Domain.Entities
 
         public string Description { get; set; }
 
-        public virtual ICollection<Image> GalleryImages { get; set; }
-        public virtual ICollection<TourStep> TourSteps { get; set; }
-        public virtual ICollection<CheckIn> CheckIns { get; set; }
-        public virtual ICollection<Waste> Wastes { get; set; }
+        public virtual IList<Image> GalleryImages { get; set; }
+        public virtual IList<TourStep> TourSteps { get; set; }
+        public virtual IList<CheckIn> CheckIns { get; set; }
+        public virtual IList<Waste> Wastes { get; set; }
     }
 }

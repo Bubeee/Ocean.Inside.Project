@@ -53,6 +53,7 @@
     <section class="section-70 section-md-bottom-80">
         <div class="shell">
             <div>
+                <h2>@Model.Title</h2>
                 <h3>
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
@@ -61,7 +62,7 @@
                     <span>Описание тура</span>
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveTour", "Tour", Model)" alt="Удалить тур" title="Удалить"></a>
+                        <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveTour", "Tour", new { id = Model.Id })" alt="Удалить тур" title="Удалить"></a>
                     }
                 </h3>
             </div>
@@ -86,19 +87,13 @@
                     <div class="offset-top-20">
                         <span class="text-bold text-silver-chalice">Дата начала: </span>
                         <span class="text-small text-silver-chalice">
-                            @if (Model.CheckIns.Any())
-                            {
-                                @(Model.CheckIns.FirstOrDefault()?.Date.ToString("D"))
-                            }
+                            @(Model.StartDate.ToString("D"))
                         </span>
                     </div>
                     <div class="offset-top-20">
                         <span class="text-bold text-silver-chalice">Дата завершения: </span>
                         <span class="text-small text-silver-chalice">
-                            @if (Model.CheckIns.Any())
-                            {
-                                @(Model.CheckIns.FirstOrDefault()?.Date.AddDays(@Model.Duration).ToString("D"))
-                            }
+                            @(Model.StartDate.AddDays(@Model.Duration).ToString("D"))
                         </span>
                     </div>
                     <div class="offset-top-20">
@@ -120,7 +115,7 @@
                 <div class="owl-item">
                     <a data-photo-swipe-item="" data-size="1170x780" href="@Url.Content(image.Path)" class="thumbnail-rayen">
                         <span class="figure">
-                            <img width="370" height="310" src="@Url.Content(image.Path)" alt="" class="img-responsive center-block">
+                            <img width="370" height="310" src="@Url.Content(image.Path)" alt="@Model.Title" class="img-responsive center-block">
                             @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                             {
                                 <a class="glyphicon glyphicon-minus" href="@Url.Action("RemoveTourImage", "Tour", image)" alt="Удалить фото" title="Удалить фото"></a>

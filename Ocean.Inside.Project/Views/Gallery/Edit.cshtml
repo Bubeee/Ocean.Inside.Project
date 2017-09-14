@@ -14,7 +14,7 @@
             <div class="owl-item">
                 <a data-photo-swipe-item="" data-size="1170x780" href="@Url.Content(image.Path)" class="thumbnail-rayen">
                     <span class="figure">
-                        <img width="370" height="310" src="@Url.Content(image.Path)" alt="" class="img-responsive center-block">
+                        <img width="370" height="310" src="@Url.Content(image.Path)" alt="@Model.Name" class="img-responsive center-block">
                         @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <a class="glyphicon glyphicon-minus" href="@Url.Action("RemoveImage", "Gallery", image)" alt="Удалить фото" title="Удалить фото"></a>

@@ -8,6 +8,6 @@
         TourStep GetStep(int id);
         void EditStep(TourStep tourStep);
         void RemoveStep(TourStep tourStep);
-        void Save();
+        void CommitChanges();
     }
 }

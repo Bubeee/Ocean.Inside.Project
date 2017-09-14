@@ -7,15 +7,20 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-
+    <meta name="Description" content="Туры и путешествия с компанией Океан Внутри, групповые и пакетные туры"/>
+    
+    @RenderSection("AdditionalMeta", false)
+    
     <!-- Google Analytics -->
     <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments);
-            }, i[r].l = 1 * new Date();
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] ||
+                function() {
+                    (i[r].q = i[r].q || []).push(arguments);
+                }, i[r].l = 1 * new Date();
             a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
+                m = s.getElementsByTagName(o)[0];
             a.async = 1;
             a.src = g;
             m.parentNode.insertBefore(a, m);
@@ -46,8 +51,8 @@
                     <div class="rd-navbar-inner">
                         <div class="rd-navbar-panel">
                             <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
-                            <div class="rd-navbar-brand veil reveal-md-block"><a href="@Url.Action("Index", "Home")" class="brand-name"><img height="55" src="/images/Layout/logo.png" alt=""></a></div>
-                            <div class="rd-navbar-brand veil-md reveal-tablet-md-inline-block"><a href="@Url.Action("Index", "Home")" class="brand-name"><img height="45" src="/images/Layout/logo.png" alt=""></a></div>
+                            <div class="rd-navbar-brand veil reveal-md-block"><a href="@Url.Action("Index", "Home")" class="brand-name"><img height="55" src="/images/Layout/logo.png" alt="logo"></a></div>
+                            <div class="rd-navbar-brand veil-md reveal-tablet-md-inline-block"><a href="@Url.Action("Index", "Home")" class="brand-name"><img height="45" src="/images/Layout/logo.png" alt="logo"></a></div>
                         </div>
                         <div class="rd-navbar-nav-wrap">
                             <ul class="rd-navbar-nav">
@@ -98,7 +103,7 @@
                     <div class="cell-sm-8 cell-md-12">
                         <div class="range range-xs-center">
                             <div class="cell-sm-6 cell-md-3 cell-lg-4 cell-md-push-1 text-center">
-                                <a class="offset-top-20 inset-lg-right-80" href="@Url.Action("Index", "Home")"><img height="60" src="/images/Layout/logo.jpg" alt=""></a>
+                                <a class="offset-top-20 inset-lg-right-80" href="@Url.Action("Index", "Home")"><img height="60" src="/images/Layout/logo.jpg" alt="logo"></a>
                                 <div class="offset-top-20 inset-lg-right-80">
                                     <p class="text-small">Только о двух вещах мы будем сожалеть на смертном одре - что мало любили и мало путешестовали. &#13;&#10; (с) Марк Твен</p>
                                 </div>
@@ -126,9 +131,9 @@
                                                         <a class="text-gray">
                                                             <span class="unit unit-horizontal unit-spacing-xs">
                                                                 <span class="unit-left">
-                                                                    <img src="/images/Layout/icon-01-16x21.png" width="16" height="21" alt="" class="img-responsive center-block offset-top-4">
+                                                                    <img src="/images/Layout/icon-01-16x21.png" width="16" height="21" alt="icon" class="img-responsive center-block offset-top-4">
                                                                 </span><span class="unit-body">
-                                                                    <span>РБ, г. Минск, ул. Короля 18, офис 5</span>
+                                                                    <span>РБ, г. Минск, ул. Короля 18, офис 1</span>
                                                                 </span>
                                                             </span>
                                                         </a>
@@ -136,11 +141,11 @@
                                                 </div>
                                                 <div class="offset-top-20">
                                                     <p class="reveal-inline-block text-small">
-                                                        <a href="callto:#" class="text-gray">
+                                                        <a href="tel:+375445498772" class="text-gray">
                                                             <span class="unit unit-middle unit-horizontal unit-spacing-xs">
                                                                 <span class="unit-left">
-                                                                    <img src="/images/Layout/icon-02-19x19.png" width="19" height="19" alt="" class="img-responsive center-block">
-                                                                </span><span class="unit-body"><span>+375445726665</span></span>
+                                                                    <img src="/images/Layout/icon-02-19x19.png" width="19" height="19" alt="icon" class="img-responsive center-block">
+                                                                </span><span class="unit-body"><span>+375445498772</span></span>
                                                             </span>
                                                         </a>
                                                     </p>
@@ -149,10 +154,10 @@
                                             <div class="cell-sm-6 offset-top-15 offset-sm-top-0">
                                                 <div>
                                                     <p class="reveal-inline-block text-small">
-                                                        <a href="callto:#" class="text-gray">
+                                                        <a href="tel:+375292595034" class="text-gray">
                                                             <span class="unit unit-middle unit-horizontal unit-spacing-xs">
                                                                 <span class="unit-left">
-                                                                    <img src="/images/Layout/icon-03-12x20.png" width="12" height="20" alt="" class="img-responsive center-block">
+                                                                    <img src="/images/Layout/icon-03-12x20.png" width="12" height="20" alt="icon" class="img-responsive center-block">
                                                                 </span><span class="unit-body"><span>+375292595034</span></span>
                                                             </span>
                                                         </a>
@@ -163,7 +168,7 @@
                                                         <p class="reveal-inline-block text-small">
                                                             <a class="text-gray">
                                                                 <span class="unit unit-middle unit-horizontal unit-spacing-xs">
-                                                                    <span class="unit-left"><img src="/images/Layout/icon-04-20x13.png" width="20" height="13" alt="" class="img-responsive center-block"></span><span class="unit-body"><span><span class="__cf_email__" data-cfemail="a5cccbc3cae5c1c0c8cac9cccbce8bcad7c2">okeanvnutry@gmail.com</span></span></span>
+                                                                    <span class="unit-left"><img src="/images/Layout/icon-04-20x13.png" width="20" height="13" alt="icon" class="img-responsive center-block"></span><span class="unit-body"><span></span></span>
                                                                 </span>
                                                             </a>
                                                         </p>
@@ -259,7 +264,7 @@
             });
 
             var infowindow = new google.maps.InfoWindow({
-                content: "<div>Турагенство 'Океан внутри' </div><div>ул. Короля 18, офис 5</div>"
+                content: "<div>Турагенство 'Океан внутри' </div><div>ул. Короля 18, офис 1</div>"
             });
 
             infowindow.open(map, marker);

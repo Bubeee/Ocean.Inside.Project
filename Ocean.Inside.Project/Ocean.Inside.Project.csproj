@@ -442,7 +442,6 @@
     <Folder Include="images\Gallery\" />
     <Folder Include="images\Visas\" />
     <Folder Include="Views\Blog\" />
-    <Folder Include="Views\GroupTour\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

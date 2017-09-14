@@ -10,8 +10,7 @@
         void AddImage(Image image);
 
         void RemoveImage(Image image);
-        void RemoveImages(int tourId);
 
-        void SaveImage();
+        void CommitChanges();
     }
 }

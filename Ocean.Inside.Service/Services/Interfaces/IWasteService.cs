@@ -6,6 +6,6 @@
     {
         void AddWaste(Waste waste);
         void RemoveWaste(Waste waste);
-        void Save();
+        void CommitChanges();
     }
 }

@@ -25,10 +25,9 @@
         public void RemoveWaste(Waste waste)
         {
             this.wasteRepository.Delete(waste);
-            this.unitOfWork.Commit();
         }
 
-        public void Save()
+        public void CommitChanges()
         {
             this.unitOfWork.Commit();
         }
