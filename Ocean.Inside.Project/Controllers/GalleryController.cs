@@ -72,6 +72,7 @@ namespace Ocean.Inside.Project.Controllers
                 return this.RedirectToAction("Index");
             }
 
+            this.galleryService.CommitChanges();
             return this.RedirectToAction("Edit", new { id = imageViewModel.GalleryItemId.Value });
         }
 
@@ -119,6 +120,8 @@ namespace Ocean.Inside.Project.Controllers
         {
             var model = this.galleryService.GetById(id);
             this.galleryService.Remove(model);
+            this.galleryService.CommitChanges();
+
             return RedirectToAction("Index");
         }
     }

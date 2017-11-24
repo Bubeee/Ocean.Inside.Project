@@ -32,7 +32,6 @@
         public void Remove(GalleryItem galleryItem)
         {
             this.galleryRepository.Delete(galleryItem);
-            this.CommitChanges();
         }
 
         public void CommitChanges()

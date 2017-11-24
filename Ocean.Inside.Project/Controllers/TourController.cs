@@ -226,7 +226,7 @@ namespace Ocean.Inside.Project.Controllers
                 return this.RedirectToAction("HotelTours", "Tour");
             }
 
-            return this.View("AddTour");
+            return this.View("AddTour", tour);
         }
 
         /// <summary>

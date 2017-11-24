@@ -17,6 +17,11 @@
         </div>
 
         <div class="form-group form-group-xs">
+            @Html.LabelFor(m => m.IsHot, "Горящий??", new { @class = "label form-label-outside text-big label" })
+            @Html.CheckBoxFor(m => m.IsHot, new { @class = "checkbox checkbox-inline checkbox-inline-right" })
+        </div>
+
+        <div class="form-group form-group-xs">
             <label for="FlyFrom" class="form-label">Вылет из</label>
             <input name="FlyFrom" id="FlyFrom" class="form-control" type="text" value="@Model.FlyFrom" />
         </div>
@@ -28,7 +33,7 @@
 
         <div class="form-group form-group-xs">
             <label for="StartDate" class="form-label">Дата</label>
-            <input name="StartDate" id="StartDate" class="form-control" type="date" value="@Model.CheckIns.FirstOrDefault().Date.ToString("yyyy-MM-dd")" />
+            <input name="StartDate" id="StartDate" class="form-control" type="date" value="@Model.StartDate.ToString("yyyy-MM-dd")" />
             @for (var i = 0; i < Model.CheckIns.Count; i++)
             {
                 @Html.HiddenFor(model => Model.CheckIns[i].Id);

@@ -31,6 +31,7 @@ namespace Ocean.Inside.Project.Controllers
             this.siteMapBuilder = siteMapBuilder;
         }
 
+        [OutputCache(Duration = 36000, VaryByParam = "none")]
         public ActionResult Index()
         {
             var model = new HomeViewModel
