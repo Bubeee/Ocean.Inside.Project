@@ -12,13 +12,15 @@ namespace Ocean.Inside.Project
 
     using DAL.DataGeneration;
 
+    using Ocean.Inside.DAL;
+
     public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
             MvcHandler.DisableMvcResponseHeader = true;
-            Database.SetInitializer(new OceanInsideSeedData());
-            FluentValidationModelValidatorProvider.Configure();
+            Database.SetInitializer<OceanInsideDbContext>(null);
+            //FluentValidationModelValidatorProvider.Configure();
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

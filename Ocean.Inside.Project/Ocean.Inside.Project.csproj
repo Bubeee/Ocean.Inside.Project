@@ -312,7 +312,7 @@
     <None Include="Properties\PublishProfiles\okeanvnutry.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="images\About\Irina.png" />
-    <Content Include="images\About\Maria_mini.jpg" />
+    <Content Include="images\About\Lynda.jpg" />
     <Content Include="images\About\place-01-118x89.jpg" />
     <Content Include="images\About\place-01-118x89.png" />
     <Content Include="images\About\place-02-79x89.jpg" />

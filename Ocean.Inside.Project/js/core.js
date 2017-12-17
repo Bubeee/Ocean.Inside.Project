@@ -22152,7 +22152,7 @@ function() {
                 return a
             };
             d.prototype.getAuthor = function(a) {
-                a = /\(([^+]+)\)/.exec(a);
+                a = /\(([^]+)\)/.exec(a);
                 return null != a[1] ? a[1] : !1
             };
             d.prototype.dating = function(a, c) {
