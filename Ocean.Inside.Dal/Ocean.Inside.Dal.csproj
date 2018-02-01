@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201708091304175_Adding Gallery v4.Designer.cs">
       <DependentUpon>201708091304175_Adding Gallery v4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802011247358_Adding IsHot.cs" />
+    <Compile Include="Migrations\201802011247358_Adding IsHot.Designer.cs">
+      <DependentUpon>201802011247358_Adding IsHot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OceanInsideDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708091304175_Adding Gallery v4.resx">
       <DependentUpon>201708091304175_Adding Gallery v4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011247358_Adding IsHot.resx">
+      <DependentUpon>201802011247358_Adding IsHot.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

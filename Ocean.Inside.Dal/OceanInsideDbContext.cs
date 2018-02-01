@@ -9,7 +9,7 @@ namespace Ocean.Inside.DAL
         public OceanInsideDbContext() : base("db_OceanInside") { }
 
         public DbSet<Tour> Tours { get; set; }
-        public DbSet<Image> Images { get; set; }
+        public Image Images { get; set; }
         public DbSet<TourStep> TourSteps { get; set; }
         public DbSet<CheckIn> CheckIns { get; set; }
         public DbSet<Waste> Wastes { get; set; }

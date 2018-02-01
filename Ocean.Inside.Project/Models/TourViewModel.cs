@@ -42,6 +42,8 @@
 
         }
 
+        public bool IsHot { get; set; }
+
         public DateTime StartDate { get; set; }
 
         public IList<CheckIn> CheckIns { get; set; }

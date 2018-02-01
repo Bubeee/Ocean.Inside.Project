@@ -1,0 +1,26 @@
+[
+  {
+    "outputFileName": "js/core..min.js",
+    "inputFiles": [
+      "js/core..js"
+    ]
+  },
+  {
+    "outputFileName": "js/script.min.js",
+    "inputFiles": [
+      "js/script.js"
+    ]
+  },
+  {
+    "outputFileName": "js/core.min.js",
+    "inputFiles": [
+      "js/core.js"
+    ]
+  },
+  {
+    "outputFileName": "js/openapi.min.js",
+    "inputFiles": [
+      "js/openapi.js"
+    ]
+  }
+]

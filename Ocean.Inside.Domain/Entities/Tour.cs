@@ -15,6 +15,8 @@ namespace Ocean.Inside.Domain.Entities
         public string Hotel { get; set; }
         public int DurationNights { get; set; }
 
+        public bool IsHot { get; set; }
+
         public string Description { get; set; }
 
         public virtual IList<Image> GalleryImages { get; set; }
