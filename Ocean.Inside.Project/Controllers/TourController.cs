@@ -515,23 +515,23 @@ namespace Ocean.Inside.Project.Controllers
         {
             var tour = this.tourService.GetTour(id);
             
-            foreach (var tourGalleryImage in tour.GalleryImages)
+            foreach (var tourGalleryImage in tour.GalleryImages.ToList())
             {
                 tourGalleryImage.Path = this.Server.MapPath(tourGalleryImage.Path);
                 this.imageService.RemoveImage(tourGalleryImage);
             }
             
-            foreach (var tourCheckIn in tour.CheckIns)
+            foreach (var tourCheckIn in tour.CheckIns.ToList())
             {
                 this.checkInService.RemoveCheckIn(tourCheckIn);
             }
 
-            foreach (var tourTourStep in tour.TourSteps)
+            foreach (var tourTourStep in tour.TourSteps.ToList())
             {
                 this.stepService.RemoveStep(tourTourStep);
             }
 
-            foreach (var tourWaste in tour.Wastes)
+            foreach (var tourWaste in tour.Wastes.ToList())
             {
                 this.wasteService.RemoveWaste(tourWaste);
             }

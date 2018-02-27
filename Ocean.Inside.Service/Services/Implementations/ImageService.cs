@@ -36,7 +36,11 @@
 
         public void RemoveImage(Image image)
         {
-            File.Delete(image.Path);
+            if (File.Exists(image.Path))
+            {
+                File.Delete(image.Path);
+            }
+
             this.imageRepository.Delete(image);
         }
     }
