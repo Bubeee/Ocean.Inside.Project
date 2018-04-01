@@ -242,6 +242,7 @@
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\GalleryItemViewModel.cs" />
+    <Compile Include="Models\SortingField.cs" />
     <Compile Include="Models\SitemapNode.cs" />
     <Compile Include="Models\TestimonialViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

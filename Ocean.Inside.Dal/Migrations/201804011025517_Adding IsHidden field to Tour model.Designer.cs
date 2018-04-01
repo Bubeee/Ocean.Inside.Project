@@ -7,13 +7,13 @@ namespace Ocean.Inside.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddingIsHot : IMigrationMetadata
+    public sealed partial class AddingIsHiddenfieldtoTourmodel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddingIsHot));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddingIsHiddenfieldtoTourmodel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802011247358_Adding IsHot"; }
+            get { return "201804011025517_Adding IsHidden field to Tour model"; }
         }
         
         string IMigrationMetadata.Source

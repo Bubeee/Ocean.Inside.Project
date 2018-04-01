@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Ocean.Inside.Project.Models
 {
-    using Domain.Entities;
+    using System;
+
     using FluentValidation.Attributes;
+
+    using JetBrains.Annotations;
+
     using Validators;
 
     [Validator(typeof(GroupTourValidator))]
@@ -15,5 +18,23 @@ namespace Ocean.Inside.Project.Models
         public List<WasteViewModel> Wastes { get; set; }
 
         public List<TourStepViewModel> TourSteps { get; set; }
+    }
+
+    public class GroupTourClosestStartDateAscendingComparer : IComparer<DateTime>
+    {
+        public int Compare(DateTime x, DateTime y)
+        {
+            if (x > DateTime.Now && y < DateTime.Now)
+            {
+                return 1;
+            }
+
+            if (x < DateTime.Now && y > DateTime.Now)
+            {
+                return -1;
+            }
+
+            return DateTime.Compare(x, y);
+        }
     }
 }

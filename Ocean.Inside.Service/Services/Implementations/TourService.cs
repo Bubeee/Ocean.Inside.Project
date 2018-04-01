@@ -16,7 +16,6 @@
         private readonly ICheckInService checkInService;
         private readonly IUnitOfWork unitOfWork;
 
-
         public TourService(
             IUnitOfWork unitOfWork,
             ITourRepository tourRepository, 

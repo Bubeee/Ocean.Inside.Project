@@ -1,9 +1,9 @@
-﻿@using PagedList.Mvc
+﻿@using Ocean.Inside.Project.Models
+@using PagedList.Mvc
 @model PagedList.IPagedList<Ocean.Inside.Project.Models.TourViewModel>
 
 @section Scripts
 {
-    @*@Scripts.RenderFormat(@"<script src=""{0}""></script>", "~/bundles/jquery")*@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#sort").change(function () {
@@ -29,8 +29,8 @@
                                     @using (Html.BeginForm("HotelTours", "Tour", FormMethod.Get))
                                     {
                                         <select name="sort" id="sort" data-minimum-results-for-search="Infinity" data-constraints="@@Required" class="form-control select-filter">
-                                            <option selected="@(ViewBag.Sort == "date")" value="date">По свежести</option>
-                                            <option selected="@(ViewBag.Sort == "country")" value="country">По странам</option>
+                                            <option selected="@(ViewBag.Sort == SortingField.Id)" value="@SortingField.Id">По свежести</option>
+                                            <option selected="@(ViewBag.Sort == SortingField.Title)" value="@SortingField.Title">По странам</option>
                                         </select>
                                     }
                                 </div>

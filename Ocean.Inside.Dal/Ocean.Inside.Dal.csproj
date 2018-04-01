@@ -78,9 +78,13 @@
     <Compile Include="Migrations\201708091304175_Adding Gallery v4.Designer.cs">
       <DependentUpon>201708091304175_Adding Gallery v4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802011247358_Adding IsHot.cs" />
-    <Compile Include="Migrations\201802011247358_Adding IsHot.Designer.cs">
-      <DependentUpon>201802011247358_Adding IsHot.cs</DependentUpon>
+    <Compile Include="Migrations\201709141123559_IsHot +.cs" />
+    <Compile Include="Migrations\201709141123559_IsHot +.Designer.cs">
+      <DependentUpon>201709141123559_IsHot +.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011025517_Adding IsHidden field to Tour model.cs" />
+    <Compile Include="Migrations\201804011025517_Adding IsHidden field to Tour model.Designer.cs">
+      <DependentUpon>201804011025517_Adding IsHidden field to Tour model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OceanInsideDbContext.cs" />
@@ -137,8 +141,11 @@
     <EmbeddedResource Include="Migrations\201708091304175_Adding Gallery v4.resx">
       <DependentUpon>201708091304175_Adding Gallery v4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802011247358_Adding IsHot.resx">
-      <DependentUpon>201802011247358_Adding IsHot.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709141123559_IsHot +.resx">
+      <DependentUpon>201709141123559_IsHot +.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011025517_Adding IsHidden field to Tour model.resx">
+      <DependentUpon>201804011025517_Adding IsHidden field to Tour model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

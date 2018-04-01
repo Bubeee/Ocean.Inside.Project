@@ -2,6 +2,7 @@
 
 namespace Ocean.Inside.Project.Mapping
 {
+    using System;
     using System.Linq;
 
     using Ocean.Inside.Domain.Entities;
@@ -11,7 +12,7 @@ namespace Ocean.Inside.Project.Mapping
     {
         public GroupTourMappingProfile()
         {
-            CreateMap<Tour, GroupTourViewModel>();
+            CreateMap<Tour, GroupTourViewModel>().AfterMap((tour, model) => model.StartDate = tour.CheckIns.FirstOrDefault()?.Date ?? DateTime.MinValue);
             CreateMap<TourStep, TourStepViewModel>();
             CreateMap<TourStepViewModel, TourStep>();
 

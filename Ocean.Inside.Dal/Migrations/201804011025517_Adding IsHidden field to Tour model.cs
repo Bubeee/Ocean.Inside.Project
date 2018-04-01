@@ -3,16 +3,16 @@ namespace Ocean.Inside.DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddingIsHot : DbMigration
+    public partial class AddingIsHiddenfieldtoTourmodel : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Tour", "IsHot", c => c.Boolean(nullable: false));
+            AddColumn("dbo.Tour", "IsHidden", c => c.Boolean(nullable: false));
         }
-
+        
         public override void Down()
         {
-            DropColumn("dbo.Tour", "IsHot");
+            DropColumn("dbo.Tour", "IsHidden");
         }
     }
 }

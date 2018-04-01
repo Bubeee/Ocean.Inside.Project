@@ -44,9 +44,11 @@
 
         public bool IsHot { get; set; }
 
+        public bool IsHidden { get; set; }
+
         public DateTime StartDate { get; set; }
 
-        public IList<CheckIn> CheckIns { get; set; }
+        public IList<CheckInViewModel> CheckIns { get; set; }
 
         public IEnumerable<ImageViewModel> GalleryImages { get; set; }
 

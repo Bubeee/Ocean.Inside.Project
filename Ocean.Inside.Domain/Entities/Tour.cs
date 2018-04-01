@@ -16,6 +16,7 @@ namespace Ocean.Inside.Domain.Entities
         public int DurationNights { get; set; }
 
         public bool IsHot { get; set; }
+        public bool IsHidden { get; set; }
 
         public string Description { get; set; }
 

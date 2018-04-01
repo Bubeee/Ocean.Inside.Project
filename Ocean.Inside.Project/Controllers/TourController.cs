@@ -202,7 +202,7 @@ namespace Ocean.Inside.Project.Controllers
         [HttpGet]
         public ActionResult AddTour()
         {
-            return this.View(new TourViewModel { CheckIns = new List<CheckIn>() });
+            return this.View(new TourViewModel { CheckIns = new List<CheckInViewModel>() });
         }
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace Ocean.Inside.Project.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                tour.CheckIns = new List<CheckIn> { new CheckIn { Date = tour.StartDate } };
+                tour.CheckIns = new List<CheckInViewModel> { new CheckInViewModel() { Date = tour.StartDate } };
 
                 this.tourService.CreateTour(Mapper.Map<TourViewModel, Tour>(tour));
 
@@ -407,24 +407,27 @@ namespace Ocean.Inside.Project.Controllers
             return this.RedirectToAction("PageNotFound", "Error");
         }
 
-        /// <summary>
-        /// The group tours.
-        /// </summary>
-        /// <param name="page">
-        /// The page.
-        /// </param>
-        /// <param name="take">
-        /// The take.
-        /// </param>
-        /// <returns>
-        /// The <see cref="ActionResult"/>.
-        /// </returns>
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult GroupTours(int? page, int take = 10)
+        public ActionResult GroupTours(int? page, int take = 10, SortingField sort = SortingField.StartDate)
         {
-            var model = this.tourService.GetManyTours(tour => tour.Hotel == null);
+            this.ViewBag.Sort = sort;
+
+            var model = this.tourService.GetManyTours(tour => tour.Hotel == null && !tour.IsHidden);
             var mappedModel = Mapper.Map<IEnumerable<Tour>, IEnumerable<GroupTourViewModel>>(model);
+
+            switch (sort)
+            {
+                case SortingField.StartDate:
+                    mappedModel = mappedModel.OrderByDescending(viewModel => viewModel.StartDate, new GroupTourClosestStartDateAscendingComparer());
+                    break;
+                case SortingField.Title:
+                    mappedModel = mappedModel.OrderBy(viewModel => viewModel.Title);
+                    break;
+                default:
+                    mappedModel = mappedModel.OrderByDescending(viewModel => viewModel.Id);
+                    break;
+            }
 
             return this.View(mappedModel.ToPagedList(page ?? 1, take));
         }
@@ -472,15 +475,22 @@ namespace Ocean.Inside.Project.Controllers
         /// </returns>
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult HotelTours(int? page, int take = 21, string sort = "date")
+        public ActionResult HotelTours(int? page, int take = 21, SortingField sort = SortingField.Id)
         {
             this.ViewBag.Sort = sort;
             var model = this.tourService.GetManyTours(tour => tour.Hotel != null);
             var mappedModel = Mapper.Map<IEnumerable<Tour>, IEnumerable<TourViewModel>>(model);
 
-            if (sort != "date")
+            switch (sort)
             {
-                mappedModel = mappedModel.OrderBy(viewModel => viewModel.Title);
+                case SortingField.StartDate:
+                    break;
+                case SortingField.Title:
+                    mappedModel = mappedModel.OrderBy(viewModel => viewModel.Title);
+                    break;
+                default:
+                    mappedModel = mappedModel.OrderByDescending(viewModel => viewModel.Id);
+                    break;
             }
 
             return this.View(mappedModel.ToPagedList(page ?? 1, take));
@@ -498,7 +508,7 @@ namespace Ocean.Inside.Project.Controllers
         public ActionResult RemoveCheckIn(CheckInViewModel checkIn)
         {
             this.checkInService.RemoveCheckIn(Mapper.Map<CheckInViewModel, CheckIn>(checkIn));
-            this.checkInService.CommitChanges();
+
             return this.RedirectToAction("GroupTour", new { id = checkIn.TourId });
         }
 
@@ -514,13 +524,13 @@ namespace Ocean.Inside.Project.Controllers
         public ActionResult RemoveGroupTour(int id)
         {
             var tour = this.tourService.GetTour(id);
-            
+
             foreach (var tourGalleryImage in tour.GalleryImages.ToList())
             {
                 tourGalleryImage.Path = this.Server.MapPath(tourGalleryImage.Path);
                 this.imageService.RemoveImage(tourGalleryImage);
             }
-            
+
             foreach (var tourCheckIn in tour.CheckIns.ToList())
             {
                 this.checkInService.RemoveCheckIn(tourCheckIn);

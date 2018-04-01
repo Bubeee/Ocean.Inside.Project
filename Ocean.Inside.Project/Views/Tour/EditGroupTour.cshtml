@@ -30,6 +30,11 @@
             <input name="Price" id="Price" class="form-control" type="text" value="@($"{Model.Price:F0}")" />
         </div>
 
+        <div class="form-group form-group-xs">
+            @Html.LabelFor(m => m.IsHidden, "Спрятать", new { @class = "label form-label-outside text-big label" })
+            @Html.CheckBoxFor(m => m.IsHidden, new { @class = "checkbox checkbox-inline checkbox-inline-right" })
+        </div>
+
         <div class="form-group">
             <input type="submit" value="Применить" class="btn btn-success" />
             <input type="hidden" value="@Model.Id" name="Id" id="Id" />

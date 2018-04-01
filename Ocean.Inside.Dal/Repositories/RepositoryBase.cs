@@ -10,7 +10,7 @@ namespace Ocean.Inside.DAL.Repositories
     public abstract class RepositoryBase<T> where T : class
     {
         private OceanInsideDbContext _dataContext;
-        private readonly IDbSet<T> _dbSet;
+        protected readonly IDbSet<T> _dbSet;
 
         protected IDbFactory DbFactory
         {
