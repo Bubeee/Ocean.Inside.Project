@@ -15,7 +15,7 @@
                                 @foreach (var checkIn in Model.CheckIns.OrderBy(checkIn => checkIn.Date))
                                 {
                                     <li class="text-big text-ubold text-gray-base text-uppercase">
-                                        @($"{checkIn.Date:M} - {checkIn.Date.AddDays(Model.Duration):M}")
+                                        @($"{checkIn.Date:d MMM} - {checkIn.Date.AddDays(Model.Duration):d MMM}")
                                         @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                                         {
                                             <a class="glyphicon glyphicon-minus" href="@Url.Action("RemoveCheckIn", "Tour", checkIn)" alt="Удалить дату" title="Удалить"></a>
@@ -53,13 +53,14 @@
     <section class="section-34 section-md-bottom-15">
         <div class="shell">
             <div>
-                <h2>@Model.Title</h2>
+                <h2 class="text-ubold mb-2">@Model.Title</h2>
                 <h3>
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <a class="glyphicon glyphicon-edit" href="@Url.Action("EditGroupTour", "Tour", new { Model.Id })" alt="Редактировать тур" title="Редактировать"></a>
                     }
-                    <span>Описание тура</span>
+                    <span class="text-dark">Мы знаем, что Бали - ваша мечта. 
+                        Но все же - держите @Model.Reasons.Count(reason => reason.Type == "ToGo") причин, почему вы должны побывать на этом острове:</span>
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveGroupTour", "Tour", new {id = Model.Id})" alt="Удалить тур" title="Удалить"></a>

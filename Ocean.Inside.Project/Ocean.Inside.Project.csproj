@@ -232,6 +232,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mapping\GalleryItemMappingProfile.cs" />
+    <Compile Include="Mapping\ReasonMappingProfile.cs" />
     <Compile Include="Mapping\TestimonialMappingProfile.cs" />
     <Compile Include="Mapping\WasteMappingProfile.cs" />
     <Compile Include="Mapping\CheckInMappingProfile.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\GalleryItemViewModel.cs" />
+    <Compile Include="Models\ReasonViewModel.cs" />
     <Compile Include="Models\SortingField.cs" />
     <Compile Include="Models\SitemapNode.cs" />
     <Compile Include="Models\TestimonialViewModel.cs" />
@@ -272,10 +274,18 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="css\Bootstrap4\css\bootstrap-grid.css" />
+    <Content Include="css\Bootstrap4\css\bootstrap-grid.min.css" />
+    <Content Include="css\Bootstrap4\css\bootstrap-reboot.css" />
+    <Content Include="css\Bootstrap4\css\bootstrap-reboot.min.css" />
+    <Content Include="css\Bootstrap4\css\bootstrap.css" />
+    <Content Include="css\Bootstrap4\css\bootstrap.min.css" />
+    <Content Include="css\Bootstrap4\js\bootstrap.js" />
+    <Content Include="css\Bootstrap4\js\bootstrap.min.js" />
     <Content Include="css\css.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="css\css.css">
+    <Content Include="css\fonts.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="css\custom_styles.min.css" />
@@ -308,6 +318,12 @@
     <Content Include="fonts\materialdesignicons-webfont.woff" />
     <Content Include="fonts\materialdesignicons-webfont.woff2" />
     <None Include="bundleconfig.json" />
+    <Content Include="css\Bootstrap4\css\bootstrap-grid.css.map" />
+    <Content Include="css\Bootstrap4\css\bootstrap-grid.min.css.map" />
+    <Content Include="css\Bootstrap4\css\bootstrap-reboot.css.map" />
+    <Content Include="css\Bootstrap4\css\bootstrap-reboot.min.css.map" />
+    <Content Include="css\Bootstrap4\css\bootstrap.css.map" />
+    <Content Include="css\Bootstrap4\css\bootstrap.min.css.map" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Properties\PublishProfiles\ocean-inside - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\okeanvnutry.pubxml" />
@@ -454,6 +470,7 @@
     <Content Include="Views\Tour\GroupTours.cshtml" />
     <Content Include="Views\Tour\_GroupTourItem.cshtml" />
     <Content Include="Views\Tour\_GroupTourStepItem.cshtml" />
+    <Content Include="Views\Shared\_LayoutTrip.cshtml" />
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

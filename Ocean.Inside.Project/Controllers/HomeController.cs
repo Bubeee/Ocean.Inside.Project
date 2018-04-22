@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using AutoMapper;
 
 using Ocean.Inside.Domain.Entities;
+using Ocean.Inside.Project.Filters;
 using Ocean.Inside.Project.Models;
 
 namespace Ocean.Inside.Project.Controllers
@@ -18,6 +19,7 @@ namespace Ocean.Inside.Project.Controllers
     using VkNet;
     using VkNet.Model.RequestParams;
 
+    [Internationalization]
     public class HomeController : Controller
     {
         private readonly ITourService tourService;

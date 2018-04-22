@@ -48,6 +48,7 @@
     <Compile Include="Entities\CurrencyCode.cs" />
     <Compile Include="Entities\GalleryItem.cs" />
     <Compile Include="Entities\Image.cs" />
+    <Compile Include="Entities\Reason.cs" />
     <Compile Include="Entities\Testimonial.cs" />
     <Compile Include="Entities\TourStep.cs" />
     <Compile Include="Entities\Tour.cs" />

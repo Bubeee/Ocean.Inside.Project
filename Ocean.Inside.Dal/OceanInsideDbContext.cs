@@ -15,6 +15,7 @@ namespace Ocean.Inside.DAL
         public DbSet<Waste> Wastes { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<GalleryItem> GalleryItems { get; set; }
+        public DbSet<Reason> Reasons { get; set; }
 
         public virtual void Commit()
         {

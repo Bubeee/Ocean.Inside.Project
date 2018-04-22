@@ -394,11 +394,6 @@ namespace Ocean.Inside.Project.Controllers
         [AllowAnonymous]
         public ActionResult GroupTour(int id)
         {
-            if (id == 999)
-            {
-                return this.View("BaliTrip");
-            }
-
             var model = Mapper.Map<Tour, GroupTourViewModel>(this.tourService.GetTour(id));
             if (model != null)
             {

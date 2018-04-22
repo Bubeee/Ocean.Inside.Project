@@ -9,12 +9,6 @@
     <meta charset="utf-8">
     <meta name="Description" content="Туры и путешествия с компанией Океан Внутри, групповые и пакетные туры. Вылеты из Минска и Киева! Актуальные даты туров!" />
 
-    @Styles.Render("~/bundles/bootstrap4")
-
-    @Styles.Render("~/bundles/styles")
-
-    @*@Scripts.RenderFormat(@"<script src=""{0}"" async></script>", "~/bundles/scripts")*@
-
     <!-- Google Analytics -->
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -36,8 +30,10 @@
     <!-- End Google Analytics -->
 
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    @*<link rel="stylesheet" type="text/css" href="/css/fonts.css?family=Lato:400,400i,700,700i,900,900i">*@
-    @*<link rel="stylesheet" href="/css/style.css">*@
+    <link rel="stylesheet" type="text/css" href="/css/css.css?family=Lato:400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    @RenderSection("styles", false)
 
     @Scripts.RenderFormat(@"<script src=""{0}""></script>", "~/bundles/vkapi")
 
@@ -96,13 +92,7 @@
                     </div>
                 </nav>
             </div>
-            @if (Request?.Url?.ToString().Contains("account") == false
-                && Request.Url.ToString().Contains("Error") == false)
-            {
-                @Html.Partial("_HeaderSliderPartial")
-            }
         </header>
-
 
         @RenderBody()
 
@@ -262,12 +252,14 @@
         }
     </script>
 
-    @*@Scripts.Render("~/bundles/jquery")*@
-    @*@Scripts.Render("~/bundles/bootstrap4js")*@
+    @Scripts.Render("~/bundles/jquery")
 
     <script src="/js/core.min.js"></script>
     <script src="/js/script.min.js"></script>
-    @*@Scripts.Render("~/bundles/template")*@
+
+    <script src="/css/Bootstrap4/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.easeScroll.js"></script>
+    <script src="/js/stisla.js"></script>
 
     @RenderSection("scripts", required: false)
 </body>

@@ -18,6 +18,8 @@ namespace Ocean.Inside.Project.Models
         public List<WasteViewModel> Wastes { get; set; }
 
         public List<TourStepViewModel> TourSteps { get; set; }
+
+        public List<ReasonViewModel> Reasons { get; set; }
     }
 
     public class GroupTourClosestStartDateAscendingComparer : IComparer<DateTime>

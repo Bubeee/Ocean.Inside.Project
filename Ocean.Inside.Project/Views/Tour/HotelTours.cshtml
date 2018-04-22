@@ -15,45 +15,42 @@
 }
 
 <main class="page-content">
-    <section class="section-80 bg-wild-wand">
+    <section class="section-80 section-md-top-70 bg-wild-wand">
         <div class="shell">
-            <div class="range range-xs-center">
-                <div class="cell-sm-11 cell-md-9 cell-md-push-1">
-                    <div class="range range-xs-justify">
-                        <div class="cell-sm-6 cell-sm-3 text-sm-left">
-                            <div class="reveal-inline-block inset-sm-left-20 inset-md-left-0">
-                                <div class="pull-left inset-right-10">
-                                    <p class="text-extra-small text-uppercase text-gray-base">Сортировать:</p>
-                                </div>
-                                <div class="pull-right shadow-drop-xs reveal-inline-block select-xs">
-                                    @using (Html.BeginForm("HotelTours", "Tour", FormMethod.Get))
-                                    {
-                                        <select name="sort" id="sort" data-minimum-results-for-search="Infinity" data-constraints="@@Required" class="form-control select-filter">
-                                            <option selected="@(ViewBag.Sort == SortingField.Id)" value="@SortingField.Id">По свежести</option>
-                                            <option selected="@(ViewBag.Sort == SortingField.Title)" value="@SortingField.Title">По странам</option>
-                                        </select>
-                                    }
-                                </div>
-                                <div class="clearfix"></div>
+            <div class="cell-sm-11 cell-md-9 cell-md-push-1">
+                <div class="range range-xs-justify">
+                    <div class="cell-sm-6 cell-sm-3 text-sm-left">
+                        <div class="reveal-inline-block inset-sm-left-20 inset-md-left-0">
+                            <div class="pull-left inset-right-10">
+                                <p class="text-extra-small text-uppercase text-gray-base">Сортировать:</p>
                             </div>
+                            <div class="pull-right shadow-drop-xs reveal-inline-block select-xs">
+                                @using (Html.BeginForm("HotelTours", "Tour", FormMethod.Get))
+                                    {
+                                    <select name="sort" id="sort" data-minimum-results-for-search="Infinity" data-constraints="@@Required" class="form-control select-filter">
+                                        <option selected="@(ViewBag.Sort == SortingField.Id)" value="@SortingField.Id">По свежести</option>
+                                        <option selected="@(ViewBag.Sort == SortingField.Title)" value="@SortingField.Title">По странам</option>
+                                    </select>
+                                    }
+                            </div>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
+                </div>
 
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <a class="glyphicon glyphicon-plus" href="@Url.Action("AddTour", "Tour")" alt="Добавить тур" title="Добавить"></a>
+                }
+
+                <div class="range range-xs-center offset-top-45">
+                    @foreach (var tour in Model)
                     {
-                        <a class="glyphicon glyphicon-plus" href="@Url.Action("AddTour", "Tour")" alt="Добавить тур" title="Добавить"></a>
+                        @Html.Partial("_TourItem", tour);
                     }
-                    <div class="range range-xs-center range-sm-left range-md-center offset-top-50 offset-md-top-25">
-
-                        @foreach (var tour in Model)
-                        {
-                            @Html.Partial("_TourItem", tour);
-                        }
-
-                    </div>
-                    <div class="offset-top-50">
-                        @Html.PagedListPager(Model, page => Url.Action("HotelTours", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
-                    </div>
+                </div>
+                <div class="offset-top-50">
+                    @Html.PagedListPager(Model, page => Url.Action("HotelTours", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
                 </div>
             </div>
         </div>

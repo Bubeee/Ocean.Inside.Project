@@ -31,20 +31,25 @@ namespace Ocean.Inside.Project
 
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include("~/Scripts/modernizr-*"));
 
-            bundles.Add(
-                new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js", "~/Scripts/respond.js"));
+            bundles.Add(new ScriptBundle("~/bundles/template").Include("~/js/core.js", "~/js/scripts.js"));
 
             bundles.Add(
-                new ScriptBundle("~/bundles/scripts").Include(
-                    "~/js/core.js",
-                    "~/js/script.js"));
+                new ScriptBundle("~/bundles/bootstrap3js").Include("~/Scripts/bootstrap.js", "~/Scripts/respond.js"));
+            bundles.Add(
+                new StyleBundle("~/bundles/bootstrap3").Include("~/Content/bootstrap.css", "~/Content/bootstrap-theme.css"));
+
+            bundles.Add(
+                new ScriptBundle("~/bundles/bootstrap4js").Include("~/css/Bootstrap4/js/bootstrap.js"));
+            bundles.Add(
+                new StyleBundle("~/bundles/bootstrap4").Include("~/css/Bootstrap4/css/bootstrap.css",
+                    "~/css/Bootstrap4/css/bootstrap-grid.css", "~/css/Bootstrap4/css/bootstrap-reboot.css"));
+
             bundles.Add(
                 new ScriptBundle("~/bundles/vkapi").Include(
                     "~/js/openapi.js"));
 
             bundles.Add(
-                new StyleBundle("~/bundles/styles").Include("~/Content/bootstrap.min.css")
-                    .Include("~/css/css.css", "~/css/style.css", "~/css/custom_styles.css"));
+                new StyleBundle("~/bundles/styles").Include("~/css/fonts.css", "~/css/style.css", "~/css/custom_styles.css"));
         }
     }
 }

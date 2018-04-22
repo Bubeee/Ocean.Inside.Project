@@ -16,6 +16,7 @@ namespace Ocean.Inside.Project
                 config.AddProfile<WasteMappingProfile>();
                 config.AddProfile<TestimonialMappingProfile>();
                 config.AddProfile<GalleryItemMappingProfile>();
+                config.AddProfile<ReasonMappingProfile>();
             });
         }
     }

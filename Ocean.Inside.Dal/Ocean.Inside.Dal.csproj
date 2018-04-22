@@ -86,6 +86,10 @@
     <Compile Include="Migrations\201804011025517_Adding IsHidden field to Tour model.Designer.cs">
       <DependentUpon>201804011025517_Adding IsHidden field to Tour model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804220839205_Adding Reason Entity.cs" />
+    <Compile Include="Migrations\201804220839205_Adding Reason Entity.Designer.cs">
+      <DependentUpon>201804220839205_Adding Reason Entity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OceanInsideDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -146,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804011025517_Adding IsHidden field to Tour model.resx">
       <DependentUpon>201804011025517_Adding IsHidden field to Tour model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804220839205_Adding Reason Entity.resx">
+      <DependentUpon>201804220839205_Adding Reason Entity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

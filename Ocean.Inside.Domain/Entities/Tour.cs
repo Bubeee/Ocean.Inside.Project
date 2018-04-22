@@ -24,5 +24,6 @@ namespace Ocean.Inside.Domain.Entities
         public virtual List<TourStep> TourSteps { get; set; }
         public virtual List<CheckIn> CheckIns { get; set; }
         public virtual List<Waste> Wastes { get; set; }
+        public virtual List<Reason> Reasons { get; set; }
     }
 }
