@@ -394,6 +394,11 @@ namespace Ocean.Inside.Project.Controllers
         [AllowAnonymous]
         public ActionResult GroupTour(int id)
         {
+            if (id == 999)
+            {
+                return this.View("BaliTrip");
+            }
+
             var model = Mapper.Map<Tour, GroupTourViewModel>(this.tourService.GetTour(id));
             if (model != null)
             {
@@ -413,7 +418,8 @@ namespace Ocean.Inside.Project.Controllers
         {
             this.ViewBag.Sort = sort;
 
-            var model = this.tourService.GetManyTours(tour => tour.Hotel == null && !tour.IsHidden);
+            var isAdmin = Request.IsAuthenticated && User.IsInRole("Admin");
+            var model = this.tourService.GetManyTours(tour => isAdmin ? tour.Hotel == null : tour.Hotel == null && !tour.IsHidden);
             var mappedModel = Mapper.Map<IEnumerable<Tour>, IEnumerable<GroupTourViewModel>>(model);
 
             switch (sort)
@@ -478,7 +484,9 @@ namespace Ocean.Inside.Project.Controllers
         public ActionResult HotelTours(int? page, int take = 21, SortingField sort = SortingField.Id)
         {
             this.ViewBag.Sort = sort;
-            var model = this.tourService.GetManyTours(tour => tour.Hotel != null);
+
+            var isAdmin = Request.IsAuthenticated && User.IsInRole("Admin");
+            var model = this.tourService.GetManyTours(tour => isAdmin ? tour.Hotel != null : tour.Hotel != null && !tour.IsHidden);
             var mappedModel = Mapper.Map<IEnumerable<Tour>, IEnumerable<TourViewModel>>(model);
 
             switch (sort)
