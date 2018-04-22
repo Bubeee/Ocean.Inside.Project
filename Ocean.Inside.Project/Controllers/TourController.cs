@@ -401,6 +401,11 @@ namespace Ocean.Inside.Project.Controllers
                     Mapper.Map<IEnumerable<Tour>, IEnumerable<GroupTourViewModel>>(
                         this.tourService.GetManyTours(tour => tour.Id != id && tour.Description != null).Take(5));
 
+                if (id == 45)
+                {
+                    return this.View("Bali", model);
+                }
+
                 return this.View(model);
             }
 

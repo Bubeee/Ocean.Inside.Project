@@ -471,6 +471,7 @@
     <Content Include="Views\Tour\_GroupTourItem.cshtml" />
     <Content Include="Views\Tour\_GroupTourStepItem.cshtml" />
     <Content Include="Views\Shared\_LayoutTrip.cshtml" />
+    <Content Include="Views\Tour\Bali.cshtml" />
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

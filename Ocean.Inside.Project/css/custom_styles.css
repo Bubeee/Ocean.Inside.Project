@@ -17,3 +17,19 @@
     width: 370px;
     height: 240px;
 }*/
+
+.numberCircle {
+    border-radius: 50%;
+    behavior: url(PIE.htc);
+    /* remove if you don't care about IE8 */
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background: #fff;
+    border: 3px solid crimson;
+    color: #666;
+    text-align: center;
+    font: 32px Arial, sans-serif;
+    display: inline-block;
+    box-sizing: initial
+}

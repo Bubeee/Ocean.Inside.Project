@@ -54,29 +54,49 @@
         <div class="shell">
             <div>
                 <h2 class="text-ubold mb-5">@Model.Title</h2>
-                <h3>
+                
+                <div class="offset-top-30 mb-lg-5">
+                    <p class="text-center">
+                        <a>
+                            <img src="@Model.CoverImage.Path" alt="@Model.Title" class="img-responsive center-block">
+                        </a>
+                    </p>
+                </div>
+
+                <h3 class="text-ubold">
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <a class="glyphicon glyphicon-edit" href="@Url.Action("EditGroupTour", "Tour", new { Model.Id })" alt="Редактировать тур" title="Редактировать"></a>
                     }
+                    <span class="mb-5">
+                        Мы знаем, что Бали - ваша мечта.
+                        Но все же - держите <span class="text-danger text-ubold">@Model.Reasons.Count(reason => reason.Type == "ToGo")</span> причин, почему вы должны побывать на этом острове:
+                    </span>
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <a class="glyphicon glyphicon-remove" href="@Url.Action("RemoveGroupTour", "Tour", new {id = Model.Id})" alt="Удалить тур" title="Удалить"></a>
                     }
                 </h3>
             </div>
-            <div class="offset-top-30">
-                <p class="text-center">
-                    @Model.Description
-                </p>
-            </div>
-            <div class="offset-top-30">
-                <p class="text-center">
-                    <a>
-                        <img src="@Model.CoverImage.Path" alt="@Model.Title" class="img-responsive center-block">
-                    </a>
-                </p>
-            </div>
+            @*<div class="offset-top-30">
+                    <p class="text-center">
+                        @Model.Description
+                    </p>
+                </div>*@
+
+            @for (int i = 0; i < Model.Reasons.Count(reason => reason.Type == "ToGo"); i++)
+            {
+                <div class="m-5">
+                    <span class="text-danger text-bold numberCircle mb-2">@(i + 1)</span>
+                    <h4 class="text-info text-ubold mb-3">
+                        @Model.Reasons[i].Title
+                    </h4>
+                    <h6 class="font-weight-normal">
+                        @Model.Reasons[i].Content
+                    </h6>
+                </div>
+            }
+
         </div>
     </section>
 
