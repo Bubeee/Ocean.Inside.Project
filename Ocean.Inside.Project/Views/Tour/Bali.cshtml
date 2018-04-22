@@ -1,4 +1,5 @@
-﻿@using Ocean.Inside.Project.Utils
+﻿@using Ocean.Inside.Project.Models
+@using Ocean.Inside.Project.Utils
 @model Ocean.Inside.Project.Models.GroupTourViewModel
 
 <main class="page-content">
@@ -54,7 +55,7 @@
         <div class="shell">
             <div>
                 <h2 class="text-ubold mb-5">@Model.Title</h2>
-                
+
                 <div class="offset-top-30 mb-lg-5">
                     <p class="text-center">
                         <a>
@@ -78,27 +79,57 @@
                     }
                 </h3>
             </div>
-            @*<div class="offset-top-30">
-                    <p class="text-center">
-                        @Model.Description
-                    </p>
-                </div>*@
 
-            @for (int i = 0; i < Model.Reasons.Count(reason => reason.Type == "ToGo"); i++)
+            @for (var i = 0; i < Model.ReasonsToGo.Count(); i++)
             {
                 <div class="m-5">
                     <span class="text-danger text-bold numberCircle mb-2">@(i + 1)</span>
                     <h4 class="text-info text-ubold mb-3">
-                        @Model.Reasons[i].Title
+                        @Model.ReasonsToGo[i].Title
                     </h4>
                     <h6 class="font-weight-normal">
-                        @Model.Reasons[i].Content
+                        @Model.ReasonsToGo[i].Content
                     </h6>
                 </div>
             }
 
         </div>
     </section>
+
+    <section class="section-34 section-md-bottom-100 mt-lg-5">
+        <div class="shell">
+            <div>
+                <h2 class="text-danger text-ubold">
+                    @Model.ReasonsWithUs.Count главные причины поехать с нами:
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    @foreach (var reason in Model.ReasonsWithUs)
+    {
+        <section data-wow-delay=".2s" class="wow fadeIn section-parallax">
+            <div data-on="false" data-md-on="true" class="rd-parallax">
+                <div data-speed="0.25" data-type="media" data-url="@reason.Picture.Path" class="rd-parallax-layer"></div>
+                <div data-speed="0" data-type="html" data-md-fade="false" class="rd-parallax-layer">
+                    <div class="bg-overlay-inverse-md-darker">
+                        <div class="shell section-80 section-md-top-70">
+                            <div class="range range-xs-center range-md-left text-xs-left offset-top-35">
+                                <div class="bottom m-5 bg-white p-3 rounded">
+                                    <h4 class="text-info text-ubold mb-3">
+                                        @reason.Title
+                                    </h4>
+                                    <h6 class="font-weight-normal">
+                                        @reason.Content
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
 
     <section class="section-0 section-md-bottom-215">
         <div class="shell">
@@ -111,8 +142,7 @@
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="offset-top-30">
-                    <h3>Что входит в стоимость тура</h3>
-                    <p class="fa-arrow-down"></p>
+                    <h3 class="text-ubold">Что входит в стоимость тура</h3>
                 </div>
                 <div class="offset-top-20">
                     <ol class="text-left inset-left-0">
@@ -133,8 +163,7 @@
 
             <div class="col-md-6 col-lg-6">
                 <div class="offset-top-30">
-                    <h3>Что не входит в стоимость тура</h3>
-                    <p class="fa-arrow-down"></p>
+                    <h3 class="text-ubold">Что <span class="text-danger">НЕ</span> входит в стоимость тура</h3>
                 </div>
                 <div class="offset-top-20">
                     <ol class="text-left inset-left-0">

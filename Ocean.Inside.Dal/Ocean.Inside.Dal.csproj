@@ -90,6 +90,10 @@
     <Compile Include="Migrations\201804220839205_Adding Reason Entity.Designer.cs">
       <DependentUpon>201804220839205_Adding Reason Entity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804221344116_Adding Reason picture property.cs" />
+    <Compile Include="Migrations\201804221344116_Adding Reason picture property.Designer.cs">
+      <DependentUpon>201804221344116_Adding Reason picture property.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OceanInsideDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804220839205_Adding Reason Entity.resx">
       <DependentUpon>201804220839205_Adding Reason Entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804221344116_Adding Reason picture property.resx">
+      <DependentUpon>201804221344116_Adding Reason picture property.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

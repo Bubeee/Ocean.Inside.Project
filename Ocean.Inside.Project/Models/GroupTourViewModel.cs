@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Ocean.Inside.Project.Models
 {
@@ -20,6 +21,8 @@ namespace Ocean.Inside.Project.Models
         public List<TourStepViewModel> TourSteps { get; set; }
 
         public List<ReasonViewModel> Reasons { get; set; }
+        public List<ReasonViewModel> ReasonsWithUs => Reasons.Where(reason => reason.Type == "WithUs").ToList();
+        public List<ReasonViewModel> ReasonsToGo => Reasons.Where(reason => reason.Type == "ToGo").ToList();
     }
 
     public class GroupTourClosestStartDateAscendingComparer : IComparer<DateTime>
